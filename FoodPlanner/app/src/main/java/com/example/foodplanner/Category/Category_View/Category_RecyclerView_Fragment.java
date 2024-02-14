@@ -15,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodplanner.Category.Category_Presenter.CategoryPresenterInterface;
 import com.example.foodplanner.Category_Model.Category;
 import com.example.foodplanner.R;
-import com.example.foodplanner.Category_DB.CategoryDAO;
-import com.example.foodplanner.Category_DB.CategoryDatabase;
+
 
 import android.widget.Toast;
 
@@ -24,8 +23,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.foodplanner.Category.Category_Presenter.CategoryPresenterImplementation;
 import com.example.foodplanner.Category_Model.CategoryRepositoryImplementation;
-import com.example.foodplanner.Network.CategoryRemoteDataSourceImplementation;
-import com.example.foodplanner.Category_DB.CategoryLocalDataSourceImplementation;
+import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
+
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ import java.util.List;
 public class Category_RecyclerView_Fragment extends Fragment implements CategoryViewInterface, OnCategoryClickListener {
 
 
-    CategoryDAO categoryDAO;
+
     RecyclerView allRecycler;
     AllCategoryAdapter categoryAdapter;
     ImageView imgHolder;
@@ -43,7 +42,7 @@ public class Category_RecyclerView_Fragment extends Fragment implements Category
     TextView brandValue;
     RatingBar ratingValue;
     RecyclerView.LayoutManager layoutManager;
-    CategoryDatabase categoryDatabase;
+
     CategoryPresenterInterface allProductsPresenter;
     AllCategoryAdapter allProductsAdapter;
 
@@ -61,18 +60,20 @@ public class Category_RecyclerView_Fragment extends Fragment implements Category
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_category_details_recycler_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_category_recycler_view_fragmet, container, false);
         Log.i("X", "AllProducts Adapter after         View view = inflater.inflate(R.layout.fragment_inspirational_meal_details_recycler_view, container, false);");
 
-        allRecycler = view.findViewById(R.id.rv_inspirationalMealDetails);
-        layoutManager = new LinearLayoutManager(getContext());
+        allRecycler = view.findViewById(R.id.rv_category);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
+
 
         Log.i("X", "AllProducts Adapter after allRecycler.setLayoutManager(layoutManager);");
 
-        allProductsPresenter = new CategoryPresenterImplementation(this, CategoryRepositoryImplementation.getInstance(CategoryRemoteDataSourceImplementation.getInstance(),
-                CategoryLocalDataSourceImplementation.getInstance(getContext())));
+    //    allProductsPresenter = new CategoryPresenterImplementation(this, CategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
+    //            CategoryLocalDataSourceImplementation.getInstance(getContext())));
 
+        allProductsPresenter = new CategoryPresenterImplementation(this,CategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
         allProductsAdapter = new AllCategoryAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
         allRecycler.setAdapter(allProductsAdapter);

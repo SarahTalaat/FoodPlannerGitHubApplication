@@ -2,6 +2,7 @@ package com.example.foodplanner.Network;
 
 
 import com.example.foodplanner.Category_Model.CategoryResponse;
+import com.example.foodplanner.Random_Model.RandomResponse;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.core.Observable;
@@ -9,26 +10,26 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CategoryRemoteDataSourceImplementation implements CategoryRemoteDataSource {
+public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteDataSource {
     private static final String TAG = "retrofit";
     private static final String BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
 
-    private CategoryService categoryService;
+    private ConnctionService connctionService;
 //
-    private static CategoryRemoteDataSourceImplementation client = null;
+    private static ConnetionRemoteDataSourceImplementation client = null;
 
-    private CategoryRemoteDataSourceImplementation() {
+    private ConnetionRemoteDataSourceImplementation() {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
-        categoryService = retrofit.create(CategoryService.class);
+        connctionService = retrofit.create(ConnctionService.class);
     }
 
-    public static CategoryRemoteDataSourceImplementation getInstance() {
+    public static ConnetionRemoteDataSourceImplementation getInstance() {
         if (client == null) {
-            client = new CategoryRemoteDataSourceImplementation();
+            client = new ConnetionRemoteDataSourceImplementation();
         }
         return client;
     }
@@ -36,7 +37,7 @@ public class CategoryRemoteDataSourceImplementation implements CategoryRemoteDat
     @Override
     public void makeNetworkCallBack(NetworkCallBack networkCallback) {
 
-        categoryService.getProducts().enqueue(new Callback<CategoryResponse>() {
+        connctionService.getProducts().enqueue(new Callback<CategoryResponse>() {
             @Override
             public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
                 if (response.isSuccessful()) {
@@ -55,12 +56,16 @@ public class CategoryRemoteDataSourceImplementation implements CategoryRemoteDat
     */
 
 
-    public Observable<CategoryResponse> makeNetworkCallBack(){
-        Observable<CategoryResponse> observable = categoryService.getProducts().subscribeOn(Schedulers.io());
+    public Observable<CategoryResponse> makeNetworkCallBackCategory(){
+        Observable<CategoryResponse> observable = connctionService.getProducts().subscribeOn(Schedulers.io());
         return observable;
     }
 
 
+    public Observable<RandomResponse> makeNetworkCallBackRandom(){
+        Observable<RandomResponse> observable = connctionService.getProductsRandom().subscribeOn(Schedulers.io());
+        return observable;
+    }
 
 
 
