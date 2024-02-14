@@ -65,7 +65,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer_Random"
-            android:name="com.example.foodplanner.Country_RecyclerView_Fragment"
+            android:name="com.example.foodplanner.Country.Country_View.Country_RecyclerView_Fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
