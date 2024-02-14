@@ -16,4 +16,7 @@ public interface ConnctionService {
     @GET("random.php")
     Observable<RandomResponse> getProductsRandom();
 
+    @GET("list.php?a=list")
+    Observable<RandomResponse> getProductsCountry();
+
 }

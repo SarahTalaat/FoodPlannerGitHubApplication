@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.example.foodplanner.Category.Category_View.Category_RecyclerView_Fragment;
+import com.example.foodplanner.Country.Country_View.Country_RecyclerView_Fragment;
 import com.example.foodplanner.Random.Random_View.Random_RecyclerView_Fragment;
 
 
@@ -48,6 +49,12 @@ public class Home_Fragment extends Fragment {
         Random_RecyclerView_Fragment fragment2 = new Random_RecyclerView_Fragment();
         getChildFragmentManager().beginTransaction()
                 .add(R.id.fragmentContainer_Random, fragment2)
+                .commit();
+
+        // Create and add ChildFragment2
+        Country_RecyclerView_Fragment fragment3 = new Country_RecyclerView_Fragment();
+        getChildFragmentManager().beginTransaction()
+                .add(R.id.fragmentContainer_Random, fragment3)
                 .commit();
 
         return view;    }
