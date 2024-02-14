@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.foodplanner.Model_Category.CategoryResponse;
 
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.internal.schedulers.SchedulerWhen;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -26,6 +27,7 @@ public class ProductsRemoteDataSourceImplementation implements ProductsRemoteDat
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
         productService = retrofit.create(ProductService.class);
     }
