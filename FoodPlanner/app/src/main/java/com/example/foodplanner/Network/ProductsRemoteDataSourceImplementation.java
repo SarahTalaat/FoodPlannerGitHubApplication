@@ -20,7 +20,7 @@ public class ProductsRemoteDataSourceImplementation implements ProductsRemoteDat
     private static final String BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
 
     private ProductService productService;
-
+//
     private static ProductsRemoteDataSourceImplementation client = null;
 
     private ProductsRemoteDataSourceImplementation() {
