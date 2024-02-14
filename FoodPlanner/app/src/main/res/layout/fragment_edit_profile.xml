@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Edit_Profile_Fragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutProfile"
+        android:layout_width="385dp"
+        android:layout_height="700dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/resource_file_rounded_orange_background"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="77dp"
+            tools:layout_editor_absoluteY="230dp">
+
+
+            <TextView
+                android:id="@+id/tv_title_edit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="70dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Edit Profile"
+                android:textColor="@color/orange_2"
+                android:textSize="48sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_name_edit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/edit_text_border"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Enter your name"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/divider1_edit_profile"
+                app:layout_constraintStart_toStartOf="@+id/divider1_edit_profile"
+                app:layout_constraintTop_toBottomOf="@+id/divider1_edit_profile" />
+
+            <EditText
+                android:id="@+id/et_username_edit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_border"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Enter your username"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/et_name_edit_profile"
+                app:layout_constraintStart_toStartOf="@+id/et_name_edit_profile"
+                app:layout_constraintTop_toBottomOf="@+id/et_name_edit_profile" />
+
+            <EditText
+                android:id="@+id/et_password_edit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_border"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/et_username_edit_profile"
+                app:layout_constraintStart_toStartOf="@+id/et_username_edit_profile"
+                app:layout_constraintTop_toBottomOf="@+id/et_username_edit_profile" />
+
+            <Button
+                android:id="@+id/button_save_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:backgroundTint="@color/orange_2"
+                android:text="Save"
+                app:cornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/et_password_edit_profile"
+                app:layout_constraintStart_toStartOf="@+id/et_password_edit_profile"
+                app:layout_constraintTop_toBottomOf="@+id/et_password_edit_profile"
+                app:rippleColor="@color/orange_1" />
+
+            <View
+                android:id="@+id/divider1_edit_profile"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title_edit_profile"
+                app:layout_constraintStart_toStartOf="@+id/tv_title_edit_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_edit_profile" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

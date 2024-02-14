@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn_Activity">
+
+
+    <ImageView
+        android:id="@+id/iv_splashScreen"
+        android:layout_width="119dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/main_app_logo" />
+
+    <EditText
+        android:id="@+id/et_name_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter your email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_splashScreen"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/iv_splashScreen"
+        app:layout_constraintTop_toBottomOf="@+id/iv_splashScreen" />
+
+    <EditText
+        android:id="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:gravity="center"
+        android:hint="Enter your password"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_name_sign_up"
+        app:layout_constraintStart_toStartOf="@+id/et_name_sign_up"
+        app:layout_constraintTop_toBottomOf="@+id/et_name_sign_up" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="104dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/orange_2"
+        android:text="Sign in"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/two"
+        app:layout_constraintStart_toStartOf="@+id/two"
+        app:layout_constraintTop_toBottomOf="@+id/two"
+        app:rippleColor="@color/orange_1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

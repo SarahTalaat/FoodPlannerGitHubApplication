@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/profile_item"
+            android:icon="@drawable/person_vector"
+            android:title="Profile" />
+
+        <item
+
+            android:id="@+id/home_item"
+            android:icon="@drawable/home_vector"
+            android:title="Home" />
+
+        <item
+
+            android:id="@+id/favourites_item"
+            android:icon="@drawable/favourites_vector"
+            android:title="Favourites" />
+
+        <item
+
+            android:id="@+id/search_item"
+            android:icon="@drawable/search_vector"
+            android:title="Search" />
+
+        <item
+
+            android:id="@+id/current_week_item"
+            android:icon="@drawable/current_week_vector"
+            android:title="Current Week" />
+
+
+        <item
+            android:id="@+id/logout_item"
+            android:icon="@drawable/logout_vector"
+            android:title="Logout" />
+
+
+
+
+
+
+    </group>
+
+</menu>

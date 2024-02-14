@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Profile_Fragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutProfile"
+        android:layout_width="385dp"
+        android:layout_height="700dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/resource_file_rounded_orange_background"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/tv_name_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Name :"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_name_value_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="57dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Name Value"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_name_profile"
+                app:layout_constraintStart_toEndOf="@+id/tv_name_profile"
+                app:layout_constraintTop_toTopOf="@+id/tv_name_profile" />
+
+            <View
+                android:id="@+id/divider1_profile"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_profile" />
+
+            <TextView
+                android:id="@+id/tv_email_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Email :"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_profile"
+                app:layout_constraintTop_toBottomOf="@+id/divider1_profile" />
+
+
+            <TextView
+                android:id="@+id/tv_email_value_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="61dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Email Value"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_email_profile"
+                app:layout_constraintStart_toEndOf="@+id/tv_email_profile"
+                app:layout_constraintTop_toTopOf="@+id/tv_email_profile" />
+
+            <View
+                android:id="@+id/divider2_profile"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintStart_toStartOf="@+id/tv_email_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email_profile" />
+
+            <TextView
+                android:id="@+id/tv_username_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Username :"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_email_profile"
+                app:layout_constraintTop_toBottomOf="@+id/divider2_profile" />
+
+
+            <TextView
+                android:id="@+id/tv_username_value_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Username Value"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_username_profile"
+                app:layout_constraintStart_toEndOf="@+id/tv_username_profile"
+                app:layout_constraintTop_toTopOf="@+id/tv_username_profile" />
+
+            <View
+                android:id="@+id/divider3_profile"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintStart_toStartOf="@+id/tv_username_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_username_profile" />
+
+            <TextView
+                android:id="@+id/tv_password_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Password :"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_username_profile"
+                app:layout_constraintTop_toBottomOf="@+id/divider3_profile" />
+
+
+            <TextView
+                android:id="@+id/tv_password_value_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:fontFamily="@font/cantora_one"
+                android:text="Password Value"
+                android:textColor="@color/orange_1"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_password_profile"
+                app:layout_constraintStart_toEndOf="@+id/tv_password_profile"
+                app:layout_constraintTop_toTopOf="@+id/tv_password_profile" />
+
+            <View
+                android:id="@+id/divider4_profile"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintStart_toStartOf="@+id/tv_password_profile"
+                app:layout_constraintTop_toBottomOf="@+id/tv_password_profile" />
+
+
+            <Button
+                android:id="@+id/button_edit_profile_profile"
+                android:layout_width="210dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="60dp"
+                android:backgroundTint="@color/orange_2"
+                android:gravity="center"
+                android:text="Edit Profile"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:cornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/divider4_profile"
+                app:layout_constraintStart_toStartOf="@+id/divider4_profile"
+                app:layout_constraintTop_toBottomOf="@+id/divider4_profile"
+                app:rippleColor="@color/orange_1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
