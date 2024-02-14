@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_mealName"
+            android:id="@+id/tv_mealName_random"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toBottomOf="@+id/img_random" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/transparentButton_country"
+            android:id="@+id/button_transparentButton_random"
             android:layout_width="330dp"
             android:layout_height="305dp"
             android:layout_gravity="center"

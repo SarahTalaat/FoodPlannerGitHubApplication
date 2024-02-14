@@ -1,19 +1,20 @@
-package com.example.foodplanner.Category_Model;
+package com.example.foodplanner.Random_Model;
 
 import com.example.foodplanner.Network.ConnetionRemoteDataSource;
 
-
 import java.util.List;
+
 
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 
-public class CategoryRepositoryImplementation implements CategoryRepository {
-    private static CategoryRepositoryImplementation repository = null;
+public class RandomRepositoryImplementation implements RandomRepository{
+
+    private static RandomRepositoryImplementation repository = null;
     ConnetionRemoteDataSource connetionRemoteDataSource; //ntwork connection and get data
 
-    public CategoryRepositoryImplementation(ConnetionRemoteDataSource connetionRemoteDataSource) {
+    public RandomRepositoryImplementation(ConnetionRemoteDataSource connetionRemoteDataSource) {
         this.connetionRemoteDataSource = connetionRemoteDataSource;
     }
 
@@ -24,15 +25,15 @@ public class CategoryRepositoryImplementation implements CategoryRepository {
         this.categoryLocalDataSource = categoryLocalDataSource;
     }
 */
-    public static CategoryRepositoryImplementation getInstance(ConnetionRemoteDataSource connetionRemoteDataSource) {
+    public static RandomRepositoryImplementation getInstance(ConnetionRemoteDataSource connetionRemoteDataSource) {
         if (repository == null) {
-            repository = new CategoryRepositoryImplementation(connetionRemoteDataSource);
+            repository = new RandomRepositoryImplementation(connetionRemoteDataSource);
         }
         return repository;
     }
 
     @Override
-    public Flowable<List<Category>> getStoredProducts() {
+    public Flowable<List<Random>> getStoredRandom() {
         return null;
     }
 
@@ -52,31 +53,19 @@ public class CategoryRepositoryImplementation implements CategoryRepository {
     }
 */
     @Override
-    public Observable<CategoryResponse> getAllProducts() {
-        return connetionRemoteDataSource.makeNetworkCallBackCategory();
+    public Observable<RandomResponse> getAllRandom() {
+        return connetionRemoteDataSource.makeNetworkCallBackRandom();
     }
 
     @Override
-    public Completable insertProduct(Category category) {
+    public Completable insertRandom(Random random) {
         return null;
     }
 
     @Override
-    public Completable deleteProduct(Category category) {
+    public Completable deleteRandom(Random random) {
         return null;
     }
 
-/*
-    @Override
-    public Completable insertProduct(Category category) {
-        return categoryLocalDataSource.insertProduct(category);
-    }
-//Mariam
-    //Hanen
 
-    @Override
-    public Completable deleteProduct(Category category) {
-       return  categoryLocalDataSource.deleteProduct(category);
-}
-*/
 }

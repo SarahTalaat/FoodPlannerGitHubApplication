@@ -36,7 +36,7 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_category_details_card_view,parent,false);
+        View view = inflater.inflate(R.layout.fragment_category_card_view_fragmet,parent,false);
         MyViewHolder myViewHolder = new MyViewHolder(view);
         Log.i("X", "AllProducts Adapter add card view ");
         return myViewHolder;
@@ -60,22 +60,21 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
     private String categoryThumbnail;
          */
 
-        TextView id;
+
         TextView category;
-        TextView description;
-        Button buttonAddToFavourites;
-
-
+        Button buttonTransparentButton;
         ImageView image;
+
+
         String imageURL= categoryList.get(position).getStrCategoryThumb();
 
         Category current = categoryList.get(position);
         holder.tv_category_value.setText(current.getStrCategory());
-        holder.tv_id_value.setText(""+current.getIdCategory());
-        holder.tv_description_value.setText(current.getStrCategoryDescription());
+
+
         Glide.with(context)
                 .load(imageURL)
-                .into(holder.img_product);
+                .into(holder.img_category);
         holder.button_AddToFavourites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,21 +91,20 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
 
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_id_value;
-        TextView tv_description_value;
+
         TextView tv_category_value;
 
-        ImageView img_product;
+        ImageView img_category;
         Button button_AddToFavourites;
 
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
-            tv_id_value = itemView.findViewById(R.id.tv_inspirationalMealDetails_id);
-            tv_category_value = itemView.findViewById(R.id.tv_inspirationalMealDetails_category);
-            tv_description_value =itemView.findViewById(R.id.tv_inspirationalMealDetails_description);
-            img_product = itemView.findViewById(R.id.img_inspirationalMealDetails);
-            button_AddToFavourites =itemView.findViewById(R.id.button_inspirationalMealDetails_addToFavourites);
+
+            tv_category_value = itemView.findViewById(R.id.tv_category);
+
+            img_category = itemView.findViewById(R.id.img_category);
+            button_AddToFavourites =itemView.findViewById(R.id.button_transparentButton_catgory);
 
         }
     }
