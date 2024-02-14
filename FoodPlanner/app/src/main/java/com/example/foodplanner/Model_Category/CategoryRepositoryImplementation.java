@@ -1,13 +1,10 @@
 package com.example.foodplanner.Model_Category;
 
-import androidx.lifecycle.LiveData;
-
 import com.example.foodplanner.Network.ProductsRemoteDataSource;
 import com.example.foodplanner.db.ProductsLocalDataSource;
 
 import java.util.List;
-import com.example.foodplanner.Model_Category.CategoryResponse;
-import com.example.foodplanner.Model_Category.CategoryRepositoryImplementation;
+
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
@@ -46,6 +43,7 @@ public class CategoryRepositoryImplementation implements CategoryRepository {
     }
 //Mariam
     //Hanen
+
     @Override
     public Completable deleteProduct(Category category) {
        return  productsLocalDataSource.deleteProduct(category);
