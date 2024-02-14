@@ -54,7 +54,7 @@ public class Home_Fragment extends Fragment {
         // Create and add ChildFragment2
         Country_RecyclerView_Fragment fragment3 = new Country_RecyclerView_Fragment();
         getChildFragmentManager().beginTransaction()
-                .add(R.id.fragmentContainer_Random, fragment3)
+                .add(R.id.fragmentContainer_country, fragment3)
                 .commit();
 
         return view;    }

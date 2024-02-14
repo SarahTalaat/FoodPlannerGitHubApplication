@@ -2,6 +2,7 @@ package com.example.foodplanner.Network;
 
 
 import com.example.foodplanner.Category_Model.CategoryResponse;
+import com.example.foodplanner.Country_Model.CountryResponse;
 import com.example.foodplanner.Random_Model.RandomResponse;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
@@ -64,6 +65,11 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
 
     public Observable<RandomResponse> makeNetworkCallBackRandom(){
         Observable<RandomResponse> observable = connctionService.getProductsRandom().subscribeOn(Schedulers.io());
+        return observable;
+    }
+
+    public Observable<CountryResponse> makeNetworkCallBackCountry(){
+        Observable<CountryResponse> observable = connctionService.getProductsCountry().subscribeOn(Schedulers.io());
         return observable;
     }
 
