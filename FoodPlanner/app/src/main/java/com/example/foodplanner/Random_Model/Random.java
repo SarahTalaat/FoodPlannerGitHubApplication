@@ -7,7 +7,6 @@ public class Random {
 
     private String idMeal;
     private String strMeal;
-
     private String strDrinkAlternate;
     private String strCategory;
     private String strArea;

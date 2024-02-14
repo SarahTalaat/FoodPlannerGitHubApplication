@@ -64,7 +64,7 @@ public class Random_RecyclerView_Fragment extends Fragment implements RandomView
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         Log.i("X", "AllRandom Adapter after       ");
 
-        allRecycler = view.findViewById(R.id.rv_random);
+        allRecycler = view.findViewById(R.id.rv_random_home);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 

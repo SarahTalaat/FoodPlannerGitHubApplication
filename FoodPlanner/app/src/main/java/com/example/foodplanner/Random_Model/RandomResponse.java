@@ -5,6 +5,6 @@ import java.util.ArrayList;
 
 public class RandomResponse {
 
-    public ArrayList<Random> randomArrayList;
+    public ArrayList<Random> meals;
 
 }

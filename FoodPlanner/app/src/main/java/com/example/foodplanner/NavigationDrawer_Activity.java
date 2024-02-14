@@ -111,7 +111,7 @@ public class NavigationDrawer_Activity extends AppCompatActivity {
                     Toast.makeText(NavigationDrawer_Activity.this, "Profile Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.home_item){
-                    fragmentR(new Random_RecyclerView_Fragment());
+                    fragmentR(new Home_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
 

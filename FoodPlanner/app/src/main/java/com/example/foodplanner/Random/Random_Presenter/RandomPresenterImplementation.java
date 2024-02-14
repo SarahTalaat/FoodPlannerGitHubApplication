@@ -43,7 +43,7 @@ public class RandomPresenterImplementation implements RandomPresenterInterface{
 
             @Override
             public void onNext(@NonNull RandomResponse randomResponse) {
-                viewInterface.showDataRandom(randomResponse.randomArrayList);
+                viewInterface.showDataRandom(randomResponse.meals);
             }
 
             @Override

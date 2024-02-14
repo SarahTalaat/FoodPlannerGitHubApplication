@@ -63,7 +63,7 @@ public class Category_RecyclerView_Fragment extends Fragment implements Category
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         Log.i("X", "AllProducts Adapter after         View view = inflater.inflate(R.layout.fragment_inspirational_meal_details_recycler_view, container, false);");
 
-        allRecycler = view.findViewById(R.id.rv_category);
+        allRecycler = view.findViewById(R.id.rv_category_home);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
