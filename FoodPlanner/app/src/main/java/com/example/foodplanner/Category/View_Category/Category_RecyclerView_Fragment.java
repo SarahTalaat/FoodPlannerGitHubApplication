@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodplanner.Category.presenter_Category.CategoryPresenterInterface;
 import com.example.foodplanner.Model_Category.Category;
 import com.example.foodplanner.R;
-import com.example.foodplanner.db.ProductDAO;
-import com.example.foodplanner.db.ProductDatabase;
+import com.example.foodplanner.db.CategoryDAO;
+import com.example.foodplanner.db.CategoryDatabase;
 
 import android.widget.Toast;
 
@@ -24,16 +24,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.foodplanner.Category.presenter_Category.CategoryPresenterImplementation;
 import com.example.foodplanner.Model_Category.CategoryRepositoryImplementation;
-import com.example.foodplanner.Network.ProductsRemoteDataSourceImplementation;
-import com.example.foodplanner.db.ProductsLocalDataSourceImplementation;
-import com.example.foodplanner.Category.View_Category.AllCategoryAdapter;
+import com.example.foodplanner.Network.CategoryRemoteDataSourceImplementation;
+import com.example.foodplanner.db.CategoryLocalDataSourceImplementation;
+
 import java.util.List;
 
 
 public class Category_RecyclerView_Fragment extends Fragment implements CategoryViewInterface, OnCategoryClickListener {
 
 
-    ProductDAO productDAO;
+    CategoryDAO categoryDAO;
     RecyclerView allRecycler;
     AllCategoryAdapter categoryAdapter;
     ImageView imgHolder;
@@ -43,7 +43,7 @@ public class Category_RecyclerView_Fragment extends Fragment implements Category
     TextView brandValue;
     RatingBar ratingValue;
     RecyclerView.LayoutManager layoutManager;
-    ProductDatabase productDatabase;
+    CategoryDatabase categoryDatabase;
     CategoryPresenterInterface allProductsPresenter;
     AllCategoryAdapter allProductsAdapter;
 
@@ -70,8 +70,8 @@ public class Category_RecyclerView_Fragment extends Fragment implements Category
 
         Log.i("X", "AllProducts Adapter after allRecycler.setLayoutManager(layoutManager);");
 
-        allProductsPresenter = new CategoryPresenterImplementation(this, CategoryRepositoryImplementation.getInstance(ProductsRemoteDataSourceImplementation.getInstance(),
-                ProductsLocalDataSourceImplementation.getInstance(getContext())));
+        allProductsPresenter = new CategoryPresenterImplementation(this, CategoryRepositoryImplementation.getInstance(CategoryRemoteDataSourceImplementation.getInstance(),
+                CategoryLocalDataSourceImplementation.getInstance(getContext())));
 
         allProductsAdapter = new AllCategoryAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager

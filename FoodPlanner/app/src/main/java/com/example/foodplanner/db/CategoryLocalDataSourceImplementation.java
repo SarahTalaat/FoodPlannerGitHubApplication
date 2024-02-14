@@ -2,8 +2,6 @@ package com.example.foodplanner.db;
 
 import android.content.Context;
 
-import androidx.lifecycle.LiveData;
-
 import com.example.foodplanner.Model_Category.Category;
 
 import java.util.List;
@@ -12,20 +10,20 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class ProductsLocalDataSourceImplementation implements ProductsLocalDataSource{
+public class CategoryLocalDataSourceImplementation implements CategoryLocalDataSource {
 
-    ProductDAO productsDAO;
-    static ProductsLocalDataSourceImplementation productsLocalDataSourceImpl;
+    CategoryDAO productsDAO;
+    static CategoryLocalDataSourceImplementation productsLocalDataSourceImpl;
     Flowable<List<Category>> storedProducts;
 
-    private ProductsLocalDataSourceImplementation(Context context) {
-        ProductDatabase db = ProductDatabase.getInstance(context.getApplicationContext());
+    private CategoryLocalDataSourceImplementation(Context context) {
+        CategoryDatabase db = CategoryDatabase.getInstance(context.getApplicationContext());
         productsDAO = db.productDAO();
         storedProducts = productsDAO.getFavProducts();
     }
-    public static ProductsLocalDataSourceImplementation getInstance(Context context){
+    public static CategoryLocalDataSourceImplementation getInstance(Context context){
         if (productsLocalDataSourceImpl == null) {
-            productsLocalDataSourceImpl = new ProductsLocalDataSourceImplementation(context);
+            productsLocalDataSourceImpl = new CategoryLocalDataSourceImplementation(context);
         }
         return productsLocalDataSourceImpl;
     }
