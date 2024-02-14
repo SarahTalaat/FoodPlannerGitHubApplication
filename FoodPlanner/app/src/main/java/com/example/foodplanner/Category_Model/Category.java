@@ -93,7 +93,7 @@ public class Category {
 }
 */
 
-package com.example.foodplanner.Model_Category;
+package com.example.foodplanner.Category_Model;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

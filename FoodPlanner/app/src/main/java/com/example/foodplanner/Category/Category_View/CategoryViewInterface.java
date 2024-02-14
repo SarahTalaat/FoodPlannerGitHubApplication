@@ -1,7 +1,7 @@
 
-package com.example.foodplanner.Category.View_Category;
+package com.example.foodplanner.Category.Category_View;
 
-import com.example.foodplanner.Model_Category.Category;
+import com.example.foodplanner.Category_Model.Category;
 
 import java.util.List;
 

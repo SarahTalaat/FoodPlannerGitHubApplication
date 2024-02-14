@@ -1,4 +1,4 @@
-package com.example.foodplanner.Category.View_Category;
+package com.example.foodplanner.Category.Category_View;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,8 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodplanner.Category.View_Category.OnCategoryClickListener;
-import com.example.foodplanner.Model_Category.Category;
+import com.example.foodplanner.Category_Model.Category;
 import com.example.foodplanner.R;
 
 import java.util.ArrayList;

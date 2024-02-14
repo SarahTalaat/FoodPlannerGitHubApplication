@@ -1,4 +1,4 @@
-package com.example.foodplanner.Model_Category;
+package com.example.foodplanner.Category_Model;
 
 
 import java.util.List;

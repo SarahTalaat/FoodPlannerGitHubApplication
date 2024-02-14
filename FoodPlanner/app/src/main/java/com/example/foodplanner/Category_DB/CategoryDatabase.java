@@ -1,4 +1,4 @@
-package com.example.foodplanner.db;
+package com.example.foodplanner.Category_DB;
 
 
 import android.content.Context;
@@ -7,7 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.foodplanner.Model_Category.Category;
+import com.example.foodplanner.Category_Model.Category;
 
 @Database(entities = {Category.class}, version=1)
 public abstract class CategoryDatabase extends RoomDatabase {

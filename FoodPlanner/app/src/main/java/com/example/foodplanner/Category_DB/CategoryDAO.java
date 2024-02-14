@@ -1,4 +1,4 @@
-package com.example.foodplanner.db;
+package com.example.foodplanner.Category_DB;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.foodplanner.Model_Category.Category;
+import com.example.foodplanner.Category_Model.Category;
 
 import java.util.List;
 

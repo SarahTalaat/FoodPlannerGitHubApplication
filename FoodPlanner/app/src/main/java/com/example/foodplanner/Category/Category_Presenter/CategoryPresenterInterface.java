@@ -1,6 +1,6 @@
-package com.example.foodplanner.Category.presenter_Category;
+package com.example.foodplanner.Category.Category_Presenter;
 
-import com.example.foodplanner.Model_Category.Category;
+import com.example.foodplanner.Category_Model.Category;
 
 public interface CategoryPresenterInterface {
 

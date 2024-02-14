@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.foodplanner.Category.View_Category.Category_RecyclerView_Fragment;
+import com.example.foodplanner.Category.Category_View.Category_RecyclerView_Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationDrawer_Activity extends AppCompatActivity {
