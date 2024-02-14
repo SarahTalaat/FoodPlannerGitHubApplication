@@ -1,7 +1,7 @@
-package com.example.foodplanner.Model_Category;
+package com.example.foodplanner.Category_Model;
 
 import com.example.foodplanner.Network.CategoryRemoteDataSource;
-import com.example.foodplanner.db.CategoryLocalDataSource;
+import com.example.foodplanner.Category_DB.CategoryLocalDataSource;
 
 import java.util.List;
 

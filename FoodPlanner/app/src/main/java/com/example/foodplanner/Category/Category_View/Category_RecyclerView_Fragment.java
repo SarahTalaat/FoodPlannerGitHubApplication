@@ -1,4 +1,4 @@
-package com.example.foodplanner.Category.View_Category;
+package com.example.foodplanner.Category.Category_View;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,20 +12,20 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodplanner.Category.presenter_Category.CategoryPresenterInterface;
-import com.example.foodplanner.Model_Category.Category;
+import com.example.foodplanner.Category.Category_Presenter.CategoryPresenterInterface;
+import com.example.foodplanner.Category_Model.Category;
 import com.example.foodplanner.R;
-import com.example.foodplanner.db.CategoryDAO;
-import com.example.foodplanner.db.CategoryDatabase;
+import com.example.foodplanner.Category_DB.CategoryDAO;
+import com.example.foodplanner.Category_DB.CategoryDatabase;
 
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.foodplanner.Category.presenter_Category.CategoryPresenterImplementation;
-import com.example.foodplanner.Model_Category.CategoryRepositoryImplementation;
+import com.example.foodplanner.Category.Category_Presenter.CategoryPresenterImplementation;
+import com.example.foodplanner.Category_Model.CategoryRepositoryImplementation;
 import com.example.foodplanner.Network.CategoryRemoteDataSourceImplementation;
-import com.example.foodplanner.db.CategoryLocalDataSourceImplementation;
+import com.example.foodplanner.Category_DB.CategoryLocalDataSourceImplementation;
 
 import java.util.List;
 

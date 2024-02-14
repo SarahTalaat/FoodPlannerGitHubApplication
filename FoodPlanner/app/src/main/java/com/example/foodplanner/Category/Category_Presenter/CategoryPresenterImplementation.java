@@ -1,15 +1,12 @@
-package com.example.foodplanner.Category.presenter_Category;
+package com.example.foodplanner.Category.Category_Presenter;
 
 import android.util.Log;
 
-import com.example.foodplanner.Category.View_Category.CategoryViewInterface;
-import com.example.foodplanner.Model_Category.Category;
-import com.example.foodplanner.Model_Category.CategoryRepositoryImplementation;
-import com.example.foodplanner.Model_Category.CategoryResponse;
+import com.example.foodplanner.Category.Category_View.CategoryViewInterface;
+import com.example.foodplanner.Category_Model.Category;
+import com.example.foodplanner.Category_Model.CategoryRepositoryImplementation;
+import com.example.foodplanner.Category_Model.CategoryResponse;
 
-
-
-import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;

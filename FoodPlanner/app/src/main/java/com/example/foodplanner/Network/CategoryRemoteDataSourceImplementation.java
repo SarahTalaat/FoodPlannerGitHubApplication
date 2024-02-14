@@ -1,7 +1,7 @@
 package com.example.foodplanner.Network;
 
 
-import com.example.foodplanner.Model_Category.CategoryResponse;
+import com.example.foodplanner.Category_Model.CategoryResponse;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.core.Observable;
@@ -53,7 +53,7 @@ public class CategoryRemoteDataSourceImplementation implements CategoryRemoteDat
         });
     }
     */
-//
+
 
     public Observable<CategoryResponse> makeNetworkCallBack(){
         Observable<CategoryResponse> observable = categoryService.getProducts().subscribeOn(Schedulers.io());

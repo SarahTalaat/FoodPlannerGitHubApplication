@@ -1,8 +1,8 @@
-package com.example.foodplanner.db;
+package com.example.foodplanner.Category_DB;
 
 import android.content.Context;
 
-import com.example.foodplanner.Model_Category.Category;
+import com.example.foodplanner.Category_Model.Category;
 
 import java.util.List;
 
