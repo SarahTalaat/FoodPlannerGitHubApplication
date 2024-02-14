@@ -1,40 +1,34 @@
 package com.example.foodplanner.Network;
 
 
-import android.util.Log;
-
 import com.example.foodplanner.Model_Category.CategoryResponse;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.internal.schedulers.SchedulerWhen;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ProductsRemoteDataSourceImplementation implements ProductsRemoteDataSource {
+public class CategoryRemoteDataSourceImplementation implements CategoryRemoteDataSource {
     private static final String TAG = "retrofit";
     private static final String BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
 
-    private ProductService productService;
+    private CategoryService categoryService;
 //
-    private static ProductsRemoteDataSourceImplementation client = null;
+    private static CategoryRemoteDataSourceImplementation client = null;
 
-    private ProductsRemoteDataSourceImplementation() {
+    private CategoryRemoteDataSourceImplementation() {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
-        productService = retrofit.create(ProductService.class);
+        categoryService = retrofit.create(CategoryService.class);
     }
 
-    public static ProductsRemoteDataSourceImplementation getInstance() {
+    public static CategoryRemoteDataSourceImplementation getInstance() {
         if (client == null) {
-            client = new ProductsRemoteDataSourceImplementation();
+            client = new CategoryRemoteDataSourceImplementation();
         }
         return client;
     }
@@ -42,7 +36,7 @@ public class ProductsRemoteDataSourceImplementation implements ProductsRemoteDat
     @Override
     public void makeNetworkCallBack(NetworkCallBack networkCallback) {
 
-        productService.getProducts().enqueue(new Callback<CategoryResponse>() {
+        categoryService.getProducts().enqueue(new Callback<CategoryResponse>() {
             @Override
             public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
                 if (response.isSuccessful()) {
@@ -59,10 +53,10 @@ public class ProductsRemoteDataSourceImplementation implements ProductsRemoteDat
         });
     }
     */
-
+//
 
     public Observable<CategoryResponse> makeNetworkCallBack(){
-        Observable<CategoryResponse> observable = productService.getProducts().subscribeOn(Schedulers.io());
+        Observable<CategoryResponse> observable = categoryService.getProducts().subscribeOn(Schedulers.io());
         return observable;
     }
 

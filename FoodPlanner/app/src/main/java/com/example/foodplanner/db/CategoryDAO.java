@@ -1,6 +1,5 @@
 package com.example.foodplanner.db;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -15,7 +14,7 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 
 @Dao
-public interface ProductDAO {
+public interface CategoryDAO {
 @Insert(onConflict = OnConflictStrategy.IGNORE)
     Completable insert(Category category);
 @Delete

@@ -7,6 +7,6 @@ import com.example.foodplanner.Model_Category.CategoryResponse;
 
 import io.reactivex.rxjava3.core.Observable;
 
-public interface ProductsRemoteDataSource {
+public interface CategoryRemoteDataSource {
     Observable<CategoryResponse> makeNetworkCallBack();
 }

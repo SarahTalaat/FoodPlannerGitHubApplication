@@ -10,15 +10,15 @@ import androidx.room.RoomDatabase;
 import com.example.foodplanner.Model_Category.Category;
 
 @Database(entities = {Category.class}, version=1)
-public abstract class ProductDatabase extends RoomDatabase {
-     public abstract ProductDAO productDAO();
+public abstract class CategoryDatabase extends RoomDatabase {
+     public abstract CategoryDAO productDAO();
 
-     private static ProductDatabase instance = null;
+     private static CategoryDatabase instance = null;
 
-     public static synchronized ProductDatabase getInstance(Context context){
+     public static synchronized CategoryDatabase getInstance(Context context){
 
           if(instance==null){
-               instance=Room.databaseBuilder(context.getApplicationContext(),ProductDatabase.class,"categories")
+               instance=Room.databaseBuilder(context.getApplicationContext(), CategoryDatabase.class,"categories")
                        .build();
           }
           return instance;
