@@ -4,6 +4,7 @@ package com.example.foodplanner.Network;
 
 
 import com.example.foodplanner.Category_Model.CategoryResponse;
+import com.example.foodplanner.Country_Model.CountryResponse;
 import com.example.foodplanner.Random_Model.RandomResponse;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -17,6 +18,6 @@ public interface ConnctionService {
     Observable<RandomResponse> getProductsRandom();
 
     @GET("list.php?a=list")
-    Observable<RandomResponse> getProductsCountry();
+    Observable<CountryResponse> getProductsCountry();
 
 }
