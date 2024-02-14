@@ -60,10 +60,10 @@ public class Category_RecyclerView_Fragment extends Fragment implements Category
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_category_recycler_view_fragmet, container, false);
         Log.i("X", "AllProducts Adapter after         View view = inflater.inflate(R.layout.fragment_inspirational_meal_details_recycler_view, container, false);");
 
-        allRecycler = view.findViewById(R.id.rv_category_home);
+        allRecycler = view.findViewById(R.id.rv_category);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
@@ -74,8 +74,6 @@ public class Category_RecyclerView_Fragment extends Fragment implements Category
     //            CategoryLocalDataSourceImplementation.getInstance(getContext())));
 
         allProductsPresenter = new CategoryPresenterImplementation(this,CategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
-
-
         allProductsAdapter = new AllCategoryAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
         allRecycler.setAdapter(allProductsAdapter);

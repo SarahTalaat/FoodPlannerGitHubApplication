@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="410dp"
-    android:layout_height="410dp"
-    tools:context=".Country_CardView_Fragment"
+    android:layout_height="300dp"
+    app:cardBackgroundColor="@color/orange_2"
     app:cardCornerRadius="30dp"
     app:cardElevation="20dp"
-    app:cardUseCompatPadding="true"
     app:cardPreventCornerOverlap="true"
-    app:cardBackgroundColor= "@color/orange_2"
+    app:cardUseCompatPadding="true"
     app:contentPadding="16dp"
+    tools:context=".Country_CardView_Fragment"
 
     >
 
@@ -21,10 +21,10 @@
 
         <ImageView
             android:id="@+id/img_random"
-            android:layout_width="201dp"
-            android:layout_height="167dp"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="48dp"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="12dp"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,11 +50,11 @@
             android:layout_gravity="center"
             android:hint="Button"
             android:textColorHint="@color/transparent"
-            app:cornerRadius="30dp"
             app:backgroundTint="@android:color/transparent"
-            app:rippleColor="@color/orange_light"
+            app:cornerRadius="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/orange_light" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
