@@ -5,6 +5,7 @@ import com.example.foodplanner.AllCategory.AllCategory_Model.AllCategoryResponse
 import com.example.foodplanner.Chicken_Search.Chicken_Model.ChickenResponse;
 import com.example.foodplanner.AllCountry.AllCountry_Model.CountryResponse;
 import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsResponse;
+import com.example.foodplanner.CountryMeals.CountryMeals_Model.CountryMealsResponse;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
 import com.example.foodplanner.Random.Random_Model.RandomResponse;
 
@@ -85,6 +86,12 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
         Observable<CategoryMealsResponse> observable = connctionService.getProductsCategoryMeals(categoryMeal).subscribeOn(Schedulers.io());
         return observable;
     }
+
+    public Observable<CountryMealsResponse> makeNetworkCallBackCountryMeals(String countryMeal){
+        Observable<CountryMealsResponse> observable = connctionService.getProductsCountryMeals(countryMeal).subscribeOn(Schedulers.io());
+        return observable;
+    }
+
 
     public Observable<MealDetailsResponse> makeNetworkCallBackMealDetails(){
         Observable<MealDetailsResponse> observable = connctionService.getProductsMealDetails().subscribeOn(Schedulers.io());

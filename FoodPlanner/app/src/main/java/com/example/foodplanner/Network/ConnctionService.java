@@ -7,6 +7,7 @@ import com.example.foodplanner.AllCategory.AllCategory_Model.AllCategoryResponse
 import com.example.foodplanner.Chicken_Search.Chicken_Model.ChickenResponse;
 import com.example.foodplanner.AllCountry.AllCountry_Model.CountryResponse;
 import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsResponse;
+import com.example.foodplanner.CountryMeals.CountryMeals_Model.CountryMealsResponse;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
 import com.example.foodplanner.Random.Random_Model.RandomResponse;
 
@@ -35,8 +36,12 @@ public interface ConnctionService {
     @GET("filter.php") // category fav button
     Observable<CategoryMealsResponse> getProductsCategoryMeals(@Query("c") String categoryMeals);
 
+
+    @GET("filter.php")
+    Observable<CountryMealsResponse> getProductsCountryMeals(@Query("a") String countryMeals);
+
+
     @GET("search.php?s=Arrabiata") // meal details
     Observable<MealDetailsResponse> getProductsMealDetails();
-//
-    //
+
 }

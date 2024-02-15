@@ -4,6 +4,7 @@ package com.example.foodplanner.AllCountry.AllCountry_View;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,8 +16,9 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.example.foodplanner.AllCategory.AllCategory_View.AllCategoryAdapter;
+import com.example.foodplanner.AllCountry.AllCountry_View.AllCountryAdapter;
 
+import com.example.foodplanner.CountryMeals.CountryMeals_View.CountryMeals_RecyclerView_Fragment;
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import com.example.foodplanner.R;
 import com.example.foodplanner.AllCountry.AllCountry_Presenter.CountryPresenterImplementation;
@@ -33,7 +35,7 @@ public class Country_RecyclerView_Fragment extends Fragment implements CountryVi
 
 
     RecyclerView allRecycler;
-    AllCategoryAdapter categoryAdapter;
+    AllCountryAdapter countryAdapter;
     ImageView imgHolder;
     TextView titleValue;
     TextView descriptionValue;
@@ -69,8 +71,8 @@ public class Country_RecyclerView_Fragment extends Fragment implements CountryVi
 
         Log.i("X", "AllCountry Adapter after allRecycler.setLayoutManager(layoutManager);");
 
-        //    allProductsPresenter = new AllAllCategoryPresenterImplementation(this, AllCategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
-        //            CategoryLocalDataSourceImplementation.getInstance(getContext())));
+        //    allProductsPresenter = new AllAllCountryPresenterImplementation(this, AllCountryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
+        //            CountryLocalDataSourceImplementation.getInstance(getContext())));
 
         allCountryPresenter = new CountryPresenterImplementation(this, CountryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
 
@@ -89,7 +91,7 @@ public class Country_RecyclerView_Fragment extends Fragment implements CountryVi
     @Override
     public void onFavClickCountry(Country country) {
         addCountry(country);
-        //  repo.insert(category);
+        //  repo.insert(country);
     }
 
     @Override
@@ -102,6 +104,25 @@ public class Country_RecyclerView_Fragment extends Fragment implements CountryVi
     @Override
     public void showErrorMsgCountry(String error) {
 
+    }
+    @Override
+    public void onCountryClick(String countryMeal) {
+        Bundle bundle=new Bundle();
+        bundle.putString("country",countryMeal);
+
+
+        // Create an instance of the receiver fragment
+        CountryMeals_RecyclerView_Fragment countryMealsFragment = new CountryMeals_RecyclerView_Fragment();
+
+        // Set the Bundle to the receiver fragment
+        countryMealsFragment.setArguments(bundle);
+
+        // Replace the current fragment with the countryMealsFragment
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.navigation_drawer_frame_layout, countryMealsFragment)
+                .addToBackStack(null)  // This line adds the transaction to the back stack
+                .commit();
     }
 
     @Override
