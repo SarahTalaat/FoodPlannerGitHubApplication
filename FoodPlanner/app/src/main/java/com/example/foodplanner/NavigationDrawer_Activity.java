@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.foodplanner.Category.Category_View.Category_RecyclerView_Fragment;
+import com.example.foodplanner.Chicken.Chicken_View.Chicken_RecyclerView_Fragment;
 import com.example.foodplanner.Random.Random_View.Random_RecyclerView_Fragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -116,7 +117,7 @@ public class NavigationDrawer_Activity extends AppCompatActivity {
                     Toast.makeText(NavigationDrawer_Activity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.favourites_item){
-                    fragmentR(new Favourites_Fragment());
+                    fragmentR(new Chicken_RecyclerView_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Favourite Fragment", Toast.LENGTH_SHORT).show();
 

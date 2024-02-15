@@ -2,6 +2,7 @@ package com.example.foodplanner.Network;
 
 
 import com.example.foodplanner.Category_Model.CategoryResponse;
+import com.example.foodplanner.Chicken_Model.ChickenResponse;
 import com.example.foodplanner.Country_Model.CountryResponse;
 import com.example.foodplanner.Random_Model.RandomResponse;
 
@@ -73,7 +74,10 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
         return observable;
     }
 
-
+    public Observable<ChickenResponse> makeNetworkCallBackChicken(){
+        Observable<ChickenResponse> observable = connctionService.getProductsChicken().subscribeOn(Schedulers.io());
+        return observable;
+    }
 
 
 

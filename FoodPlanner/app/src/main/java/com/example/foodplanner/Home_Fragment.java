@@ -36,26 +36,29 @@ public class Home_Fragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Get the container layout
-        FrameLayout containerLayout = view.findViewById(R.id.fragmentContainer_home);
-
         // Create and add ChildFragment1
         Category_RecyclerView_Fragment fragment1 = new Category_RecyclerView_Fragment();
         getChildFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer_categoy, fragment1)
+                .replace(R.id.fragmentContainerView_category, fragment1)
                 .commit();
 
-        // Create and add ChildFragment2
+
+        // Create and add ChildFragment3
         Random_RecyclerView_Fragment fragment2 = new Random_RecyclerView_Fragment();
         getChildFragmentManager().beginTransaction()
-                .add(R.id.fragmentContainer_Random, fragment2)
+                .replace(R.id.fragmentContainerView_random, fragment2)
                 .commit();
 
         // Create and add ChildFragment2
         Country_RecyclerView_Fragment fragment3 = new Country_RecyclerView_Fragment();
         getChildFragmentManager().beginTransaction()
-                .add(R.id.fragmentContainer_country, fragment3)
+                .replace(R.id.fragmentContainerView_country, fragment3)
                 .commit();
+
+
+
+
+
 
         return view;    }
 }
