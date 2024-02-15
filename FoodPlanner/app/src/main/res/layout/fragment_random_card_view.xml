@@ -22,9 +22,9 @@
         <ImageView
             android:id="@+id/img_random"
             android:layout_width="150dp"
-            android:layout_height="130dp"
+            android:layout_height="125dp"
             android:layout_marginStart="84dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,7 @@
             android:id="@+id/tv_mealName_random"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:width="100dp"
             android:gravity="center"
             android:hint="Random"

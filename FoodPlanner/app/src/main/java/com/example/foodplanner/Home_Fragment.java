@@ -7,10 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
-import com.example.foodplanner.Category.Category_View.Category_RecyclerView_Fragment;
-import com.example.foodplanner.Country.Country_View.Country_RecyclerView_Fragment;
+import com.example.foodplanner.AllCategory.AllCategory_View.AllAllCategory_RecyclerView_FragmentAll;
+import com.example.foodplanner.AllCountry.AllCountry_View.Country_RecyclerView_Fragment;
 import com.example.foodplanner.Random.Random_View.Random_RecyclerView_Fragment;
 
 
@@ -37,7 +36,7 @@ public class Home_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Create and add ChildFragment1
-        Category_RecyclerView_Fragment fragment1 = new Category_RecyclerView_Fragment();
+        AllAllCategory_RecyclerView_FragmentAll fragment1 = new AllAllCategory_RecyclerView_FragmentAll();
         getChildFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainerView_category, fragment1)
                 .commit();

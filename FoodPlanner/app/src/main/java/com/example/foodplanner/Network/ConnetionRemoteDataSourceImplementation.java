@@ -1,12 +1,12 @@
 package com.example.foodplanner.Network;
 
 
-import com.example.foodplanner.Category_Model.CategoryResponse;
-import com.example.foodplanner.Chicken_Model.ChickenResponse;
-import com.example.foodplanner.Country_Model.CountryResponse;
-import com.example.foodplanner.Fish_Model.FishResponse;
-import com.example.foodplanner.Pasta_Model.PastaResponse;
-import com.example.foodplanner.Random_Model.RandomResponse;
+import com.example.foodplanner.AllCategory.AllCategory_Model.AllCategoryResponse;
+import com.example.foodplanner.Chicken_Search.Chicken_Model.ChickenResponse;
+import com.example.foodplanner.AllCountry.AllCountry_Model.CountryResponse;
+import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsResponse;
+import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
+import com.example.foodplanner.Random.Random_Model.RandomResponse;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.core.Observable;
@@ -41,9 +41,9 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
     @Override
     public void makeNetworkCallBack(NetworkCallBack networkCallback) {
 
-        connctionService.getProducts().enqueue(new Callback<CategoryResponse>() {
+        connctionService.getProducts().enqueue(new Callback<AllCategoryResponse>() {
             @Override
-            public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
+            public void onResponse(Call<AllCategoryResponse> call, Response<AllCategoryResponse> response) {
                 if (response.isSuccessful()) {
                     networkCallback.onSuccessResult(response.body().categories);
                     Log.i(TAG, " on response + isSuccessful");
@@ -51,7 +51,7 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
             }
 
             @Override
-            public void onFailure(Call<CategoryResponse> call, Throwable t) {
+            public void onFailure(Call<AllCategoryResponse> call, Throwable t) {
                 Log.i(TAG, "onFauiler : " + t.getMessage());
                 networkCallback.onFailureResult((t.getMessage()));
             }
@@ -60,8 +60,8 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
     */
 
 
-    public Observable<CategoryResponse> makeNetworkCallBackCategory(){
-        Observable<CategoryResponse> observable = connctionService.getProducts().subscribeOn(Schedulers.io());
+    public Observable<AllCategoryResponse> makeNetworkCallBackCategory(){
+        Observable<AllCategoryResponse> observable = connctionService.getProducts().subscribeOn(Schedulers.io());
         return observable;
     }
 
@@ -81,13 +81,13 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
         return observable;
     }
 
-    public Observable<FishResponse> makeNetworkCallBackFish(){
-        Observable<FishResponse> observable = connctionService.getProductsFish().subscribeOn(Schedulers.io());
+    public Observable<CategoryMealsResponse> makeNetworkCallBackCategoryMeals(){
+        Observable<CategoryMealsResponse> observable = connctionService.getProductsCategoryMeals().subscribeOn(Schedulers.io());
         return observable;
     }
 
-    public Observable<PastaResponse> makeNetworkCallBackPasta(){
-        Observable<PastaResponse> observable = connctionService.getProductsPasta().subscribeOn(Schedulers.io());
+    public Observable<MealDetailsResponse> makeNetworkCallBackMealDetails(){
+        Observable<MealDetailsResponse> observable = connctionService.getProductsMealDetails().subscribeOn(Schedulers.io());
         return observable;
     }
 

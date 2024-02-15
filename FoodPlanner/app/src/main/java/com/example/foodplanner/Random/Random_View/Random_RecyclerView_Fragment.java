@@ -15,14 +15,14 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.example.foodplanner.Category.Category_View.AllCategoryAdapter;
+import com.example.foodplanner.AllCategory.AllCategory_View.AllCategoryAdapter;
 
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import com.example.foodplanner.R;
 import com.example.foodplanner.Random.Random_Presenter.RandomPresenterImplementation;
 import com.example.foodplanner.Random.Random_Presenter.RandomPresenterInterface;
-import com.example.foodplanner.Random_Model.Random;
-import com.example.foodplanner.Random_Model.RandomRepositoryImplementation;
+import com.example.foodplanner.Random.Random_Model.Random;
+import com.example.foodplanner.Random.Random_Model.RandomRepositoryImplementation;
 
 
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class Random_RecyclerView_Fragment extends Fragment implements RandomView
 
         Log.i("X", "AllRandom Adapter after allRecycler.setLayoutManager(layoutManager);");
 
-        //    allProductsPresenter = new CategoryPresenterImplementation(this, CategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
+        //    allProductsPresenter = new AllAllCategoryPresenterImplementation(this, AllCategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
         //            CategoryLocalDataSourceImplementation.getInstance(getContext())));
 
         allRandomPresenter = new RandomPresenterImplementation(this, RandomRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
