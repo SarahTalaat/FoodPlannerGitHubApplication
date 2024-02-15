@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/profile_Fragment">
+
+    <fragment
+        android:id="@+id/profile_Fragment"
+        android:name="com.example.foodplanner.Profile_Fragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/home_Fragment"
+        android:name="com.example.foodplanner.Home_Fragment"
+        android:label="Home_Fragment" />
+    <fragment
+        android:id="@+id/favourites_Fragment"
+        android:name="com.example.foodplanner.Favourites_Fragment"
+        android:label="fragment_favouries"
+        tools:layout="@layout/fragment_favouries" />
+    <fragment
+        android:id="@+id/current_Week_Fragment"
+        android:name="com.example.foodplanner.Current_Week_Fragment"
+        android:label="fragment_current_week"
+        tools:layout="@layout/fragment_current_week" />
+    <fragment
+        android:id="@+id/logout_Fragment"
+        android:name="com.example.foodplanner.Logout_Fragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" />
+</navigation>

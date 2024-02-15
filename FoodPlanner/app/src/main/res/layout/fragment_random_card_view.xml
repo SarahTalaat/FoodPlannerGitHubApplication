@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="410dp"
+    android:layout_height="300dp"
+    app:cardBackgroundColor="@color/orange_2"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="20dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="16dp"
+    tools:context=".Country_CardView_Fragment"
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/img_random"
+            android:layout_width="150dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_mealName_random"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:width="100dp"
+            android:gravity="center"
+            android:hint="Random"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/img_random"
+            app:layout_constraintHorizontal_bias="0.534"
+            app:layout_constraintStart_toStartOf="@+id/img_random"
+            app:layout_constraintTop_toBottomOf="@+id/img_random" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_transparentButton_random"
+            android:layout_width="330dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:hint="Button"
+            android:textColorHint="@color/transparent"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/orange_light" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

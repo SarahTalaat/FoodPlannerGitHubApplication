@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.foodplanner.Category.View_Category.Category_RecyclerView_Fragment;
+import com.example.foodplanner.CategoryMeals.CategoryMeals_View.CategoryMeals_RecyclerView_Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationDrawer_Activity extends AppCompatActivity {
@@ -110,12 +110,12 @@ public class NavigationDrawer_Activity extends AppCompatActivity {
                     Toast.makeText(NavigationDrawer_Activity.this, "Profile Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.home_item){
-                    fragmentR(new Category_RecyclerView_Fragment());
+                    fragmentR(new Home_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.favourites_item){
-                    fragmentR(new Favourites_Fragment());
+                    fragmentR(new CategoryMeals_RecyclerView_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Favourite Fragment", Toast.LENGTH_SHORT).show();
 

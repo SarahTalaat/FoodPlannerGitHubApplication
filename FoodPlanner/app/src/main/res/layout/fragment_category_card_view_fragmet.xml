@@ -1,61 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="410dp"
-android:layout_height="410dp"
-tools:context=".Category_CardView_Fragmet"
-app:cardCornerRadius="30dp"
-app:cardElevation="20dp"
-app:cardUseCompatPadding="true"
-app:cardPreventCornerOverlap="true"
-app:cardBackgroundColor= "@color/orange_2"
-app:contentPadding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="410dp"
+    android:layout_height="300dp"
+    app:cardBackgroundColor="@color/orange_2"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="20dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="16dp"
+    tools:context=".Category_CardView_Fragmet"
 
     >
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/iv_category"
-        android:layout_width="201dp"
-        android:layout_height="167dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="48dp"
-        android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/img_category"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="16dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:width="100dp"
-        android:gravity="center"
-        android:text="Category"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_category"
-        app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintStart_toStartOf="@+id/iv_category"
-        app:layout_constraintTop_toBottomOf="@+id/iv_category" />
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:width="100dp"
+            android:gravity="center"
+            android:text="Category"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/img_category"
+            app:layout_constraintHorizontal_bias="0.534"
+            app:layout_constraintStart_toStartOf="@+id/img_category"
+            app:layout_constraintTop_toBottomOf="@+id/img_category" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/transparentButton_catgory"
-        android:layout_width="330dp"
-        android:layout_height="305dp"
-        android:layout_gravity="center"
-        android:hint="Button"
-        android:textColorHint="@color/transparent"
-        app:cornerRadius="30dp"
-        app:backgroundTint="@android:color/transparent"
-        app:rippleColor="@color/orange_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_transparentButton_catgory"
+            android:layout_width="330dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center"
+            android:hint="Button"
+            android:textColorHint="@color/transparent"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/orange_light" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
