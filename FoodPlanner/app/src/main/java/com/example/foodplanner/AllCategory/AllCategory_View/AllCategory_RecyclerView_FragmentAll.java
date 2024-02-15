@@ -99,17 +99,14 @@ public class AllCategory_RecyclerView_FragmentAll extends Fragment implements Al
         Bundle bundle=new Bundle();
         bundle.putString("category",categoryMeal);
         // Create an instance of the receiver fragment
-        CategoryMeals_RecyclerView_Fragment receiverFragment = new CategoryMeals_RecyclerView_Fragment();
+        CategoryMeals_RecyclerView_Fragment categoryMeals_RecyclerView_Fragment = new CategoryMeals_RecyclerView_Fragment();
 
-// Set the Bundle to the receiver fragment
-        receiverFragment.setArguments(bundle);
-
-// Navigate to the receiver fragment
-        FragmentManager fragmentManager = getSupportFragmentManager(); // For AppCompatActivity
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.container, receiverFragment);
-        transaction.addToBackStack(null); // Optional: Add to back stack if needed
-        transaction.commit();
+        // Set the Bundle to the receiver fragment
+        categoryMeals_RecyclerView_Fragment.setArguments(bundle);
+        // Replace the current fragment with the categoryMeals_RecyclerView_Fragment
+        getFragmentManager().beginTransaction()
+                .replace(R.id.navigation_drawer_frame_layout, categoryMeals_RecyclerView_Fragment)
+                .commit();
     }
 
     @Override
