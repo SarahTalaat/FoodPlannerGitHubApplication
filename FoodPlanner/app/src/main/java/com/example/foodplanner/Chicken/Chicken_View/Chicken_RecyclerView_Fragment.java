@@ -1,5 +1,5 @@
-
-package com.example.foodplanner.Random.Random_View;
+/*
+package com.example.foodplanner.Chicken.Chicken_View;
 
 import android.os.Bundle;
 
@@ -19,16 +19,16 @@ import com.example.foodplanner.Category.Category_View.AllCategoryAdapter;
 
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import com.example.foodplanner.R;
-import com.example.foodplanner.Random.Random_Presenter.RandomPresenterImplementation;
-import com.example.foodplanner.Random.Random_Presenter.RandomPresenterInterface;
-import com.example.foodplanner.Random_Model.Random;
-import com.example.foodplanner.Random_Model.RandomRepositoryImplementation;
+import com.example.foodplanner.Chicken.Chicken_Presenter.ChickenPresenterImplementation;
+import com.example.foodplanner.Chicken.Chicken_Presenter.ChickenPresenterInterface;
+import com.example.foodplanner.Chicken_Model.Chicken;
+import com.example.foodplanner.Chicken_Model.ChickenRepositoryImplementation;
 
 
 import java.util.ArrayList;
 
 
-public class Random_RecyclerView_Fragment extends Fragment implements RandomViewInterface, OnRandomClickListener{
+public class Chicken_RecyclerView_Fragment extends Fragment implements ChickenViewInterface, OnChickenClickListener{
 
 
 
@@ -42,10 +42,10 @@ public class Random_RecyclerView_Fragment extends Fragment implements RandomView
     RatingBar ratingValue;
     RecyclerView.LayoutManager layoutManager;
 
-    RandomPresenterInterface allRandomPresenter;
-    AllRandomAdapter allRandomAdapter;
+    ChickenPresenterInterface allChickenPresenter;
+    AllChickenAdapter allChickenAdapter;
 
-    public Random_RecyclerView_Fragment() {
+    public Chicken_RecyclerView_Fragment() {
         // Required empty public constructor
     }
 
@@ -59,26 +59,26 @@ public class Random_RecyclerView_Fragment extends Fragment implements RandomView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Log.i("X", "AllRandom Adapter after       ");
+        View view = inflater.inflate(R.layout.fragment_chicken_recycler_view, container, false);
+        Log.i("X", "AllChicken Adapter after       ");
 
-        allRecycler = view.findViewById(R.id.rv_random_home);
+        allRecycler = view.findViewById(R.id.rv_chicken);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
 
-        Log.i("X", "AllRandom Adapter after allRecycler.setLayoutManager(layoutManager);");
+        Log.i("X", "AllChicken Adapter after allRecycler.setLayoutManager(layoutManager);");
 
         //    allProductsPresenter = new CategoryPresenterImplementation(this, CategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
         //            CategoryLocalDataSourceImplementation.getInstance(getContext())));
 
-        allRandomPresenter = new RandomPresenterImplementation(this, RandomRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
+        allChickenPresenter = new ChickenPresenterImplementation(this, ChickenRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
 
 
-        allRandomAdapter = new AllRandomAdapter(getContext(), this);
+        allChickenAdapter = new AllChickenAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
-        allRecycler.setAdapter(allRandomAdapter);
-        allRandomPresenter.getAllRandom();
+        allRecycler.setAdapter(allChickenAdapter);
+        allChickenPresenter.getAllChicken();
 
 
         // Inflate the layout for this fragment
@@ -87,25 +87,26 @@ public class Random_RecyclerView_Fragment extends Fragment implements RandomView
 
 
     @Override
-    public void onFavClickRandom(Random random) {
-        addRandom(random);
+    public void onFavClickChicken(Chicken chicken) {
+        addChicken(chicken);
         //  repo.insert(category);
     }
 
     @Override
-    public void showDataRandom(ArrayList<Random> random) {
-        Log.i("TAG", "showDataRandom: RecyclerView_Random: + " + random);
-        allRandomAdapter.setRandomList(random);
-        allRandomAdapter.notifyDataSetChanged();
+    public void showDataChicken(ArrayList<Chicken> chicken) {
+        Log.i("TAG", "showDataChicken: RecyclerView_Chicken: + " + chicken);
+        allChickenAdapter.setChickenList(chicken);
+        allChickenAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void showErrorMsgRandom(String error) {
+    public void showErrorMsgChicken(String error) {
 
     }
 
     @Override
-    public void addRandom(Random random) {
-        allRandomPresenter.addToFavouriteRandom(random);
+    public void addChicken(Chicken chicken) {
+        allChickenPresenter.addToFavouriteChicken(chicken);
     }
 }
+*/

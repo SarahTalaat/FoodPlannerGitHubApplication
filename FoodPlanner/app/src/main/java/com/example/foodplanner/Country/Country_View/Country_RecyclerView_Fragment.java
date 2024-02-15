@@ -59,10 +59,10 @@ public class Country_RecyclerView_Fragment extends Fragment implements CountryVi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_country_recycler_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
         Log.i("X", "AllCountry Adapter after       ");
 
-        allRecycler = view.findViewById(R.id.rv_country);
+        allRecycler = view.findViewById(R.id.tv_country_home);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
