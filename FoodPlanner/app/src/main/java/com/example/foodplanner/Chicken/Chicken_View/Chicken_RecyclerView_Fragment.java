@@ -1,4 +1,4 @@
-/*
+
 package com.example.foodplanner.Chicken.Chicken_View;
 
 import android.os.Bundle;
@@ -109,4 +109,3 @@ public class Chicken_RecyclerView_Fragment extends Fragment implements ChickenVi
         allChickenPresenter.addToFavouriteChicken(chicken);
     }
 }
-*/

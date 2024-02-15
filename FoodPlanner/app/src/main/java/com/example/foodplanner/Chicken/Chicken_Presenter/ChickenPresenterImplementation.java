@@ -1,4 +1,4 @@
-/*
+
 package com.example.foodplanner.Chicken.Chicken_Presenter;
 
 import android.util.Log;
@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.foodplanner.Chicken.Chicken_View.ChickenViewInterface;
 import com.example.foodplanner.Chicken_Model.Chicken;
 //import com.example.foodplanner.Chicken_Model.ChickenRepositoryImplementation;
+import com.example.foodplanner.Chicken_Model.ChickenRepositoryImplementation;
 import com.example.foodplanner.Chicken_Model.ChickenResponse;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -16,10 +17,10 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class ChickenPresenterImplementation implements ChickenPresenterInterface{
-    ChickenPresenterImplementation repositoryImplementation;
+    ChickenRepositoryImplementation repositoryImplementation;
     ChickenViewInterface viewInterface;
     //bygeb el data men el network
-    public ChickenPresenterImplementation(ChickenViewInterface allProductsActivity, ChickenPresenterImplementation instance) {
+    public ChickenPresenterImplementation(ChickenViewInterface allProductsActivity, ChickenRepositoryImplementation instance) {
         this.repositoryImplementation = instance;
         this.viewInterface = allProductsActivity;
         Log.i("X", "AllChicken presenter constructor ");
@@ -68,4 +69,3 @@ public class ChickenPresenterImplementation implements ChickenPresenterInterface
     }
 }
 
-*/

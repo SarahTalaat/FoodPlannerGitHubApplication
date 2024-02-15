@@ -1,4 +1,4 @@
-/*
+
 package com.example.foodplanner.Chicken.Chicken_View;
 
 import com.example.foodplanner.Chicken_Model.Chicken;
@@ -67,7 +67,7 @@ public class AllChickenAdapter extends RecyclerView.Adapter<AllChickenAdapter.My
     private String categoryThumbnail;
          */
 
-    /*    TextView chicken;
+        TextView chicken;
         Button buttonTransparentButton;
         ImageView image;
 
@@ -107,7 +107,7 @@ public class AllChickenAdapter extends RecyclerView.Adapter<AllChickenAdapter.My
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-            tv_chicken_mealName = itemView.findViewById(R.id.tv_mealName_chicken);
+            tv_chicken_mealName = itemView.findViewById(R.id.tv_chicken);
             img_chicken = itemView.findViewById(R.id.img_chicken);
             button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_chicken);
 
@@ -117,4 +117,3 @@ public class AllChickenAdapter extends RecyclerView.Adapter<AllChickenAdapter.My
 
 
 }
-*/

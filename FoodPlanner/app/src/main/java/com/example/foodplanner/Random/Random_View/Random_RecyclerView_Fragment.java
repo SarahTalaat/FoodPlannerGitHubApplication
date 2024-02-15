@@ -59,10 +59,10 @@ public class Random_RecyclerView_Fragment extends Fragment implements RandomView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_random_recycler_view, container, false);
         Log.i("X", "AllRandom Adapter after       ");
 
-        allRecycler = view.findViewById(R.id.rv_random_home);
+        allRecycler = view.findViewById(R.id.rv_random);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 

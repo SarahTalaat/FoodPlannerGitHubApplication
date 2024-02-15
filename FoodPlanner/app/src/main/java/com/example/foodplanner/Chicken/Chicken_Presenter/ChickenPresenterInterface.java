@@ -1,4 +1,4 @@
-/*
+
 package com.example.foodplanner.Chicken.Chicken_Presenter;
 
 import com.example.foodplanner.Chicken_Model.Chicken;
@@ -12,4 +12,3 @@ public interface ChickenPresenterInterface {
 
 
 }
-*/
