@@ -74,11 +74,11 @@ public class CategoryMeals_RecyclerView_Fragment extends Fragment implements Cat
 
         allCategoryMealsPresenter = new CategoryMealsPresenterImplementation(this, CategoryMealsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
 
-
+//get the bundle!!!!!!!!!!!!!!!
         allCategoryMealsAdapter = new AllCategoryMealsAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
         allRecycler.setAdapter(allCategoryMealsAdapter);
-        allCategoryMealsPresenter.getAllCategoryMeals();
+        allCategoryMealsPresenter.getAllCategoryMeals(///////bundle);
 
 
         // Inflate the layout for this fragment

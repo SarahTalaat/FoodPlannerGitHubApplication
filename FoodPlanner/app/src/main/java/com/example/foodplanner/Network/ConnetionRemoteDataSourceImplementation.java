@@ -81,8 +81,8 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
         return observable;
     }
 
-    public Observable<CategoryMealsResponse> makeNetworkCallBackCategoryMeals(){
-        Observable<CategoryMealsResponse> observable = connctionService.getProductsCategoryMeals().subscribeOn(Schedulers.io());
+    public Observable<CategoryMealsResponse> makeNetworkCallBackCategoryMeals(String categoryMeal){
+        Observable<CategoryMealsResponse> observable = connctionService.getProductsCategoryMeals(categoryMeal).subscribeOn(Schedulers.io());
         return observable;
     }
 

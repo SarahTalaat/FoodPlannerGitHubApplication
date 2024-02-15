@@ -53,8 +53,8 @@ public class CategoryMealsRepositoryImplementation implements CategoryMealsRepos
     }
 */
     @Override
-    public Observable<CategoryMealsResponse> getAllCategoryMeals() {
-        return connetionRemoteDataSource.makeNetworkCallBackCategoryMeals();
+    public Observable<CategoryMealsResponse> getAllCategoryMeals(String categoryMeal) {
+        return connetionRemoteDataSource.makeNetworkCallBackCategoryMeals(categoryMeal);
     }
 
     @Override

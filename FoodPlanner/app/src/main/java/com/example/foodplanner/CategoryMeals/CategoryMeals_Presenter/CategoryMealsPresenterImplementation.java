@@ -26,11 +26,11 @@ public class CategoryMealsPresenterImplementation implements CategoryMealsPresen
     }
 
 
-
+////////////////////////////////
     //All product Pesenter interface imp
     @Override
-    public void getAllCategoryMeals() {
-        Observable<CategoryMealsResponse> observable = repositoryImplementation.getAllCategoryMeals();
+    public void getAllCategoryMeals(String categoryMeal) {
+        Observable<CategoryMealsResponse> observable = repositoryImplementation.getAllCategoryMeals(categoryMeal);
         observable.observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<CategoryMealsResponse>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
@@ -40,6 +40,7 @@ public class CategoryMealsPresenterImplementation implements CategoryMealsPresen
             @Override
             public void onNext(@NonNull CategoryMealsResponse categoryMealsResponse) {
                 viewInterface.showDataCategoryMeals(categoryMealsResponse.meals);
+
             }
 
             @Override

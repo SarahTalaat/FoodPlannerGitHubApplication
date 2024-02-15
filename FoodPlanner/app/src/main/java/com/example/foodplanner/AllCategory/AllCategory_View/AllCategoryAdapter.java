@@ -82,6 +82,13 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
             }
         });
 
+        holder.button_transparent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onProductClickListener.onCategoryClick(allCategoryList.get(position).getStrCategory());
+
+            }
+        });
     }
 
     @Override
@@ -97,6 +104,7 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
         ImageView img_category;
         Button button_AddToFavourites;
 
+        Button button_transparent;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
@@ -105,7 +113,7 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
 
             img_category = itemView.findViewById(R.id.img_category);
             button_AddToFavourites =itemView.findViewById(R.id.button_transparentButton_catgory);
-
+            button_transparent = itemView.findViewById(R.id.button_transparentButton_catgory);
         }
     }
 
