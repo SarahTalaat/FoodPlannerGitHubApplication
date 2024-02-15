@@ -4,6 +4,7 @@ package com.example.foodplanner.Network;
 import com.example.foodplanner.Category_Model.CategoryResponse;
 import com.example.foodplanner.Chicken_Model.ChickenResponse;
 import com.example.foodplanner.Country_Model.CountryResponse;
+import com.example.foodplanner.Fish_Model.FishResponse;
 import com.example.foodplanner.Random_Model.RandomResponse;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
@@ -79,6 +80,9 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
         return observable;
     }
 
-
+    public Observable<FishResponse> makeNetworkCallBackFish(){
+        Observable<FishResponse> observable = connctionService.getProductsFish().subscribeOn(Schedulers.io());
+        return observable;
+    }
 
 }
