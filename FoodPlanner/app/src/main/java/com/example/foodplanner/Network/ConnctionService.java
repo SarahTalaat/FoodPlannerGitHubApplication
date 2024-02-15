@@ -38,4 +38,5 @@ public interface ConnctionService {
     @GET("search.php?s=Arrabiata") // meal details
     Observable<MealDetailsResponse> getProductsMealDetails();
 //
+    //
 }
