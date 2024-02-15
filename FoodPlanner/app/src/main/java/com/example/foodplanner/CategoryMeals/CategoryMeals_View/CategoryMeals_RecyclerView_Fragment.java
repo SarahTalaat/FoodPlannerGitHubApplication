@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class CategoryMeals_RecyclerView_Fragment extends Fragment implements CategoryMealsViewInterface, OnCategoryMealsClickListener{
 
 
-
+    String value;
     RecyclerView allRecycler;
     AllCategoryAdapter categoryAdapter;
     ImageView imgHolder;
@@ -75,10 +75,22 @@ public class CategoryMeals_RecyclerView_Fragment extends Fragment implements Cat
         allCategoryMealsPresenter = new CategoryMealsPresenterImplementation(this, CategoryMealsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
 
 
+        // Retrieve the Bundle from the arguments
+        Bundle bundle = getArguments();
+
+        // Check if the Bundle is not null and contains the desired key
+        if (bundle != null && bundle.containsKey("category")) {
+            // Retrieve the data from the Bundle
+            value = bundle.getString("category");
+
+            // Use the retrieved data as needed
+            Log.d("Category Meals Fragment", "Value from Bundle: " + value);
+        }
+
         allCategoryMealsAdapter = new AllCategoryMealsAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
         allRecycler.setAdapter(allCategoryMealsAdapter);
-        allCategoryMealsPresenter.getAllCategoryMeals();
+        allCategoryMealsPresenter.getAllCategoryMeals(value);
 
 
         // Inflate the layout for this fragment

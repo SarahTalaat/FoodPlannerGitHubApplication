@@ -17,6 +17,6 @@ public interface ConnetionRemoteDataSource {
     Observable<RandomResponse> makeNetworkCallBackRandom();
     Observable<CountryResponse> makeNetworkCallBackCountry();
     Observable<ChickenResponse> makeNetworkCallBackChicken();
-    Observable<CategoryMealsResponse> makeNetworkCallBackCategoryMeals();
+    Observable<CategoryMealsResponse> makeNetworkCallBackCategoryMeals(String categoryMeal);
     Observable<MealDetailsResponse> makeNetworkCallBackMealDetails();
 }

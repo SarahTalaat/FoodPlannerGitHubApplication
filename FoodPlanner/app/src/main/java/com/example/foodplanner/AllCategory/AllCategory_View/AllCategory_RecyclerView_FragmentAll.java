@@ -10,10 +10,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodplanner.AllCategory.AllCategory_Presenter.AllCategoryPresenterInterface;
 import com.example.foodplanner.AllCategory.AllCategory_Model.AllCategory;
+import com.example.foodplanner.CategoryMeals.CategoryMeals_View.CategoryMeals_RecyclerView_Fragment;
 import com.example.foodplanner.R;
 
 
@@ -29,7 +32,7 @@ import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import java.util.List;
 
 
-public class AllAllCategory_RecyclerView_FragmentAll extends Fragment implements AllCategoryViewInterface, AllOnCategoryClickListener {
+public class AllCategory_RecyclerView_FragmentAll extends Fragment implements AllCategoryViewInterface, AllOnCategoryClickListener {
 
 
 
@@ -46,7 +49,7 @@ public class AllAllCategory_RecyclerView_FragmentAll extends Fragment implements
     AllCategoryPresenterInterface allProductsPresenter;
     AllCategoryAdapter allProductsAdapter;
 
-    public AllAllCategory_RecyclerView_FragmentAll() {
+    public AllCategory_RecyclerView_FragmentAll() {
         // Required empty public constructor
     }
 
@@ -89,6 +92,21 @@ public class AllAllCategory_RecyclerView_FragmentAll extends Fragment implements
     public void onFavClick(AllCategory allCategory) {
         addProduct(allCategory);
         //  repo.insert(allCategory);
+    }
+
+    @Override
+    public void onCategoryClick(String categoryMeal) {
+        Bundle bundle=new Bundle();
+        bundle.putString("category",categoryMeal);
+        // Create an instance of the receiver fragment
+        CategoryMeals_RecyclerView_Fragment categoryMeals_RecyclerView_Fragment = new CategoryMeals_RecyclerView_Fragment();
+
+        // Set the Bundle to the receiver fragment
+        categoryMeals_RecyclerView_Fragment.setArguments(bundle);
+        // Replace the current fragment with the categoryMeals_RecyclerView_Fragment
+        getFragmentManager().beginTransaction()
+                .replace(R.id.navigation_drawer_frame_layout, categoryMeals_RecyclerView_Fragment)
+                .commit();
     }
 
     @Override

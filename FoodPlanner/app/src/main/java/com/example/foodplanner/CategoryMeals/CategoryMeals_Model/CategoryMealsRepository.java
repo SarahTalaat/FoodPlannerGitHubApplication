@@ -12,7 +12,7 @@ public interface CategoryMealsRepository {
 
     public Flowable<List<CategoryMeals>> getStoredCategoryMeals();
 
-    public Observable<CategoryMealsResponse> getAllCategoryMeals();
+    public Observable<CategoryMealsResponse> getAllCategoryMeals(String categoryMeal);
 
     public Completable insertCategoryMeals(CategoryMeals categoryMeals);
 

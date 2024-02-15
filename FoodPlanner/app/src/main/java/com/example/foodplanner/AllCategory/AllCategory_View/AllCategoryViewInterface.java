@@ -9,4 +9,5 @@ public interface AllCategoryViewInterface {
     public void showData(List<AllCategory> categories);
     public void showErrorMsg(String error);
     public void addProduct(AllCategory allCategory);
+
 }

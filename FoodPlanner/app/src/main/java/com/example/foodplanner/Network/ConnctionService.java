@@ -12,6 +12,7 @@ import com.example.foodplanner.Random.Random_Model.RandomResponse;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ConnctionService {
     @GET("categories.php")
@@ -31,8 +32,8 @@ public interface ConnctionService {
     @GET("filter.php?i=chicken_breast") //ingredients //search
     Observable<ChickenResponse> getProductsChicken();
 
-    @GET("filter.php?c=Seafood") // category fav button
-    Observable<CategoryMealsResponse> getProductsCategoryMeals();
+    @GET("filter.php") // category fav button
+    Observable<CategoryMealsResponse> getProductsCategoryMeals(@Query("c") String categoryMeals);
 
     @GET("search.php?s=Arrabiata") // meal details
     Observable<MealDetailsResponse> getProductsMealDetails();
