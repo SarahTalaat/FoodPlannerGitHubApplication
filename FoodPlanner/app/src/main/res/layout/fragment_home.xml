@@ -18,8 +18,8 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragmentContainerView_category"
-                android:layout_width="409dp"
-                android:layout_height="204dp"
+                android:layout_width="410dp"
+                android:layout_height="280dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_category_home" />
@@ -27,7 +27,7 @@
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragmentContainerView_random"
                 android:layout_width="410dp"
-                android:layout_height="243dp"
+                android:layout_height="280dp"
                 android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -37,7 +37,7 @@
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragmentContainerView_country"
                 android:layout_width="415dp"
-                android:layout_height="207dp"
+                android:layout_height="280dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,10 @@
                 android:layout_width="407dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
+                android:fontFamily="@font/cantora_one"
                 android:text="Category :"
+                android:textSize="50sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +61,10 @@
                 android:id="@+id/tv_country_home"
                 android:layout_width="407dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/cantora_one"
                 android:text="Random :"
+                android:textSize="50sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView_category" />
 
@@ -68,6 +74,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="12dp"
+                android:textSize="50sp"
+
+                android:textStyle="bold"
+                android:fontFamily="@font/cantora_one"
                 android:text="Country:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView_random" />

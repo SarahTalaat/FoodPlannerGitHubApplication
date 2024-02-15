@@ -3,14 +3,10 @@ package com.example.foodplanner.Random.Random_Presenter;
 
 import android.util.Log;
 
-import com.example.foodplanner.Category.Category_View.CategoryViewInterface;
-import com.example.foodplanner.Category_Model.Category;
-import com.example.foodplanner.Category_Model.CategoryRepositoryImplementation;
-import com.example.foodplanner.Category_Model.CategoryResponse;
 import com.example.foodplanner.Random.Random_View.RandomViewInterface;
-import com.example.foodplanner.Random_Model.Random;
-import com.example.foodplanner.Random_Model.RandomRepositoryImplementation;
-import com.example.foodplanner.Random_Model.RandomResponse;
+import com.example.foodplanner.Random.Random_Model.Random;
+import com.example.foodplanner.Random.Random_Model.RandomRepositoryImplementation;
+import com.example.foodplanner.Random.Random_Model.RandomResponse;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;

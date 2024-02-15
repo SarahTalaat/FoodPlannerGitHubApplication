@@ -3,20 +3,19 @@ package com.example.foodplanner.Network;
 
 
 
-import com.example.foodplanner.Category_Model.CategoryResponse;
-import com.example.foodplanner.Chicken_Model.ChickenResponse;
-import com.example.foodplanner.Country_Model.CountryResponse;
-import com.example.foodplanner.Fish_Model.FishResponse;
-import com.example.foodplanner.Pasta_Model.PastaResponse;
-import com.example.foodplanner.Random_Model.RandomResponse;
+import com.example.foodplanner.AllCategory.AllCategory_Model.AllCategoryResponse;
+import com.example.foodplanner.Chicken_Search.Chicken_Model.ChickenResponse;
+import com.example.foodplanner.AllCountry.AllCountry_Model.CountryResponse;
+import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsResponse;
+import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
+import com.example.foodplanner.Random.Random_Model.RandomResponse;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public interface ConnctionService {
     @GET("categories.php")
-    Observable<CategoryResponse> getProducts();
+    Observable<AllCategoryResponse> getProducts();
 
     @GET("random.php")
     Observable<RandomResponse> getProductsRandom();
@@ -29,13 +28,13 @@ public interface ConnctionService {
     Observable<ChickenResponse> getProductsChicken(@Query("i") String chicken);
     */
 
-    @GET("filter.php?i=chicken_breast")
+    @GET("filter.php?i=chicken_breast") //ingredients //search
     Observable<ChickenResponse> getProductsChicken();
 
-    @GET("filter.php?c=Seafood")
-    Observable<FishResponse> getProductsFish();
+    @GET("filter.php?c=Seafood") // category fav button
+    Observable<CategoryMealsResponse> getProductsCategoryMeals();
 
-    @GET("search.php?s=Arrabiata")
-    Observable<PastaResponse> getProductsPasta();
+    @GET("search.php?s=Arrabiata") // meal details
+    Observable<MealDetailsResponse> getProductsMealDetails();
 
 }

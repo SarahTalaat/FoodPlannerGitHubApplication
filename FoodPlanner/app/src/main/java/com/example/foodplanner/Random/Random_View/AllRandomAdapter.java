@@ -1,7 +1,7 @@
 
 package com.example.foodplanner.Random.Random_View;
 
-import com.example.foodplanner.Random_Model.Random;
+import com.example.foodplanner.Random.Random_Model.Random;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,12 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodplanner.Category.Category_View.AllCategoryAdapter;
-import com.example.foodplanner.Category_Model.Category;
 import com.example.foodplanner.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class AllRandomAdapter extends RecyclerView.Adapter<AllRandomAdapter.MyViewHolder>  {

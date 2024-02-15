@@ -4,4 +4,4 @@
     android:id="@+id/rv_chicken"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chicken.Chicken_View.Chicken_RecyclerView_Fragment" />
+    tools:context=".Chicken_Search.Chicken_View.Chicken_RecyclerView_Fragment" />
