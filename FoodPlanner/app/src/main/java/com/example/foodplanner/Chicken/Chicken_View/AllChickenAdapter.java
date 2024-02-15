@@ -70,7 +70,7 @@ public class AllChickenAdapter extends RecyclerView.Adapter<AllChickenAdapter.My
         TextView chicken;
         Button buttonTransparentButton;
         ImageView image;
-
+        Button buttonFavouriteChicken;
 
         String imageURL= chickenList.get(position).getStrMealThumb();
 
@@ -103,6 +103,7 @@ public class AllChickenAdapter extends RecyclerView.Adapter<AllChickenAdapter.My
         ImageView img_chicken;
         Button button_transpaentutton;
 
+        Button buttonFavChicken;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
@@ -110,6 +111,7 @@ public class AllChickenAdapter extends RecyclerView.Adapter<AllChickenAdapter.My
             tv_chicken_mealName = itemView.findViewById(R.id.tv_chicken);
             img_chicken = itemView.findViewById(R.id.img_chicken);
             button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_chicken);
+            buttonFavChicken = itemView.findViewById(R.id.button_favourite_chicken);
 
         }
     }
