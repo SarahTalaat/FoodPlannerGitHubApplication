@@ -28,7 +28,7 @@ import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsReposito
 import java.util.ArrayList;
 
 
-public class MealDetails_RecyclerView_Fragment extends Fragment implements MealDetailsViewInterface, OnMealDetailsClickListener{
+public class MealDetails_CardView_Fragment extends Fragment implements MealDetailsViewInterface, OnMealDetailsClickListener{
 
 
 
@@ -45,7 +45,7 @@ public class MealDetails_RecyclerView_Fragment extends Fragment implements MealD
     MealDetailsPresenterInterface allMealDetailsPresenter;
     AllMealDetailsAdapter allMealDetailsAdapter;
 
-    public MealDetails_RecyclerView_Fragment() {
+    public MealDetails_CardView_Fragment() {
         // Required empty public constructor
     }
 
@@ -59,11 +59,11 @@ public class MealDetails_RecyclerView_Fragment extends Fragment implements MealD
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_mealdetails_recycler_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_meal_details_card_view, container, false);
         Log.i("X", "AllMealDetails Adapter after       ");
 
-        allRecycler = view.findViewById(R.id.rv_mealDetails);
-        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+     //   allRecycler = view.findViewById(R.id.rv_mealDetails);
+    //    layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
 

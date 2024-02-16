@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentContainer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -30,7 +32,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
     ArrayList<MealDetails> mealDetailsList =new ArrayList<>();
     public AllMealDetailsAdapter(Context context, OnMealDetailsClickListener onMealDetailsClickListener){
-        //  this.categoryList=categoryList;
+        //  this.countryList=countryList;
         this.context=context;
         this.onMealDetailsClickListener=onMealDetailsClickListener;
         Log.i("X", "AllProducts Adapter constructor ");
@@ -40,7 +42,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
     @Override
     public AllMealDetailsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_mealdetails_card_view,parent,false);
+        View view = inflater.inflate(R.layout.fragment_country_meals_card_view,parent,false);
         AllMealDetailsAdapter.MyViewHolder myViewHolder = new AllMealDetailsAdapter.MyViewHolder(view);
         Log.i("X", "AllMealDetails Adapter add card view ");
         return myViewHolder;
@@ -59,9 +61,9 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
         /*
             private int id;
-    private String categoryName;
-    private String categoryDescription;
-    private String categoryThumbnail;
+    private String countryName;
+    private String countryDescription;
+    private String countryThumbnail;
          */
 
         TextView mealDetails;
@@ -72,18 +74,13 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
         String imageURL= mealDetailsList.get(position).getStrMealThumb();
 
         MealDetails current = mealDetailsList.get(position);
-        holder.tv_mealDetails_mealName.setText(current.getStrMeal());
+        holder.tv_mealName_mealDetails.setText(current.getStrMeal());
 
 
         Glide.with(context)
                 .load(imageURL)
                 .into(holder.img_mealDetails);
-        holder.button_transpaentutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onMealDetailsClickListener.onFavClickMealDetails(current);
-            }
-        });
+
 
     }
 
@@ -95,19 +92,25 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tv_mealDetails_mealName;
+
 
         ImageView img_mealDetails;
-        Button button_transpaentutton;
+        TextView tv_mealName_mealDetails;
+        TextView tv_mealCountryName_mealDetails;
+        TextView tv_mealInstructions_mealDetails;
+        WebView video_mealDetails;
+        FragmentContainer ingredientsFragmentContainer_mealDetails;
+
+
+        Button button_addToFavourite_mealDetails;
 
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-         //   tv_mealDetails_mealName = itemView.findViewById(R.id.tv_mealName_mealDetails);
-        //    img_mealDetails = itemView.findViewById(R.id.img_mealDetails);
-          //  button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_mealDetails);
-
+            tv_mealName_mealDetails = itemView.findViewById(R.id.tv_mealName_mealDetails);
+            img_mealDetails = itemView.findViewById(R.id.img_mealDetails);
+            button_addToFavourite_mealDetails = itemView.findViewById(R.id.button_addToFavourite_mealDetails);
         }
     }
 

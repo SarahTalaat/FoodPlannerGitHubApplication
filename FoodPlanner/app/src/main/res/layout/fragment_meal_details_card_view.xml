@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NavigationDrawer_Activity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/video_mealDetails"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView_ingredientsRecyclerView_mealDetails" />
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView_ingredientsRecyclerView_mealDetails"
+            android:layout_width="412dp"
+            android:layout_height="245dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mealInstructions_mealDetails" />
+
+        <TextView
+            android:id="@+id/tv_mealInstructions_mealDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="30dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mealCountryName_mealDetails" />
+
+        <TextView
+            android:id="@+id/tv_mealCountryName_mealDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mealName_mealDetails"
+            app:layout_constraintStart_toStartOf="@+id/tv_mealName_mealDetails"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mealName_mealDetails" />
+
+        <TextView
+            android:id="@+id/tv_mealName_mealDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_mealDetails" />
+
+        <ImageView
+            android:id="@+id/img_mealDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="40dp"
+            android:src="@tools:sample/avatars"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_addToFavourite_mealDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="50dp"
+            android:text="Button"
+            app:layout_constraintStart_toEndOf="@+id/img_mealDetails"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_removeFromFavourite_mealDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/img_mealDetails"
+            app:layout_constraintStart_toEndOf="@+id/img_mealDetails" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
