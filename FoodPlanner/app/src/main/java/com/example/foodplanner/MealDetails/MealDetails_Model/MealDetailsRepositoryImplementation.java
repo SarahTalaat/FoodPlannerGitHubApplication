@@ -1,5 +1,7 @@
 package com.example.foodplanner.MealDetails.MealDetails_Model;
 
+import android.util.Log;
+
 import com.example.foodplanner.Network.ConnetionRemoteDataSource;
 
 import java.util.List;
@@ -53,8 +55,9 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
     }
 */
     @Override
-    public Observable<MealDetailsResponse> getAllMealDetails(String countryMeal) {
-        return connetionRemoteDataSource.makeNetworkCallBackMealDetails(countryMeal);
+    public Observable<MealDetailsResponse> getAllMealDetails(String mealDetails) {
+        Log.i("MealDtailsRepoImp", "getAllMealDetails: "+ mealDetails);
+        return connetionRemoteDataSource.makeNetworkCallBackMealDetails(mealDetails);
     }
 
     @Override

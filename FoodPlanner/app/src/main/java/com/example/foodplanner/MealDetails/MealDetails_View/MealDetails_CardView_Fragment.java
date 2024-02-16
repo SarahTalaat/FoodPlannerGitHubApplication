@@ -94,8 +94,12 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         allMealDetailsAdapter = new AllMealDetailsAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
       //  allRecycler.setAdapter(allMealDetailsAdapter);
+        Log.i("MealDetails_CardView_Fragment", " bundle value: " + value);
         allMealDetailsPresenter.getAllMealDetails(value);
 //
+
+
+
 
         // Inflate the layout for this fragment
         return view;
@@ -110,7 +114,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     @Override
     public void showDataMealDetails(ArrayList<MealDetails> mealDetails) {
-        Log.i("TAG", "showDataMealDetails: RecyclerView_MealDetails: + " + mealDetails);
+        Log.i("XX", "showDataMealDetails: RecyclerView_MealDetails: + " + mealDetails);
         allMealDetailsAdapter.setMealDetailsList(mealDetails);
         allMealDetailsAdapter.notifyDataSetChanged();
     }

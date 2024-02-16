@@ -40,6 +40,7 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
             @Override
             public void onNext(@NonNull MealDetailsResponse mealDetailsResponse) {
                 viewInterface.showDataMealDetails(mealDetailsResponse.meals);
+                Log.i("mealdetailsssss", "  "+ mealDetailsResponse.meals);
 
             }
 

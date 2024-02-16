@@ -79,9 +79,12 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
         Button button_removeFromFavourite_mealDetails;
 
 
+        Log.i("PPPPPPPPP", " lis: "+mealDetailsList);
+
         String imageURL= mealDetailsList.get(position).getStrMealThumb();
 
         MealDetails current = mealDetailsList.get(position);
+
         holder.tv_mealName_mealDetails.setText(current.getStrMeal());
         holder.tv_mealCountryName_mealDetails.setText(current.getStrArea());
         holder.tv_mealInstructions_mealDetails.setText(current.getStrInstructions());

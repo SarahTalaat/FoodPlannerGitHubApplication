@@ -41,7 +41,7 @@ public interface ConnctionService {
     Observable<CountryMealsResponse> getProductsCountryMeals(@Query("a") String countryMeals);
 
 
-    @GET("search.php?s=Arrabiata") // meal details
+    @GET("search.php") // meal details
     Observable<MealDetailsResponse> getProductsMealDetails(@Query("s") String mealDetails);
 
 }
