@@ -73,10 +73,11 @@ import java.util.ArrayList;
             holder.tv_country_mealName.setText(current.getStrArea());
 
 
-            holder.button_transpaentutton.setOnClickListener(new View.OnClickListener() {
+            holder.button_transparentutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onCountryClickListener.onFavClickCountry(current);
+                    onCountryClickListener.onCountryClick(countryList.get(position).getStrArea());
+
                 }
             });
 
@@ -91,14 +92,14 @@ import java.util.ArrayList;
         class MyViewHolder extends RecyclerView.ViewHolder{
 
             TextView tv_country_mealName;
-            Button button_transpaentutton;
+            Button button_transparentutton;
 
 
             public MyViewHolder(@NonNull View itemView){
                 super(itemView);
 
                 tv_country_mealName = itemView.findViewById(R.id.tv_country);
-                button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_country);
+                button_transparentutton =itemView.findViewById(R.id.button_transparentButton_country);
 
             }
         }
