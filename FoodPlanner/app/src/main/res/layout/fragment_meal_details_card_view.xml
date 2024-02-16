@@ -19,7 +19,7 @@
             app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView_ingredients_mealDetails" />
 
 
-        <androidx.fragment.app.FragmentContainerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fragmentContainerView_ingredients_mealDetails"
             android:layout_width="412dp"
             android:layout_height="245dp"

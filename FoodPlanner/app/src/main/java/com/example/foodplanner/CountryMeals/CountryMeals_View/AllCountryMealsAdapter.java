@@ -70,8 +70,8 @@ public class AllCountryMealsAdapter extends RecyclerView.Adapter<AllCountryMeals
 
 
         String imageURL= countryMealsList.get(position).getStrMealThumb();
-
         CountryMeals current = countryMealsList.get(position);
+
         holder.tv_countryMeals_mealName.setText(current.getStrMeal());
 
 
