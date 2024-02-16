@@ -4,6 +4,7 @@ package com.example.foodplanner.CountryMeals.CountryMeals_View;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.example.foodplanner.AllCountry.AllCountry_View.AllCountryAdapter;
 
 import com.example.foodplanner.CountryMeals.CountryMeals_Model.CountryMeals;
+import com.example.foodplanner.MealDetails.MealDetails_View.MealDetails_CardView_Fragment;
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import com.example.foodplanner.R;
 import com.example.foodplanner.CountryMeals.CountryMeals_Presenter.CountryMealsPresenterImplementation;
@@ -79,12 +81,12 @@ public class CountryMeals_RecyclerView_Fragment extends Fragment implements Coun
         Bundle bundle = getArguments();
 
         // Check if the Bundle is not null and contains the desired key
-        if (bundle != null && bundle.containsKey("country")) {
+        if (bundle != null && bundle.containsKey("mealDetails")) {
             // Retrieve the data from the Bundle
-            value = bundle.getString("country");
+            value = bundle.getString("mealDetails");
 
             // Use the retrieved data as needed
-            Log.d("Country Meals Fragment", "Value from Bundle: " + value);
+            Log.d("MealDetails Fragment", "Value from Bundle: " + value);
         }
 
         allCountryMealsAdapter = new AllCountryMealsAdapter(getContext(), this);
@@ -102,6 +104,26 @@ public class CountryMeals_RecyclerView_Fragment extends Fragment implements Coun
     public void onFavClickCountryMeals(CountryMeals countryMeals) {
         addCountryMeals(countryMeals);
         //  repo.insert(country);
+    }
+
+    @Override
+    public void onCountryMealsClick(String countryMeal) {
+        Bundle bundle=new Bundle();
+        bundle.putString("country",countryMeal);
+
+
+        // Create an instance of the receiver fragment
+        MealDetails_CardView_Fragment mealDetailsCardViewFragment = new MealDetails_CardView_Fragment();
+
+        // Set the Bundle to the receiver fragment
+        mealDetailsCardViewFragment.setArguments(bundle);
+
+        // Replace the current fragment with the countryMealsFragment
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.navigation_drawer_frame_layout, mealDetailsCardViewFragment)
+                .addToBackStack(null)  // This line adds the transaction to the back stack
+                .commit();
     }
 
     @Override

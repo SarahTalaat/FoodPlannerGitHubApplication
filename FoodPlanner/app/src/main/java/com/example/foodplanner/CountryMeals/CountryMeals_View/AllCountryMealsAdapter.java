@@ -85,6 +85,13 @@ public class AllCountryMealsAdapter extends RecyclerView.Adapter<AllCountryMeals
             }
         });
 
+        holder.button_transpaentutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCountryMealsClickListener.onCountryMealsClick(countryMealsList.get(position).getStrMeal());
+            }
+        });
+
     }
 
     @Override

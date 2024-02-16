@@ -11,9 +11,10 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentContainer;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -42,7 +43,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
     @Override
     public AllMealDetailsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_country_meals_card_view,parent,false);
+        View view = inflater.inflate(R.layout.fragment_meal_details_card_view,parent,false);
         AllMealDetailsAdapter.MyViewHolder myViewHolder = new AllMealDetailsAdapter.MyViewHolder(view);
         Log.i("X", "AllMealDetails Adapter add card view ");
         return myViewHolder;
@@ -66,15 +67,32 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
     private String countryThumbnail;
          */
 
-        TextView mealDetails;
-        Button buttonTransparentButton;
+
         ImageView image;
+
+        TextView tv_mealName_mealDetails;
+        TextView tv_mealCountryName_mealDetails;
+        TextView tv_mealInstructions_mealDetails;
+        WebView video_mealDetails;
+        RecyclerView ingredients_recyclerView_mealDetails;
+        Button button_addToFavourite_mealDetails;
+        Button button_removeFromFavourite_mealDetails;
 
 
         String imageURL= mealDetailsList.get(position).getStrMealThumb();
 
         MealDetails current = mealDetailsList.get(position);
         holder.tv_mealName_mealDetails.setText(current.getStrMeal());
+        holder.tv_mealCountryName_mealDetails.setText(current.getStrArea());
+        holder.tv_mealInstructions_mealDetails.setText(current.getStrInstructions());
+
+        String videoUrl = mealDetailsList.get(position).getStrYoutube();
+        String videoId = extractYoutubeVideoId(videoUrl);
+        String youtubeVideoUrl = "https://www.youtube.com/watch?v=" + videoId;
+
+        // Load the YouTube video
+        holder.video_mealDetails.setVideoPath(youtubeVideoUrl);
+        holder.video_mealDetails.start();
 
 
         Glide.with(context)
@@ -98,20 +116,32 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
         TextView tv_mealName_mealDetails;
         TextView tv_mealCountryName_mealDetails;
         TextView tv_mealInstructions_mealDetails;
-        WebView video_mealDetails;
-        FragmentContainer ingredientsFragmentContainer_mealDetails;
-
-
+        VideoView video_mealDetails;
         Button button_addToFavourite_mealDetails;
+        Button button_removeFromFavourite_mealDetails;
+        FragmentContainerView fragmentContainerView_ingredients_mealDetails;
 
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-            tv_mealName_mealDetails = itemView.findViewById(R.id.tv_mealName_mealDetails);
             img_mealDetails = itemView.findViewById(R.id.img_mealDetails);
+            tv_mealName_mealDetails = itemView.findViewById(R.id.tv_mealName_mealDetails);
+            tv_mealCountryName_mealDetails = itemView.findViewById(R.id.tv_mealCountryName_mealDetails);
+            tv_mealInstructions_mealDetails = itemView.findViewById(R.id.tv_mealInstructions_mealDetails);
+            fragmentContainerView_ingredients_mealDetails = itemView.findViewById(R.id.fragmentContainerView_ingredients_mealDetails);
+            video_mealDetails = itemView.findViewById(R.id.video_mealDetails);
             button_addToFavourite_mealDetails = itemView.findViewById(R.id.button_addToFavourite_mealDetails);
+            button_removeFromFavourite_mealDetails=itemView.findViewById(R.id.button_removeFromFavourite_mealDetails);
         }
+    }
+    private String extractYoutubeVideoId(String youtubeUrl) {
+        String videoId = null;
+        if (youtubeUrl != null && youtubeUrl.trim().length() > 0 && youtubeUrl.startsWith("https://www.youtube.com/watch?v=")) {
+            String[] parts = youtubeUrl.split("=");
+            videoId = parts[1];
+        }
+        return videoId;
     }
 
 

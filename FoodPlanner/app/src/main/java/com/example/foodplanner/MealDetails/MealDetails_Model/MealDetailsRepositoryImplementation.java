@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 
-public class MealDetailsRepositoryImplementation implements MealDetailsRepository{
+public class MealDetailsRepositoryImplementation implements MealDetailsRepository {
 
     private static MealDetailsRepositoryImplementation repository = null;
     ConnetionRemoteDataSource connetionRemoteDataSource; //ntwork connection and get data
@@ -18,11 +18,11 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
         this.connetionRemoteDataSource = connetionRemoteDataSource;
     }
 
-    //    CategoryLocalDataSource categoryLocalDataSource; //insert delete getpro interface
+    //    CountryLocalDataSource countryLocalDataSource; //insert delete getpro interface
 /*
-    private AllCategoryRepositoryImplementation(ConnetionRemoteDataSource connetionRemoteDataSource, CategoryLocalDataSource categoryLocalDataSource) {
+    private AllCountryRepositoryImplementation(ConnetionRemoteDataSource connetionRemoteDataSource, CountryLocalDataSource countryLocalDataSource) {
         this.connetionRemoteDataSource = connetionRemoteDataSource;
-        this.categoryLocalDataSource = categoryLocalDataSource;
+        this.countryLocalDataSource = countryLocalDataSource;
     }
 */
     public static MealDetailsRepositoryImplementation getInstance(ConnetionRemoteDataSource connetionRemoteDataSource) {
@@ -38,9 +38,9 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
     }
 
     /*
-        public static AllCategoryRepositoryImplementation getInstance(ConnetionRemoteDataSource connetionRemoteDataSource, CategoryLocalDataSource categoryLocalDataSource) {
+        public static AllCountryRepositoryImplementation getInstance(ConnetionRemoteDataSource connetionRemoteDataSource, CountryLocalDataSource countryLocalDataSource) {
             if (repository == null) {
-                repository = new AllCategoryRepositoryImplementation(connetionRemoteDataSource, categoryLocalDataSource);
+                repository = new AllCountryRepositoryImplementation(connetionRemoteDataSource, countryLocalDataSource);
             }
             return repository;
         }
@@ -48,13 +48,13 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
         */
 /*
     @Override
-    public Flowable<List<AllCategory>> getStoredProducts() {
-        return categoryLocalDataSource.getAllStoredProducts();
+    public Flowable<List<AllCountry>> getStoredProducts() {
+        return countryLocalDataSource.getAllStoredProducts();
     }
 */
     @Override
-    public Observable<MealDetailsResponse> getAllMealDetails() {
-        return connetionRemoteDataSource.makeNetworkCallBackMealDetails();
+    public Observable<MealDetailsResponse> getAllMealDetails(String countryMeal) {
+        return connetionRemoteDataSource.makeNetworkCallBackMealDetails(countryMeal);
     }
 
     @Override
