@@ -70,8 +70,8 @@ public class AllCountryMealsAdapter extends RecyclerView.Adapter<AllCountryMeals
 
 
         String imageURL= countryMealsList.get(position).getStrMealThumb();
-
         CountryMeals current = countryMealsList.get(position);
+
         holder.tv_countryMeals_mealName.setText(current.getStrMeal());
 
 
@@ -82,6 +82,13 @@ public class AllCountryMealsAdapter extends RecyclerView.Adapter<AllCountryMeals
             @Override
             public void onClick(View v) {
                 onCountryMealsClickListener.onFavClickCountryMeals(current);
+            }
+        });
+
+        holder.button_transpaentutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCountryMealsClickListener.onCountryMealsClick(countryMealsList.get(position).getStrMeal());
             }
         });
 

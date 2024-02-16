@@ -7,13 +7,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentContainer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -42,7 +41,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
     @Override
     public AllMealDetailsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_country_meals_card_view,parent,false);
+        View view = inflater.inflate(R.layout.fragment_ingredients_card_view,parent,false);
         AllMealDetailsAdapter.MyViewHolder myViewHolder = new AllMealDetailsAdapter.MyViewHolder(view);
         Log.i("X", "AllMealDetails Adapter add card view ");
         return myViewHolder;
@@ -72,9 +71,18 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
 
         String imageURL= mealDetailsList.get(position).getStrMealThumb();
-
         MealDetails current = mealDetailsList.get(position);
+/*
         holder.tv_mealName_mealDetails.setText(current.getStrMeal());
+        holder.tv_mealCounty_mealDetails.setText(current.getStrArea());
+        holder.tv_instructions_mealDetails.setText(current.getStrInstructions());
+
+        // Load and play the video
+        String videoUrl = current.getStrYoutube();
+        if (videoUrl != null && !videoUrl.isEmpty()) {
+            holder.videoView_mealDetails.setVideoPath(videoUrl);
+            holder.videoView_mealDetails.start();
+        }
 
 
         Glide.with(context)
@@ -82,6 +90,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
                 .into(holder.img_mealDetails);
 
 
+*/
     }
 
     @Override
@@ -92,25 +101,27 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-
-
-        ImageView img_mealDetails;
         TextView tv_mealName_mealDetails;
-        TextView tv_mealCountryName_mealDetails;
-        TextView tv_mealInstructions_mealDetails;
-        WebView video_mealDetails;
-        FragmentContainer ingredientsFragmentContainer_mealDetails;
-
-
-        Button button_addToFavourite_mealDetails;
+        ImageView img_mealDetails;
+        TextView tv_mealCounty_mealDetails;
+        TextView tv_instructions_mealDetails;
+        VideoView videoView_mealDetails;
+        
+        Button button_addToFavourite;
+        Button button_removeFromFavourite;
 
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-            tv_mealName_mealDetails = itemView.findViewById(R.id.tv_mealName_mealDetails);
             img_mealDetails = itemView.findViewById(R.id.img_mealDetails);
-            button_addToFavourite_mealDetails = itemView.findViewById(R.id.button_addToFavourite_mealDetails);
+            tv_mealName_mealDetails = itemView.findViewById(R.id.tv_mealName_mealDetails);
+            tv_mealCounty_mealDetails = itemView.findViewById(R.id.tv_mealCountryName_mealDetails);
+            tv_instructions_mealDetails=itemView.findViewById(R.id.tv_mealInstructions_mealDetails);
+            videoView_mealDetails = itemView.findViewById(R.id.video_mealDetails);
+            button_addToFavourite=itemView.findViewById(R.id.button_addToFavourite_mealDetails);
+            button_removeFromFavourite = itemView.findViewById(R.id.button_removeFromFavourite_mealDetails);
+            // button_favourite = itemView.findViewById(R.id.button_favourite_mealDetails);
         }
     }
 

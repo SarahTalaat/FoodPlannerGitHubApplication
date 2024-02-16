@@ -6,4 +6,5 @@ public interface OnCountryClickListener {
 
     void onFavClickCountry(Country country);
     void onCountryClick(String categoryMeal);
+
 }

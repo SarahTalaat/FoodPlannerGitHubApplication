@@ -3,8 +3,8 @@ package com.example.foodplanner.MealDetails.MealDetails_Presenter;
 
 import android.util.Log;
 
-import com.example.foodplanner.MealDetails.MealDetails_View.MealDetailsViewInterface;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
+import com.example.foodplanner.MealDetails.MealDetails_View.MealDetailsViewInterface;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepositoryImplementation;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
 
@@ -15,7 +15,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
-public class MealDetailsPresenterImplementation implements MealDetailsPresenterInterface{
+public class MealDetailsPresenterImplementation implements MealDetailsPresenterInterface {
     MealDetailsRepositoryImplementation repositoryImplementation;
     MealDetailsViewInterface viewInterface;
     //bygeb el data men el network
@@ -26,11 +26,11 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
     }
 
 
-
+    ////////////////////////////////
     //All product Pesenter interface imp
     @Override
-    public void getAllMealDetails() {
-        Observable<MealDetailsResponse> observable = repositoryImplementation.getAllMealDetails();
+    public void getAllMealDetails(String countryMeal) {
+        Observable<MealDetailsResponse> observable = repositoryImplementation.getAllMealDetails(countryMeal);
         observable.observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<MealDetailsResponse>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
@@ -40,6 +40,8 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
             @Override
             public void onNext(@NonNull MealDetailsResponse mealDetailsResponse) {
                 viewInterface.showDataMealDetails(mealDetailsResponse.meals);
+                Log.i("mealdetailsssss", "  "+ mealDetailsResponse.meals);
+
             }
 
             @Override
@@ -55,7 +57,7 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
 
     }
 
-    //All category Pesenter interface imp
+    //All country Pesenter interface imp
     @Override
     public void addToFavouriteMealDetails(MealDetails mealDetails) {
         Completable completable = repositoryImplementation.insertMealDetails(mealDetails);
