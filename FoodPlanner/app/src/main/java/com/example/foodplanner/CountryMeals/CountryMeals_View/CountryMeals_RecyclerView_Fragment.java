@@ -81,9 +81,9 @@ public class CountryMeals_RecyclerView_Fragment extends Fragment implements Coun
         Bundle bundle = getArguments();
 
         // Check if the Bundle is not null and contains the desired key
-        if (bundle != null && bundle.containsKey("mealDetails")) {
+        if (bundle != null && bundle.containsKey("country")) {
             // Retrieve the data from the Bundle
-            value = bundle.getString("mealDetails");
+            value = bundle.getString("country");
 
             // Use the retrieved data as needed
             Log.d("MealDetails Fragment", "Value from Bundle: " + value);
@@ -109,7 +109,7 @@ public class CountryMeals_RecyclerView_Fragment extends Fragment implements Coun
     @Override
     public void onCountryMealsClick(String countryMeal) {
         Bundle bundle=new Bundle();
-        bundle.putString("country",countryMeal);
+        bundle.putString("mealDetails",countryMeal);
 
 
         // Create an instance of the receiver fragment
@@ -124,6 +124,8 @@ public class CountryMeals_RecyclerView_Fragment extends Fragment implements Coun
                 .replace(R.id.navigation_drawer_frame_layout, mealDetailsCardViewFragment)
                 .addToBackStack(null)  // This line adds the transaction to the back stack
                 .commit();
+
+
     }
 
     @Override
