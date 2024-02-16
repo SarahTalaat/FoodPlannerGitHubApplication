@@ -15,13 +15,13 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.example.foodplanner.AllCategory.AllCategory_View.AllCategoryAdapter;
+import com.example.foodplanner.AllCountry.AllCountry_View.AllCountryAdapter;
 
+import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import com.example.foodplanner.R;
 import com.example.foodplanner.MealDetails.MealDetails_Presenter.MealDetailsPresenterImplementation;
 import com.example.foodplanner.MealDetails.MealDetails_Presenter.MealDetailsPresenterInterface;
-import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepositoryImplementation;
 
 
@@ -31,9 +31,9 @@ import java.util.ArrayList;
 public class MealDetails_RecyclerView_Fragment extends Fragment implements MealDetailsViewInterface, OnMealDetailsClickListener{
 
 
-
+    String value;
     RecyclerView allRecycler;
-    AllCategoryAdapter categoryAdapter;
+    AllCountryAdapter countryAdapter;
     ImageView imgHolder;
     TextView titleValue;
     TextView descriptionValue;
@@ -59,36 +59,49 @@ public class MealDetails_RecyclerView_Fragment extends Fragment implements MealD
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_mealdetails_recycler_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_country_meals_recycler_view, container, false);
         Log.i("X", "AllMealDetails Adapter after       ");
 
-        allRecycler = view.findViewById(R.id.rv_mealDetails);
+        allRecycler = view.findViewById(R.id.rv_countrymeals);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         allRecycler.setLayoutManager(layoutManager);
-
+//
 
         Log.i("X", "AllMealDetails Adapter after allRecycler.setLayoutManager(layoutManager);");
 
-        //    allProductsPresenter = new AllAllCategoryPresenterImplementation(this, AllCategoryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
-        //            CategoryLocalDataSourceImplementation.getInstance(getContext())));
+        //    allProductsPresenter = new AllAllCountryPresenterImplementation(this, AllCountryRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
+        //            CountryLocalDataSourceImplementation.getInstance(getContext())));
 
         allMealDetailsPresenter = new MealDetailsPresenterImplementation(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
 
 
+        // Retrieve the Bundle from the arguments
+        Bundle bundle = getArguments();
+
+        // Check if the Bundle is not null and contains the desired key
+        if (bundle != null && bundle.containsKey("country")) {
+            // Retrieve the data from the Bundle
+            value = bundle.getString("country");
+
+            // Use the retrieved data as needed
+            Log.d("Country Meals Fragment", "Value from Bundle: " + value);
+        }
+
         allMealDetailsAdapter = new AllMealDetailsAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
         allRecycler.setAdapter(allMealDetailsAdapter);
-        allMealDetailsPresenter.getAllMealDetails();
-
+        allMealDetailsPresenter.getAllMealDetails(value);
+//
 
         // Inflate the layout for this fragment
         return view;
     }
 
 
-    public void MealDetails_RecyclerView_Fragment(MealDetails mealDetails) {
+    @Override
+    public void onFavClickMealDetails(MealDetails mealDetails) {
         addMealDetails(mealDetails);
-        //  repo.insert(category);
+        //  repo.insert(country);
     }
 
     @Override
@@ -106,10 +119,5 @@ public class MealDetails_RecyclerView_Fragment extends Fragment implements MealD
     @Override
     public void addMealDetails(MealDetails mealDetails) {
         allMealDetailsPresenter.addToFavouriteMealDetails(mealDetails);
-    }
-
-    @Override
-    public void onFavClickMealDetails(MealDetails mealDetails) {
-
     }
 }

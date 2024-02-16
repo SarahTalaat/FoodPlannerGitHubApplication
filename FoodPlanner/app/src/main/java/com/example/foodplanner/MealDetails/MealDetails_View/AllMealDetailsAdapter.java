@@ -30,7 +30,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
     ArrayList<MealDetails> mealDetailsList =new ArrayList<>();
     public AllMealDetailsAdapter(Context context, OnMealDetailsClickListener onMealDetailsClickListener){
-        //  this.categoryList=categoryList;
+        //  this.countryList=countryList;
         this.context=context;
         this.onMealDetailsClickListener=onMealDetailsClickListener;
         Log.i("X", "AllProducts Adapter constructor ");
@@ -40,7 +40,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
     @Override
     public AllMealDetailsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_mealdetails_card_view,parent,false);
+        View view = inflater.inflate(R.layout.fragment_country_meals_card_view,parent,false);
         AllMealDetailsAdapter.MyViewHolder myViewHolder = new AllMealDetailsAdapter.MyViewHolder(view);
         Log.i("X", "AllMealDetails Adapter add card view ");
         return myViewHolder;
@@ -59,9 +59,9 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
         /*
             private int id;
-    private String categoryName;
-    private String categoryDescription;
-    private String categoryThumbnail;
+    private String countryName;
+    private String countryDescription;
+    private String countryThumbnail;
          */
 
         TextView mealDetails;
@@ -99,15 +99,16 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
         ImageView img_mealDetails;
         Button button_transpaentutton;
+        Button button_favourite;
 
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-         //   tv_mealDetails_mealName = itemView.findViewById(R.id.tv_mealName_mealDetails);
-        //    img_mealDetails = itemView.findViewById(R.id.img_mealDetails);
-          //  button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_mealDetails);
-
+            tv_mealDetails_mealName = itemView.findViewById(R.id.tv_mealDetails);
+            img_mealDetails = itemView.findViewById(R.id.img_mealDetails);
+            button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_mealDetails);
+            // button_favourite = itemView.findViewById(R.id.button_favourite_mealDetails);
         }
     }
 

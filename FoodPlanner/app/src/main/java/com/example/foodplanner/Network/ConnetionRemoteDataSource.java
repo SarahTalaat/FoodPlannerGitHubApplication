@@ -20,5 +20,5 @@ public interface ConnetionRemoteDataSource {
     Observable<ChickenResponse> makeNetworkCallBackChicken();
     Observable<CategoryMealsResponse> makeNetworkCallBackCategoryMeals(String categoryMeal);
     Observable<CountryMealsResponse> makeNetworkCallBackCountryMeals(String countryMeal);
-    Observable<MealDetailsResponse> makeNetworkCallBackMealDetails();
+    Observable<MealDetailsResponse> makeNetworkCallBackMealDetails(String mealDetails);
 }
