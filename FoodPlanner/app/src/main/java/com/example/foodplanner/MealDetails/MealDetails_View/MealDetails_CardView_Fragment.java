@@ -1,8 +1,12 @@
 
 package com.example.foodplanner.MealDetails.MealDetails_View;
 
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -29,6 +34,9 @@ import com.example.foodplanner.R;
 import com.example.foodplanner.MealDetails.MealDetails_Presenter.MealDetailsPresenterImplementation;
 import com.example.foodplanner.MealDetails.MealDetails_Presenter.MealDetailsPresenterInterface;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepositoryImplementation;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 
 import java.util.ArrayList;
@@ -57,6 +65,12 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     MealDetailsPresenterInterface allMealDetailsPresenter;
     AllMealDetailsAdapter allMealDetailsAdapter;
+
+    String[] videoSplit;
+    String videoId;
+    YouTubePlayerView videoView ;
+
+
 
     public MealDetails_CardView_Fragment() {
         // Required empty public constructor
@@ -93,7 +107,8 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         img_mealDetails = view.findViewById(R.id.img_mealDetails);
         tv_mealCounty_mealDetails = view.findViewById(R.id.tv_mealCountryName_mealDetails);
         tv_instructions_mealDetails = view.findViewById(R.id.tv_mealInstructions_mealDetails);
-        videoView_mealDetails = view.findViewById(R.id.video_mealDetails);
+        videoView = view.findViewById(R.id.video_mealDetails);
+
         button_addToFavourite = view.findViewById(R.id.button_addToFavourite_mealDetails);
         button_removeFromFavourite = view.findViewById(R.id.button_removeFromFavourite_mealDetails);
         img_mealDetails= view.findViewById(R.id.img_mealDetails);
@@ -167,9 +182,39 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
                 .load(imageURL)
                 .into(img_mealDetails);
 
+        // YouTube video link
+        //String youtubeLink = mealDetailsObject.getStrYoutube();
+
+
+
+
+        if(!mealDetailsObject.getStrYoutube().equals(""))
+        {
+            videoSplit =mealDetailsObject.getStrYoutube().split("=");
+            videoId =videoSplit[1];
+        }else{
+            videoId =" ";
+        }
+
+        getLifecycle().addObserver(videoView);
+
+        videoView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+
+                youTubePlayer.loadVideo(videoId, 0);
+            }
+        });
+
+
+
 
 
     }
+
+
+
+
 
     @Override
     public void showErrorMsgMealDetails(String error) {

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <VideoView
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/video_mealDetails"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -59,8 +59,8 @@
 
         <ImageView
             android:id="@+id/img_mealDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="30dp"
             android:src="@drawable/camera_vector"
@@ -71,9 +71,10 @@
             android:id="@+id/button_addToFavourite_mealDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="50dp"
-            android:text="Button"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/red"
+            android:text="Add to Favourite"
             app:layout_constraintStart_toEndOf="@+id/img_mealDetails"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,9 +82,11 @@
             android:id="@+id/button_removeFromFavourite_mealDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="@+id/img_mealDetails"
-            app:layout_constraintStart_toEndOf="@+id/img_mealDetails" />
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/red"
+            android:text="Remove fom Favourite"
+            app:layout_constraintStart_toEndOf="@+id/img_mealDetails"
+            app:layout_constraintTop_toBottomOf="@+id/button_addToFavourite_mealDetails" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
