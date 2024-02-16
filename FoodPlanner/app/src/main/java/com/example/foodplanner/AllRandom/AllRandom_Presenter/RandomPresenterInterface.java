@@ -1,7 +1,7 @@
 
-package com.example.foodplanner.Random.Random_Presenter;
+package com.example.foodplanner.AllRandom.AllRandom_Presenter;
 
-import com.example.foodplanner.Random.Random_Model.Random;
+import com.example.foodplanner.AllRandom.AllRandom_Model.Random;
 
 public interface RandomPresenterInterface {
     public void getAllRandom();

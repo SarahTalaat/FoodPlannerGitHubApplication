@@ -63,7 +63,7 @@ public class MealDetails_RecyclerView_Fragment extends Fragment implements MealD
         Log.i("X", "AllMealDetails Adapter after       ");
 
         allRecycler = view.findViewById(R.id.rv_mealDetails);
-        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
 

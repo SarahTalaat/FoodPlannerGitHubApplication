@@ -9,7 +9,7 @@ import com.example.foodplanner.AllCountry.AllCountry_Model.CountryResponse;
 import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsResponse;
 import com.example.foodplanner.CountryMeals.CountryMeals_Model.CountryMealsResponse;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
-import com.example.foodplanner.Random.Random_Model.RandomResponse;
+import com.example.foodplanner.AllRandom.AllRandom_Model.RandomResponse;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;

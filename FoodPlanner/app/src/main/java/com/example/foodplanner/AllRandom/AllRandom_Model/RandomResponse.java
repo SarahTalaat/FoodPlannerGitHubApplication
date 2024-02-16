@@ -1,4 +1,4 @@
-package com.example.foodplanner.Random.Random_Model;
+package com.example.foodplanner.AllRandom.AllRandom_Model;
 
 import java.util.ArrayList;
 

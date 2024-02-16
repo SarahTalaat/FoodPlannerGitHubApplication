@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.foodplanner.AllCategory.AllCategory_View.AllCategory_RecyclerView_FragmentAll;
 import com.example.foodplanner.AllCountry.AllCountry_View.Country_RecyclerView_Fragment;
-import com.example.foodplanner.Random.Random_View.Random_RecyclerView_Fragment;
+import com.example.foodplanner.AllRandom.AllRandom_View.Random_RecyclerView_Fragment;
 
 
 public class Home_Fragment extends Fragment {

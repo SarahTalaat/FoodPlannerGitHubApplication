@@ -1,5 +1,5 @@
 
-package com.example.foodplanner.Random.Random_View;
+package com.example.foodplanner.AllRandom.AllRandom_View;
 
 import android.os.Bundle;
 
@@ -19,10 +19,10 @@ import com.example.foodplanner.AllCategory.AllCategory_View.AllCategoryAdapter;
 
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import com.example.foodplanner.R;
-import com.example.foodplanner.Random.Random_Presenter.RandomPresenterImplementation;
-import com.example.foodplanner.Random.Random_Presenter.RandomPresenterInterface;
-import com.example.foodplanner.Random.Random_Model.Random;
-import com.example.foodplanner.Random.Random_Model.RandomRepositoryImplementation;
+import com.example.foodplanner.AllRandom.AllRandom_Presenter.RandomPresenterImplementation;
+import com.example.foodplanner.AllRandom.AllRandom_Presenter.RandomPresenterInterface;
+import com.example.foodplanner.AllRandom.AllRandom_Model.Random;
+import com.example.foodplanner.AllRandom.AllRandom_Model.RandomRepositoryImplementation;
 
 
 import java.util.ArrayList;
