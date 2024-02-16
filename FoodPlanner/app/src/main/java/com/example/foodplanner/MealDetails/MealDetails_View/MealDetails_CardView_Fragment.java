@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 //import com.example.foodplanner.AllMealDetails.AllMealDetails_View.AllMealDetailsAdapter;
+import com.bumptech.glide.Glide;
 import com.example.foodplanner.CountryMeals.CountryMeals_View.CountryMeals_RecyclerView_Fragment;
 import com.example.foodplanner.Ingredients_RecyclerView_Fragment;
 
@@ -34,7 +35,7 @@ import java.util.ArrayList;
 
 
 public class MealDetails_CardView_Fragment extends Fragment implements MealDetailsViewInterface, OnMealDetailsClickListener{
-
+    ArrayList<MealDetails> mealDetailsArrayList = new ArrayList<>();
     TextView tv_mealName_mealDetails;
     ImageView img_mealDetails;
     TextView tv_mealCounty_mealDetails;
@@ -87,6 +88,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
         allMealDetailsPresenter = new MealDetailsPresenterImplementation(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
 
+
         tv_mealName_mealDetails = view.findViewById(R.id.tv_mealName_mealDetails);
         img_mealDetails = view.findViewById(R.id.img_mealDetails);
         tv_mealCounty_mealDetails = view.findViewById(R.id.tv_mealCountryName_mealDetails);
@@ -94,8 +96,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         videoView_mealDetails = view.findViewById(R.id.video_mealDetails);
         button_addToFavourite = view.findViewById(R.id.button_addToFavourite_mealDetails);
         button_removeFromFavourite = view.findViewById(R.id.button_removeFromFavourite_mealDetails);
-
-
+        img_mealDetails= view.findViewById(R.id.img_mealDetails);
 
         // Retrieve the Bundle from the arguments
         Bundle bundle = getArguments();
@@ -117,10 +118,12 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         allRecycler.setAdapter(allMealDetailsAdapter);
         allMealDetailsPresenter.getAllMealDetails(value);
 //
-
         // Inflate the layout for this fragment
         return view;
     }
+
+
+
 
 
     @Override
@@ -131,9 +134,41 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     @Override
     public void showDataMealDetails(ArrayList<MealDetails> mealDetails) {
-        Log.i("TAG", "showDataMealDetails: RecyclerView_MealDetails: + " + mealDetails);
+        Log.i("KKKK", "showDataMealDetails: RecyclerView_MealDetails: + " + mealDetails);
         allMealDetailsAdapter.setMealDetailsList(mealDetails);
+        mealDetailsArrayList.addAll(mealDetails);
         allMealDetailsAdapter.notifyDataSetChanged();
+        if (!mealDetails.isEmpty()) {
+            receiveArrayListAndSetDataInItsPlace(mealDetails);
+        }
+    }
+
+    public void receiveArrayListAndSetDataInItsPlace(ArrayList<MealDetails> mealDetails){
+        MealDetails mealDetailsObject = new MealDetails();
+        mealDetailsObject=mealDetails.get(0);
+        tv_mealName_mealDetails.setText(mealDetailsObject.getStrMeal());
+        tv_mealCounty_mealDetails.setText(mealDetailsObject.getStrArea());
+        tv_instructions_mealDetails.setText(mealDetailsObject.getStrInstructions());
+
+        /*
+
+        String imageURL= countryMealsList.get(position).getStrMealThumb();
+        CountryMeals current = countryMealsList.get(position);
+
+        holder.tv_countryMeals_mealName.setText(current.getStrMeal());
+
+
+        Glide.with(context)
+                .load(imageURL)
+                .into(holder.img_countryMeals);
+         */
+        String imageURL= mealDetailsObject.getStrMealThumb();
+        Glide.with(getContext())
+                .load(imageURL)
+                .into(img_mealDetails);
+
+
+
     }
 
     @Override

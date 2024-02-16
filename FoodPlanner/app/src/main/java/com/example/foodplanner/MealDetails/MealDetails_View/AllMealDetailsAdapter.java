@@ -72,7 +72,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
 
         String imageURL= mealDetailsList.get(position).getStrMealThumb();
         MealDetails current = mealDetailsList.get(position);
-
+/*
         holder.tv_mealName_mealDetails.setText(current.getStrMeal());
         holder.tv_mealCounty_mealDetails.setText(current.getStrArea());
         holder.tv_instructions_mealDetails.setText(current.getStrInstructions());
@@ -90,7 +90,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
                 .into(holder.img_mealDetails);
 
 
-
+*/
     }
 
     @Override
