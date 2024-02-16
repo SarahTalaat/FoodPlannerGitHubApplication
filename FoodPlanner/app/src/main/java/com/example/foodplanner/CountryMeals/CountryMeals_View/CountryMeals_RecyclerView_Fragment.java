@@ -65,7 +65,7 @@ public class CountryMeals_RecyclerView_Fragment extends Fragment implements Coun
         allRecycler = view.findViewById(R.id.rv_countrymeals);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         allRecycler.setLayoutManager(layoutManager);
-
+//
 
         Log.i("X", "AllCountryMeals Adapter after allRecycler.setLayoutManager(layoutManager);");
 
