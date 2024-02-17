@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    app:cardBackgroundColor="@color/orange_2"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="20dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="16dp"
+
     tools:context=".NavigationDrawer_Activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,15 +19,21 @@
         android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/tv_mealInstructions_favourite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+        <HorizontalScrollView
+            android:layout_width="320dp"
+            android:layout_height="203dp"
             android:layout_marginTop="30dp"
-            android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_mealCountryName_favourite" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_mealCountryName_favourite">
+
+            <TextView
+                android:id="@+id/tv_mealInstructions_favourite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="30dp"
+                android:text="TextView" />
+        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/tv_mealCountryName_favourite"
@@ -45,8 +59,8 @@
             android:id="@+id/img_favourite"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
             android:src="@drawable/camera_vector"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,11 +69,11 @@
             android:id="@+id/button_removeFromFavourite_favourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="8dp"
             android:backgroundTint="@color/red"
             android:text="Remove fom Favourite"
             app:layout_constraintBottom_toBottomOf="@+id/img_favourite"
             app:layout_constraintStart_toEndOf="@+id/img_favourite"
             app:layout_constraintTop_toTopOf="@+id/img_favourite" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.cardview.widget.CardView>
