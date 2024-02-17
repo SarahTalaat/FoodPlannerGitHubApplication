@@ -37,7 +37,7 @@ public class FavouriteMealDetailsAdapter extends RecyclerView.Adapter<FavouriteM
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_ingredients_card_view,parent,false);
+        View view = inflater.inflate(R.layout.fragment_ingredients_favourite_card_view,parent,false);
         MyViewHolder myViewHolder = new MyViewHolder(view);
 
         return myViewHolder;

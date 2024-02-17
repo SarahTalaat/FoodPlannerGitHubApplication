@@ -113,7 +113,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         tv_instructions_mealDetails = view.findViewById(R.id.tv_mealInstructions_mealDetails);
         videoView = view.findViewById(R.id.video_mealDetails);
 
-      //  button_addToFavourite = view.findViewById(R.id.button_addToFavourite_mealDetails);
+        button_addToFavourite = view.findViewById(R.id.button_addToFavourite_mealDetails);
         button_removeFromFavourite = view.findViewById(R.id.button_removeFromFavourite_mealDetails);
         img_mealDetails= view.findViewById(R.id.img_mealDetails);
 
@@ -251,11 +251,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     @Override
     public void addMealDetails(MealDetails mealDetails) {
         mealDetailsPresenterImplementation.addToFavouriteMealDetails(mealDetails);
-
-
-
     }
-
 /*
     @Override
     public void onMealDetailsClick(String countryMeal) {

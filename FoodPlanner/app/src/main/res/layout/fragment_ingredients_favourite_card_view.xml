@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="410dp"
+android:layout_height="300dp"
+app:cardBackgroundColor="@color/orange_2"
+app:cardCornerRadius="30dp"
+app:cardElevation="20dp"
+app:cardPreventCornerOverlap="true"
+app:cardUseCompatPadding="true"
+app:contentPadding="16dp"
+tools:context=".Ingredients_Favourite_CardView_Fragment">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_ingredient"
+        android:layout_width="258dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:width="100dp"
+        android:gravity="center"
+        android:hint="Ingredient"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
