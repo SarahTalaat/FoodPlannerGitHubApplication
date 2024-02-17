@@ -40,6 +40,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MealDetails_CardView_Fragment extends Fragment implements MealDetailsViewInterface, OnMealDetailsClickListener{
@@ -148,7 +149,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     }
 
     @Override
-    public void showDataMealDetails(ArrayList<MealDetails> mealDetails) {
+    public void showDataMealDetails(List<MealDetails> mealDetails) {
         Log.i("KKKK", "showDataMealDetails: RecyclerView_MealDetails: + " + mealDetails);
         allMealDetailsAdapter.setMealDetailsList(mealDetails);
         mealDetailsArrayList.addAll(mealDetails);
@@ -158,7 +159,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         }
     }
 
-    public void receiveArrayListAndSetDataInItsPlace(ArrayList<MealDetails> mealDetails){
+    public void receiveArrayListAndSetDataInItsPlace(List<MealDetails> mealDetails){
         MealDetails mealDetailsObject = new MealDetails();
         mealDetailsObject=mealDetails.get(0);
         tv_mealName_mealDetails.setText(mealDetailsObject.getStrMeal());

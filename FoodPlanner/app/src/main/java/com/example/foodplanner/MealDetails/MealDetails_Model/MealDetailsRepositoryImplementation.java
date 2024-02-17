@@ -2,7 +2,9 @@ package com.example.foodplanner.MealDetails.MealDetails_Model;
 
 import android.util.Log;
 
+import com.example.foodplanner.Database.MealDetailsLocalDataSourceImpl;
 import com.example.foodplanner.Network.ConnetionRemoteDataSource;
+import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 
 import java.util.List;
 
@@ -15,9 +17,11 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
 
     private static MealDetailsRepositoryImplementation repository = null;
     ConnetionRemoteDataSource connetionRemoteDataSource; //ntwork connection and get data
+    MealDetailsLocalDataSourceImpl mealDetailsLocalDataSourceImp;
 
-    public MealDetailsRepositoryImplementation(ConnetionRemoteDataSource connetionRemoteDataSource) {
+    public MealDetailsRepositoryImplementation(ConnetionRemoteDataSourceImplementation connetionRemoteDataSource,MealDetailsLocalDataSourceImpl mealDetailsLocalDataSourceImp) {
         this.connetionRemoteDataSource = connetionRemoteDataSource;
+        this.mealDetailsLocalDataSourceImp = mealDetailsLocalDataSourceImp;
     }
 
     //    CountryLocalDataSource countryLocalDataSource; //insert delete getpro interface
@@ -27,16 +31,17 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
         this.countryLocalDataSource = countryLocalDataSource;
     }
 */
-    public static MealDetailsRepositoryImplementation getInstance(ConnetionRemoteDataSource connetionRemoteDataSource) {
+    public static MealDetailsRepositoryImplementation getInstance(ConnetionRemoteDataSourceImplementation connetionRemoteDataSourceImplementation,MealDetailsLocalDataSourceImpl mealDetailsLocalDataSourceImp ) {
         if (repository == null) {
-            repository = new MealDetailsRepositoryImplementation(connetionRemoteDataSource);
+            repository = new MealDetailsRepositoryImplementation(connetionRemoteDataSourceImplementation,mealDetailsLocalDataSourceImp);
         }
         return repository;
     }
 
     @Override
     public Flowable<List<MealDetails>> getStoredMealDetails() {
-        return null;
+
+        return mealDetailsLocalDataSourceImp.getStoredProducts() ;
     }
 
     /*
@@ -62,12 +67,14 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
 
     @Override
     public Completable insertMealDetails(MealDetails mealDetails) {
-        return null;
+
+        return mealDetailsLocalDataSourceImp.insert(mealDetails) ;
     }
 
     @Override
     public Completable deleteMealDetails(MealDetails mealDetails) {
-        return null;
+
+        return mealDetailsLocalDataSourceImp.delete(mealDetails);
     }
 
 

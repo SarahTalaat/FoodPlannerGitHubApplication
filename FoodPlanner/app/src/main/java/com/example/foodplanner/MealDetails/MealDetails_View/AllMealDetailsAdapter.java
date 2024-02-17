@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.foodplanner.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAdapter.MyViewHolder>  {
@@ -48,7 +49,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
     }
 
 
-    public void setMealDetailsList(ArrayList<MealDetails> mealDetailsList) { // update
+    public void setMealDetailsList(List<MealDetails> mealDetailsList) { // update
         Log.i("Y", "Al mealDetails adapter rando list: "+ mealDetailsList);
         this.mealDetailsList.addAll(mealDetailsList);
         notifyDataSetChanged();
