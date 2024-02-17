@@ -63,22 +63,28 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     MealDetailsPresenterInterface allMealDetailsPresenter;
     MealDetailsPresenterImplementation mealDetailsPresenterImplementation;
     AllMealDetailsAdapter allMealDetailsAdapter;
-
+    OnMealDetailsClickListener listener;
     String[] videoSplit;
     String videoId;
     YouTubePlayerView videoView ;
     MealDetails mealDetailsObject;
 
 
-    public MealDetails_CardView_Fragment() {
-        // Required empty public constructor
 
+    public  MealDetails_CardView_Fragment(){
+
+    }
+
+    public MealDetails_CardView_Fragment(OnMealDetailsClickListener listener) {
+        this.listener=listener;
+        // Required empty public constructor
     }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
@@ -97,7 +103,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
         //    allProductsPresenter = new AllAllMealDetailsPresenterImplementation(this, AllMealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
         //            MealDetailsLocalDataSourceImplementation.getInstance(getContext())));
-
+        mealDetailsPresenterImplementation = new MealDetailsPresenterImplementation(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(), MealDetailsLocalDataSourceImpl.getInstance(getContext())));
         allMealDetailsPresenter = new MealDetailsPresenterImplementation(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(), MealDetailsLocalDataSourceImpl.getInstance(getContext())));
 
 
@@ -125,6 +131,18 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
             // Use the retrieved data as needed
             Log.d("MealDetails Meals Fragment", "Value from Bundle: " + value);
         }
+
+
+        // Initialize the listener
+        listener = new OnMealDetailsClickListener() {
+            @Override
+            public void onFavClickMealDetails(MealDetails mealDetails) {
+                // Implement the behavior when the "Add to Favorite" button is clicked
+                Toast.makeText(getContext(),"Add To fav",Toast.LENGTH_SHORT).show();
+                addMealDetails(mealDetails);
+            }
+        };
+
 
         allMealDetailsAdapter = new AllMealDetailsAdapter(getContext(), this);
         // Set the adapter AFTER the layout manager
@@ -206,10 +224,15 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         });
 
 
+
+
+
         button_addToFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onFavClickMealDetails(mealDetailsObject);
+            //    MealDetails_CardView_Fragment mealDetailsCardViewFragment=new MealDetails_CardView_Fragment(listener);
+
+                listener.onFavClickMealDetails(mealDetailsObject);
             }
         });
 
