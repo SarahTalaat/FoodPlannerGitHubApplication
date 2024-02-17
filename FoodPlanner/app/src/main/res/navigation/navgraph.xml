@@ -18,7 +18,7 @@
         android:id="@+id/favourites_Fragment"
         android:name="com.example.foodplanner.FavouriteMealDetails.FavouriteMealDetails_View.FavouriteMealDetails_Fragment"
         android:label="fragment_favouries"
-        tools:layout="@layout/fragment_favouries" />
+        tools:layout="@layout/fragment_favourites" />
     <fragment
         android:id="@+id/current_Week_Fragment"
         android:name="com.example.foodplanner.Current_Week_Fragment"
