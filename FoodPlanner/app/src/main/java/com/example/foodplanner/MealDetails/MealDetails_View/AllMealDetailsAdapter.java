@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.foodplanner.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAdapter.MyViewHolder>  {
@@ -48,7 +49,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
     }
 
 
-    public void setMealDetailsList(ArrayList<MealDetails> mealDetailsList) { // update
+    public void setMealDetailsList(List<MealDetails> mealDetailsList) { // update
         Log.i("Y", "Al mealDetails adapter rando list: "+ mealDetailsList);
         this.mealDetailsList.addAll(mealDetailsList);
         notifyDataSetChanged();
@@ -70,8 +71,8 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
         ImageView image;
 
 
-        String imageURL= mealDetailsList.get(position).getStrMealThumb();
-        MealDetails current = mealDetailsList.get(position);
+     //   String imageURL= mealDetailsList.get(position).getStrMealThumb();
+     //   MealDetails current = mealDetailsList.get(position);
 /*
         holder.tv_mealName_mealDetails.setText(current.getStrMeal());
         holder.tv_mealCounty_mealDetails.setText(current.getStrArea());
@@ -114,13 +115,7 @@ public class AllMealDetailsAdapter extends RecyclerView.Adapter<AllMealDetailsAd
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-            img_mealDetails = itemView.findViewById(R.id.img_mealDetails);
-            tv_mealName_mealDetails = itemView.findViewById(R.id.tv_mealName_mealDetails);
-            tv_mealCounty_mealDetails = itemView.findViewById(R.id.tv_mealCountryName_mealDetails);
-            tv_instructions_mealDetails=itemView.findViewById(R.id.tv_mealInstructions_mealDetails);
-            videoView_mealDetails = itemView.findViewById(R.id.video_mealDetails);
-            button_addToFavourite=itemView.findViewById(R.id.button_addToFavourite_mealDetails);
-            button_removeFromFavourite = itemView.findViewById(R.id.button_removeFromFavourite_mealDetails);
+
             // button_favourite = itemView.findViewById(R.id.button_favourite_mealDetails);
         }
     }

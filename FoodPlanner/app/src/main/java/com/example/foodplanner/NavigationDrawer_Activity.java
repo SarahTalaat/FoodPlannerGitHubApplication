@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.foodplanner.CategoryMeals.CategoryMeals_View.CategoryMeals_RecyclerView_Fragment;
+import com.example.foodplanner.FavouriteMealDetails.FavouriteMealDetails_View.FavouriteMealDetails_Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationDrawer_Activity extends AppCompatActivity {
@@ -115,7 +116,7 @@ public class NavigationDrawer_Activity extends AppCompatActivity {
                     Toast.makeText(NavigationDrawer_Activity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.favourites_item){
-                    fragmentR(new CategoryMeals_RecyclerView_Fragment());
+                    fragmentR(new FavouriteMealDetails_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Favourite Fragment", Toast.LENGTH_SHORT).show();
 

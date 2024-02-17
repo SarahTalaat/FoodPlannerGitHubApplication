@@ -50,6 +50,7 @@ public class CategoryMeals_RecyclerView_Fragment extends Fragment implements Cat
     }
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +64,7 @@ public class CategoryMeals_RecyclerView_Fragment extends Fragment implements Cat
         Log.i("X", "AllCategoryMeals Adapter after       ");
 
         allRecycler = view.findViewById(R.id.rv_categoryMeals);
-        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
 

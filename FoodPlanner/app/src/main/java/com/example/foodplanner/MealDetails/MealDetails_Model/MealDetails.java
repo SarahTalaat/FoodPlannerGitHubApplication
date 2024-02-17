@@ -1,7 +1,15 @@
 package com.example.foodplanner.MealDetails.MealDetails_Model;
 
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "meal_table")
 public class MealDetails {
 
+    @PrimaryKey
+    @NonNull
     private String idMeal;
     private String strMeal;
     private String strDrinkAlternate;
