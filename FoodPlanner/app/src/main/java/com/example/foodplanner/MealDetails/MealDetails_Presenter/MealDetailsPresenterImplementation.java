@@ -2,8 +2,10 @@
 package com.example.foodplanner.MealDetails.MealDetails_Presenter;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
+import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepository;
 import com.example.foodplanner.MealDetails.MealDetails_View.MealDetailsViewInterface;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepositoryImplementation;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
@@ -18,9 +20,13 @@ import io.reactivex.rxjava3.disposables.Disposable;
 public class MealDetailsPresenterImplementation implements MealDetailsPresenterInterface {
     MealDetailsRepositoryImplementation repositoryImplementation;
     MealDetailsViewInterface viewInterface;
+    private MealDetailsRepository mealDetailsRepository;
+
+    private static final String TAG = "MealDetails Presenter Impl";
+
     //bygeb el data men el network
-    public MealDetailsPresenterImplementation(MealDetailsViewInterface allProductsActivity, MealDetailsRepositoryImplementation instance) {
-        this.repositoryImplementation = instance;
+    public MealDetailsPresenterImplementation(MealDetailsViewInterface allProductsActivity, MealDetailsRepository instance) {
+        this.mealDetailsRepository = instance;
         this.viewInterface = allProductsActivity;
         Log.i("X", "AllMealDetails presenter constructor ");
     }
@@ -39,14 +45,13 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
 
             @Override
             public void onNext(@NonNull MealDetailsResponse mealDetailsResponse) {
-                viewInterface.showDataMealDetails(mealDetailsResponse.meals);
-                Log.i("mealdetailsssss", "  "+ mealDetailsResponse.meals);
-
+                viewInterface.showDataMealDetails(mealDetailsResponse.getMeals());
+                Log.i("onNext MealDetailsPresenterImp ", "  "+ mealDetailsResponse.getMeals());
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
-                viewInterface.showErrorMsgMealDetails("Error");
+                viewInterface.showErrorMsgMealDetails("Error MealDetailsPresenterImp");
             }
 
             @Override
