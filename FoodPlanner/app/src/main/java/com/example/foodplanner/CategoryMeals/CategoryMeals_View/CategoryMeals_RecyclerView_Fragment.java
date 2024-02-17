@@ -50,6 +50,7 @@ public class CategoryMeals_RecyclerView_Fragment extends Fragment implements Cat
     }
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -251,7 +251,11 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     @Override
     public void addMealDetails(MealDetails mealDetails) {
         mealDetailsPresenterImplementation.addToFavouriteMealDetails(mealDetails);
+
+
+
     }
+
 /*
     @Override
     public void onMealDetailsClick(String countryMeal) {

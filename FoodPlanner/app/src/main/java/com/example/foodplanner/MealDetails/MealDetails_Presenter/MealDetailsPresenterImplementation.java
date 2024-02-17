@@ -23,6 +23,7 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
     private MealDetailsRepository mealDetailsRepository;
 
     private static final String TAG = "MealDetails Presenter Impl";
+    private static final String DB = "DB";
 
     //bygeb el data men el network
     public MealDetailsPresenterImplementation(MealDetailsViewInterface allProductsActivity, MealDetailsRepositoryImplementation instance) {
@@ -32,8 +33,12 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
     }
 
 
+
     ////////////////////////////////
     //All product Pesenter interface imp
+
+
+
     @Override
     public void getAllMealDetails(String countryMeal) {
         Observable<MealDetailsResponse> observable = repositoryImplementation.getAllMealDetails(countryMeal);
@@ -68,6 +73,13 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
         Completable completable = repositoryImplementation.insertMealDetails(mealDetails);
         completable.observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
             viewInterface.showErrorMsgMealDetails("MealDetails added to favourites successfully");
+            Log.i(DB, "addToFavouriteMealDetails: "+
+                  "Meal id: " + mealDetails.getIdMeal() +
+                  "Meal name: " + mealDetails.getStrMeal() +
+                  "Meal Area: " + mealDetails.getStrArea() +
+                  "Meal Instructions: " + mealDetails.getStrInstructions() +
+                  "Meal YoutubeURL: " + mealDetails.getStrYoutube()
+            );
         },error -> {
             viewInterface.showErrorMsgMealDetails("Error adding mealDetails to favourites");
         });

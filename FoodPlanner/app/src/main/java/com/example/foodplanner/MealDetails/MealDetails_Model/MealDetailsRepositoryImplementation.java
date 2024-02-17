@@ -15,6 +15,9 @@ import io.reactivex.rxjava3.core.Observable;
 
 public class MealDetailsRepositoryImplementation implements MealDetailsRepository {
 
+
+    public static final String DB ="DB";
+
     private static MealDetailsRepositoryImplementation repository = null;
     ConnetionRemoteDataSource connetionRemoteDataSource; //ntwork connection and get data
     MealDetailsLocalDataSourceImpl mealDetailsLocalDataSourceImp;
@@ -65,10 +68,21 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
         return connetionRemoteDataSource.makeNetworkCallBackMealDetails(mealDetails);
     }
 
+
     @Override
     public Completable insertMealDetails(MealDetails mealDetails) {
 
+
+        Log.i(DB, "-- repoImp insertttt -- "+
+                "Meal id: " + mealDetails.getIdMeal() +
+                "Meal name: " + mealDetails.getStrMeal() +
+                "Meal Area: " + mealDetails.getStrArea() +
+                "Meal Instructions: " + mealDetails.getStrInstructions() +
+                "Meal YoutubeURL: " + mealDetails.getStrYoutube()
+        );
+
         return mealDetailsLocalDataSourceImp.insert(mealDetails) ;
+
     }
 
     @Override
