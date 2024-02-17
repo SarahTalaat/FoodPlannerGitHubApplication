@@ -5,15 +5,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
 import com.example.foodplanner.R;
 
@@ -37,7 +32,7 @@ public class FavouriteMealDetailsAdapter extends RecyclerView.Adapter<FavouriteM
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_ingredients_favourite_card_view,parent,false);
+        View view = inflater.inflate(R.layout.fragment_favourite_meal_card_view,parent,false);
         MyViewHolder myViewHolder = new MyViewHolder(view);
 
         return myViewHolder;

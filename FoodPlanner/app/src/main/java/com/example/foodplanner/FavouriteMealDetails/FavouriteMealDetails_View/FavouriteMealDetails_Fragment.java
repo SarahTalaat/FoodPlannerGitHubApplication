@@ -94,16 +94,16 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_favourites, container, false);
+        View view = inflater.inflate(R.layout.fragment_favourites_recyclerview, container, false);
 
 
-        allRecycler = view.findViewById(R.id.rv_ingredients_favourite);
+        allRecycler = view.findViewById(R.id.rv_favourite);
         layoutManager = new LinearLayoutManager(getContext());
         allRecycler.setLayoutManager(layoutManager);
 
 
 
-
+/*
         listener = new OnMealDetailsClickListenerDelete() {
             @Override
             public void onDeleteClick(MealDetails mealDetails) {
@@ -112,36 +112,28 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
             }
         };
 
+*/
 
-
-        favouriteMealDetailsAdapter = new FavouriteMealDetailsAdapter(getContext(), new ArrayList<>(), this);
         // Set the adapter AFTER the layout manager
-        allRecycler.setAdapter(favouriteMealDetailsAdapter);
-        favMealDetailsPresenter = new FavMealDetailsPresenterImpl(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
+
+        favMealDetailsPresenterImplementation = new FavMealDetailsPresenterImpl(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
                 MealDetailsLocalDataSourceImpl.getInstance(getContext())));
+        favouriteMealDetailsAdapter = new FavouriteMealDetailsAdapter(getContext(), new ArrayList<>(), this);
 
+        allRecycler.setAdapter(favouriteMealDetailsAdapter);
 
-
-
-
-
+/*
         tv_mealName_favourite = view.findViewById(R.id.tv_mealName_favourite);
-        img_favourite = view.findViewById(R.id.img_mealDetails);
         tv_mealCounty_favourite = view.findViewById(R.id.tv_mealCountryName_favourite);
         tv_instructions_favourite = view.findViewById(R.id.tv_mealInstructions_favourite);
         videoView = view.findViewById(R.id.video_favourite);
 
         button_removeFromFavourite = view.findViewById(R.id.button_removeFromFavourite_favourite);
         img_favourite= view.findViewById(R.id.img_favourite);
-
-
-
-
-
-
+*/
         //   mealDetailsList = favMealDetailsPresenter.getStoredMealDetails();
         //   showData(mealDetailsList);
-        favMealDetailsPresenterImplementation =new FavMealDetailsPresenterImpl(this,MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(), MealDetailsLocalDataSourceImpl.getInstance(getContext())));
+      //  favMealDetailsPresenterImplementation =new FavMealDetailsPresenterImpl(this,MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(), MealDetailsLocalDataSourceImpl.getInstance(getContext())));
         favMealDetailsPresenterImplementation.getFavMealDetails();
 
         return view;
@@ -164,15 +156,15 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
         */
         favouriteMealDetailsAdapter.setMealDetailsList(mealDetails);
         favouriteMealDetailsAdapter.notifyDataSetChanged();
-
+/*
         if (!mealDetails.isEmpty()) {
             receiveArrayListAndSetDataInItsPlace(mealDetails);
         }
-        
+   */
     }
 
 
-
+/*
     public void receiveArrayListAndSetDataInItsPlace(List<MealDetails> mealDetails){
         mealDetailsObject = new MealDetails();
         mealDetailsObject=mealDetails.get(0);
@@ -192,6 +184,7 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
                 .load(imageURL)
                 .into(holder.img_countryMeals);
          */
+    /*
         String imageURL= mealDetailsObject.getStrMealThumb();
         Glide.with(getContext())
                 .load(imageURL)
@@ -236,6 +229,8 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
 
 
     }
+
+     */
 
     @Override
     public void removeMealDetails(MealDetails mealDetails) {
