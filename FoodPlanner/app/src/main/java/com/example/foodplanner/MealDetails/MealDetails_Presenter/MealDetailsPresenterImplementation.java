@@ -25,8 +25,8 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
     private static final String TAG = "MealDetails Presenter Impl";
 
     //bygeb el data men el network
-    public MealDetailsPresenterImplementation(MealDetailsViewInterface allProductsActivity, MealDetailsRepository instance) {
-        this.mealDetailsRepository = instance;
+    public MealDetailsPresenterImplementation(MealDetailsViewInterface allProductsActivity, MealDetailsRepositoryImplementation instance) {
+        this.repositoryImplementation = instance;
         this.viewInterface = allProductsActivity;
         Log.i("X", "AllMealDetails presenter constructor ");
     }

@@ -1,14 +1,11 @@
 
 package com.example.foodplanner.MealDetails.MealDetails_View;
 
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,15 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 //import com.example.foodplanner.AllMealDetails.AllMealDetails_View.AllMealDetailsAdapter;
 import com.bumptech.glide.Glide;
-import com.example.foodplanner.CountryMeals.CountryMeals_View.CountryMeals_RecyclerView_Fragment;
-import com.example.foodplanner.Ingredients_RecyclerView_Fragment;
+import com.example.foodplanner.Database.MealDetailsLocalDataSourceImpl;
 
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
@@ -44,7 +40,7 @@ import java.util.List;
 
 
 public class MealDetails_CardView_Fragment extends Fragment implements MealDetailsViewInterface, OnMealDetailsClickListener{
-    ArrayList<MealDetails> mealDetailsArrayList = new ArrayList<>();
+    List<MealDetails> mealDetailsList = new ArrayList<>();
     TextView tv_mealName_mealDetails;
     ImageView img_mealDetails;
     TextView tv_mealCounty_mealDetails;
@@ -65,12 +61,13 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     RecyclerView.LayoutManager layoutManager;
 
     MealDetailsPresenterInterface allMealDetailsPresenter;
+    MealDetailsPresenterImplementation mealDetailsPresenterImplementation;
     AllMealDetailsAdapter allMealDetailsAdapter;
 
     String[] videoSplit;
     String videoId;
     YouTubePlayerView videoView ;
-
+    MealDetails mealDetailsObject;
 
 
     public MealDetails_CardView_Fragment() {
@@ -91,7 +88,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         View view = inflater.inflate(R.layout.fragment_meal_details_card_view, container, false);
         Log.i("X", "AllMealDetails Adapter after       ");
 
-        allRecycler = view.findViewById(R.id.fragmentContainerView_ingredients_mealDetails);
+        allRecycler = view.findViewById(R.id.rv_ingredients_mealDetails);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         allRecycler.setLayoutManager(layoutManager);
 
@@ -101,7 +98,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         //    allProductsPresenter = new AllAllMealDetailsPresenterImplementation(this, AllMealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
         //            MealDetailsLocalDataSourceImplementation.getInstance(getContext())));
 
-        allMealDetailsPresenter = new MealDetailsPresenterImplementation(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance()));
+        allMealDetailsPresenter = new MealDetailsPresenterImplementation(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(), MealDetailsLocalDataSourceImpl.getInstance(getContext())));
 
 
         tv_mealName_mealDetails = view.findViewById(R.id.tv_mealName_mealDetails);
@@ -144,6 +141,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     @Override
     public void onFavClickMealDetails(MealDetails mealDetails) {
+        Toast.makeText(getContext(),"Add To fav",Toast.LENGTH_SHORT).show();
         addMealDetails(mealDetails);
         //  repo.insert(mealDetails);
     }
@@ -152,7 +150,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     public void showDataMealDetails(List<MealDetails> mealDetails) {
         Log.i("KKKK", "showDataMealDetails: RecyclerView_MealDetails: + " + mealDetails);
         allMealDetailsAdapter.setMealDetailsList(mealDetails);
-        mealDetailsArrayList.addAll(mealDetails);
+        mealDetailsList.addAll(mealDetails);
         allMealDetailsAdapter.notifyDataSetChanged();
         if (!mealDetails.isEmpty()) {
             receiveArrayListAndSetDataInItsPlace(mealDetails);
@@ -160,7 +158,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     }
 
     public void receiveArrayListAndSetDataInItsPlace(List<MealDetails> mealDetails){
-        MealDetails mealDetailsObject = new MealDetails();
+        mealDetailsObject = new MealDetails();
         mealDetailsObject=mealDetails.get(0);
         tv_mealName_mealDetails.setText(mealDetailsObject.getStrMeal());
         tv_mealCounty_mealDetails.setText(mealDetailsObject.getStrArea());
@@ -208,7 +206,12 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         });
 
 
-
+        button_addToFavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onFavClickMealDetails(mealDetailsObject);
+            }
+        });
 
 
     }
@@ -219,12 +222,12 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     @Override
     public void showErrorMsgMealDetails(String error) {
-
+        Toast.makeText(getContext(),error,Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void addMealDetails(MealDetails mealDetails) {
-        allMealDetailsPresenter.addToFavouriteMealDetails(mealDetails);
+        mealDetailsPresenterImplementation.addToFavouriteMealDetails(mealDetails);
     }
 /*
     @Override
