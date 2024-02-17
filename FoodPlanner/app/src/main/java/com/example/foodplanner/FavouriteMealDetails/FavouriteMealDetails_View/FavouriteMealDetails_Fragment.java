@@ -39,10 +39,6 @@ import io.reactivex.rxjava3.core.Flowable;
 public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDetailsClickListenerDelete, FavMealDetailsView {
 
 
-
-
-
-
     TextView tv_mealName_favourite;
     ImageView img_favourite;
     TextView tv_mealCounty_favourite;
@@ -78,12 +74,12 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
     public FavouriteMealDetails_Fragment() {
         // Required empty public constructor
     }
-
+/*
     public FavouriteMealDetails_Fragment(OnMealDetailsClickListenerDelete listener) {
         this.listener=listener;
         // Required empty public constructor
     }
-
+*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +112,7 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
 
         // Set the adapter AFTER the layout manager
 
-        favMealDetailsPresenterImplementation = new FavMealDetailsPresenterImpl(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
+        favMealDetailsPresenter = new FavMealDetailsPresenterImpl(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
                 MealDetailsLocalDataSourceImpl.getInstance(getContext())));
         favouriteMealDetailsAdapter = new FavouriteMealDetailsAdapter(getContext(), new ArrayList<>(), this);
 
@@ -133,7 +129,7 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
 */
         //   mealDetailsList = favMealDetailsPresenter.getStoredMealDetails();
         //   showData(mealDetailsList);
-      //  favMealDetailsPresenterImplementation =new FavMealDetailsPresenterImpl(this,MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(), MealDetailsLocalDataSourceImpl.getInstance(getContext())));
+        favMealDetailsPresenterImplementation =new FavMealDetailsPresenterImpl(this,MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(), MealDetailsLocalDataSourceImpl.getInstance(getContext())));
         favMealDetailsPresenterImplementation.getFavMealDetails();
 
         return view;

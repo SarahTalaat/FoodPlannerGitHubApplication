@@ -10,22 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-            android:id="@+id/video_favourite"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_ingredients_favourite" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_ingredients_favourite"
-            android:layout_width="412dp"
-            android:layout_height="245dp"
-            android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_mealInstructions_favourite" />
 
         <TextView
             android:id="@+id/tv_mealInstructions_favourite"
