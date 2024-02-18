@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.foodplanner.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Plan_Fragment_RecyclerView#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Plan_Fragment_RecyclerView extends Fragment {
 
 
