@@ -138,6 +138,7 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
     @Override
     public void onDeleteClick(MealDetails mealDetails) {
         removeMealDetails(mealDetails);
+        favouriteMealDetailsAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -232,6 +233,7 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
     public void removeMealDetails(MealDetails mealDetails) {
         favMealDetailsPresenter.removeFromFav(mealDetails);
         favMealDetailsPresenterImplementation.removeFromFav(mealDetails);
+        favouriteMealDetailsAdapter.notifyDataSetChanged();
 
     }
 

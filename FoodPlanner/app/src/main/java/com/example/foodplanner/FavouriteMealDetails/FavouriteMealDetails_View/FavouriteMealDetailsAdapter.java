@@ -96,7 +96,9 @@ public class FavouriteMealDetailsAdapter extends RecyclerView.Adapter<FavouriteM
             @Override
             public void onClick(View v) {
                 onMealDetailsClickListenerDelete.onDeleteClick(current);
+                notifyDataSetChanged();
             }
+
         });
 
     }
