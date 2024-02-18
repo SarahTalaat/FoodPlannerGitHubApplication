@@ -161,6 +161,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     public void onFavClickMealDetails(MealDetails mealDetails) {
         Toast.makeText(getContext(),"Add To fav",Toast.LENGTH_SHORT).show();
         addMealDetails(mealDetails);
+        mealDetailsAdapter.notifyDataSetChanged();
         //  repo.insert(mealDetails);
     }
 
@@ -233,6 +234,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
             //    MealDetails_CardView_Fragment mealDetailsCardViewFragment=new MealDetails_CardView_Fragment(listener);
 
                 listener.onFavClickMealDetails(mealDetailsObject);
+
             }
         });
 

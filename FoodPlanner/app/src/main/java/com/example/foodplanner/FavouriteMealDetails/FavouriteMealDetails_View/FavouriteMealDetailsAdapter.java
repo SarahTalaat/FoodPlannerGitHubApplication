@@ -92,6 +92,14 @@ public class FavouriteMealDetailsAdapter extends RecyclerView.Adapter<FavouriteM
                 .load(imageURL)
                 .into(holder.img_favourite);
 
+        holder.button_removeFromFavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMealDetailsClickListenerDelete.onDeleteClick(current);
+
+            }
+
+        });
 
     }
 

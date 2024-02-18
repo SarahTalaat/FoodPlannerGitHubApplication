@@ -112,11 +112,12 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
 
         // Set the adapter AFTER the layout manager
 
+       favouriteMealDetailsAdapter = new FavouriteMealDetailsAdapter(getContext(), new ArrayList<>(), this);
+       allRecycler.setAdapter(favouriteMealDetailsAdapter);
+
         favMealDetailsPresenter = new FavMealDetailsPresenterImpl(this, MealDetailsRepositoryImplementation.getInstance(ConnetionRemoteDataSourceImplementation.getInstance(),
                 MealDetailsLocalDataSourceImpl.getInstance(getContext())));
-        favouriteMealDetailsAdapter = new FavouriteMealDetailsAdapter(getContext(), new ArrayList<>(), this);
 
-        allRecycler.setAdapter(favouriteMealDetailsAdapter);
 
 /*
         tv_mealName_favourite = view.findViewById(R.id.tv_mealName_favourite);
@@ -151,7 +152,6 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
         });
         */
         favouriteMealDetailsAdapter.setMealDetailsList(mealDetails);
-        favouriteMealDetailsAdapter.notifyDataSetChanged();
 /*
         if (!mealDetails.isEmpty()) {
             receiveArrayListAndSetDataInItsPlace(mealDetails);
@@ -231,7 +231,8 @@ public class FavouriteMealDetails_Fragment extends Fragment  implements OnMealDe
     @Override
     public void removeMealDetails(MealDetails mealDetails) {
         favMealDetailsPresenter.removeFromFav(mealDetails);
-        favMealDetailsPresenterImplementation.removeFromFav(mealDetails);
+      //  favMealDetailsPresenterImplementation.removeFromFav(mealDetails);
+     //   favouriteMealDetailsAdapter.notifyDataSetChanged();
 
     }
 
