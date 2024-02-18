@@ -32,7 +32,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
     Context context;
     OnMealDetailsClickListener onMealDetailsClickListener;
 
-    ArrayList<MealDetails> mealDetailsList =new ArrayList<>();
+   // ArrayList<MealDetails> mealDetailsList =new ArrayList<>();
     private List<Plan> planList;
     public PlanAdapter(Context context, List<Plan> planList, OnMealDetailsClickListener onMealDetailsClickListener){
         //  this.countryList=countryList;
@@ -54,7 +54,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
 
 
     public void setMealplanList(List<Plan> planList) { // update
-        Log.i("Y", "Al mealDetails adapter rando list: "+ mealDetailsList);
+        Log.i("Y", "Al mealDetails adapter rando list: "+ planList);
         this.planList.addAll(planList);
         notifyDataSetChanged();
     }
@@ -116,7 +116,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return mealDetailsList.size();
+        return planList.size();
     }
 
 
@@ -132,7 +132,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
 
             tv_mealName_plan = itemView.findViewById(R.id.tv_Plan);
             img_plan = itemView.findViewById(R.id.img_Plan);
-            button_favourite_plan = itemView.findViewById(R.id.button_addToFavourite_Plan);
+            button_favourite_plan = itemView.findViewById(R.id.button_transparentButton_plan);
 
             // button_favourite = itemView.findViewById(R.id.button_favourite_mealDetails);
 
