@@ -85,5 +85,22 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
             viewInterface.showErrorMsgMealDetails("Error adding mealDetails to favourites");
         });
     }
+
+    @Override
+    public void removeFromFavourite(MealDetails mealDetails) {
+        Completable completable = repositoryImplementation.deleteMealDetails(mealDetails);
+        completable.observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
+            viewInterface.showErrorMsgMealDetails("MealDetails removed from favourites successfully");
+            Log.i(DB, "RemoveFromFavouriteMealDetails: "+
+                    "Meal id: " + mealDetails.getIdMeal() +
+                    "Meal name: " + mealDetails.getStrMeal() +
+                    "Meal Area: " + mealDetails.getStrArea() +
+                    "Meal Instructions: " + mealDetails.getStrInstructions() +
+                    "Meal YoutubeURL: " + mealDetails.getStrYoutube()
+            );
+        },error -> {
+            viewInterface.showErrorMsgMealDetails("Error removing mealDetails from favourites");
+        });
+    }
 }
 

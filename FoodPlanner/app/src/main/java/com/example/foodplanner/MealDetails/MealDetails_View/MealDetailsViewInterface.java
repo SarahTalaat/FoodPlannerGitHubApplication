@@ -13,6 +13,8 @@ public interface MealDetailsViewInterface {
     public void showErrorMsgMealDetails(String error);
     public void addMealDetails(MealDetails mealDetails);
 
+    public void removeMealDetails(MealDetails mealDetails);
+
 
 }
 
