@@ -19,9 +19,9 @@ app:contentPadding="16dp">
 
     <ImageView
         android:id="@+id/img_Plan"
-        android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginStart="84dp"
+        android:layout_width="139dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="16dp"
         android:foregroundGravity="center"
         android:src="@drawable/ic_launcher_foreground"
@@ -42,20 +42,16 @@ app:contentPadding="16dp">
         app:layout_constraintStart_toStartOf="@+id/img_Plan"
         app:layout_constraintTop_toBottomOf="@+id/img_Plan" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_transparentButton_Plan"
-        android:layout_width="324dp"
-        android:layout_height="185dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:hint="Button"
-        android:textColorHint="@color/transparent"
-        app:backgroundTint="@android:color/transparent"
-        app:cornerRadius="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:rippleColor="@color/orange_light" />
+    <Button
+        android:id="@+id/button_addToFavourite_Plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="196dp"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="@color/red"
+        android:text="Favourite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
