@@ -135,6 +135,8 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
             // Use the retrieved data as needed
             Log.d("MealDetails Meals Fragment", "Value from Bundle: " + value);
         }
+      //  mealDetailsObject = new MealDetails();
+      //  planObject= new Plan("Sunday",mealDetailsObject.getIdMeal(),mealDetailsObject.getStrMeal(),mealDetailsObject.getStrMealThumb());
 
 
         // Initialize the listener
@@ -158,6 +160,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
                 Toast.makeText(getContext(),"select day MealDetails CardView",Toast.LENGTH_SHORT).show();
                 addToPlan(plan);
             }
+
         };
 
 
@@ -184,12 +187,14 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     @Override
     public void onDeleteClickMealDetails(MealDetails mealDetails) {
-
+        Toast.makeText(getContext(),"Remove from favourite MealDetails CardView",Toast.LENGTH_SHORT).show();
+        removeMealDetails(mealDetails);
     }
 
     @Override
     public void onPlanClick(Plan plan) {
-
+        Toast.makeText(getContext(),"select day MealDetails CardView",Toast.LENGTH_SHORT).show();
+        addToPlan(plan);
     }
 
     @Override
@@ -205,8 +210,9 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     public void receiveArrayListAndSetDataInItsPlace(List<MealDetails> mealDetails){
         mealDetailsObject = new MealDetails();
-        planObject= new Plan("Sunday",mealDetailsObject.getIdMeal(),mealDetailsObject.getStrMeal(),mealDetailsObject.getStrMealThumb());
         mealDetailsObject=mealDetails.get(0);
+        planObject= new Plan("Sunday",mealDetailsObject.getIdMeal(),mealDetailsObject.getStrMeal(),mealDetailsObject.getStrMealThumb());
+
         tv_mealName_mealDetails.setText(mealDetailsObject.getStrMeal());
         tv_mealCounty_mealDetails.setText(mealDetailsObject.getStrArea());
         tv_instructions_mealDetails.setText(mealDetailsObject.getStrInstructions());
@@ -276,13 +282,15 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         button_addToPlanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onPlanClick(planObject);
                 Log.i("planClck", "Plan onClick mealdetails fragment: "
-                                + "meal id: " +  mealDetailsObject.getIdMeal()
-                                + "meal name: " + mealDetailsObject.getStrMeal()
-                                + "meal img: " + mealDetailsObject.getStrMealThumb()
+                        + "meal id: " +  planObject.getIdMeal()
+                        + "meal name: " + planObject.getStrMeal()
+                        + "meal img: " + planObject.getStrMealThumb()
 
                 );
+                listener.onPlanClick(planObject);
+                showDayChooserDialog(mealDetailsObject);
+
             }
         });
 
@@ -310,7 +318,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     @Override
     public void addToPlan(Plan plan) {
-        mealDetailsPresenterImplementation.addToPlan(plan);
+        mealDetailsPresenterImplementation.addToPlanPresenterInterface(plan);
     }
 
 

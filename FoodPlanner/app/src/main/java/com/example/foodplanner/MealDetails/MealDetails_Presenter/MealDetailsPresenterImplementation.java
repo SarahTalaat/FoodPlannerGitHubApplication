@@ -105,7 +105,7 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
     }
 
     @Override
-    public void addToPlan(Plan plan) {
+    public void addToPlanPresenterInterface(Plan plan) {
         Completable completable = repositoryImplementation.insertPlan(plan);
         completable.observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
             viewInterface.showErrorMsgMealDetails("Plan added to favourites successfully");
@@ -121,4 +121,5 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
         });
     }
 }
+
 
