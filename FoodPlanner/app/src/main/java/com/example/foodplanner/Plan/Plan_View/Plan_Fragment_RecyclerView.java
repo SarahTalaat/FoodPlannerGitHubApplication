@@ -76,7 +76,9 @@ public class Plan_Fragment_RecyclerView extends Fragment implements PlanViewInte
         thursdayRV=view.findViewById(R.id.ThursdayRV);
         fridayRV=view.findViewById(R.id.fridayRV);
         saturdayRV=view.findViewById(R.id.saturdayRV);
+
         layoutManager=new LinearLayoutManager(view.getContext());
+
         saturdayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
         sundayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
         mondayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
@@ -160,4 +162,17 @@ public class Plan_Fragment_RecyclerView extends Fragment implements PlanViewInte
     public void onPlanClick(Plan mealPlan) {
 
     }
+
+/*
+    public void initializingDaysAdapters(View view){
+        saturdayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
+        sundayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
+        mondayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
+        tuesdayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
+        wednesdayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
+        thursdayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
+        fridayAdapter=new PlanAdapter(view.getContext(),new ArrayList<>(),this);
+    }
+    */
+
 }
