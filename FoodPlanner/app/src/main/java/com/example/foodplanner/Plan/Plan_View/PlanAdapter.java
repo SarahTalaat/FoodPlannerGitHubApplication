@@ -85,12 +85,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
         Glide.with(context)
                 .load(imageURL)
                 .into(holder.img_plan);
-        holder.button_favourite_plan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
 
 /*
@@ -132,7 +127,6 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
 
             tv_mealName_plan = itemView.findViewById(R.id.tv_Plan);
             img_plan = itemView.findViewById(R.id.img_Plan);
-            button_favourite_plan = itemView.findViewById(R.id.button_transparentButton_plan);
 
             // button_favourite = itemView.findViewById(R.id.button_favourite_mealDetails);
 
