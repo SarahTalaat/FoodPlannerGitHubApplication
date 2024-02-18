@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.foodplanner.CategoryMeals.CategoryMeals_View.CategoryMeals_RecyclerView_Fragment;
 import com.example.foodplanner.FavouriteMealDetails.FavouriteMealDetails_View.FavouriteMealDetails_Fragment;
+import com.example.foodplanner.Plan.Plan_View.Plan_Fragment_RecyclerView;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationDrawer_Activity extends AppCompatActivity {
@@ -126,7 +127,7 @@ public class NavigationDrawer_Activity extends AppCompatActivity {
                     Toast.makeText(NavigationDrawer_Activity.this, "Search Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.current_week_item) {
-                    fragmentR(new Current_Week_Fragment());
+                    fragmentR(new Plan_Fragment_RecyclerView());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Current Week Fragment", Toast.LENGTH_SHORT).show();
 

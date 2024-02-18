@@ -10,7 +10,7 @@ public interface MealDetailsPresenterInterface {
 
     public void removeFromFavourite(MealDetails mealDetails);
 
-    public void addToPlan(Plan plan);
+    public void addToPlanPresenterInterface(Plan plan);
 
 }
 

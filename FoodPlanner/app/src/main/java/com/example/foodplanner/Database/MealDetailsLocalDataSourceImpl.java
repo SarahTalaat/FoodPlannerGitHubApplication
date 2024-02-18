@@ -19,6 +19,8 @@ public class MealDetailsLocalDataSourceImpl implements MealDetailsLocalDataSourc
     private MealDetailsLocalDataSourceImpl(Context context){
         AppDataBase appDataBase= AppDataBase.getInstance(context.getApplicationContext());
         mealDetailsDAO = appDataBase.getProductDAO();
+        planDAO = appDataBase.getPlanDAO();
+
     //    productsList = mealDetailsDAO.getAllProducts();
     }
 

@@ -1,5 +1,6 @@
 package com.example.foodplanner.Database;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -13,6 +14,8 @@ import java.util.List;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 
+
+@Dao
 public interface PlanDAO {
 
     @Query("select * from plan_table")

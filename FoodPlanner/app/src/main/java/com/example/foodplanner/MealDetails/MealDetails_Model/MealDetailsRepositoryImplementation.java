@@ -116,11 +116,11 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
     public Completable deletePlan(Plan plan) {
 
         Log.i(DB, "-- repoImp delete plan -- "+
-                "Meal id: " + plan.getIdMeal() +
-                "Meal name: " + plan.getStrMeal() +
-                "Meal Area: " + plan.getStrArea() +
-                "Meal Instructions: " + plan.getStrInstructions() +
-                "Meal YoutubeURL: " + plan.getStrYoutube()
+                "Plan Meal id: " + plan.getIdMeal() +
+                "Plan Meal name: " + plan.getStrMeal() +
+                "Plan Meal Area: " + plan.getStrArea() +
+                "Plan Meal Instructions: " + plan.getStrInstructions() +
+                "Plan Meal YoutubeURL: " + plan.getStrYoutube()
         );
         return mealDetailsLocalDataSourceImp.deletePlan(plan);
     }
