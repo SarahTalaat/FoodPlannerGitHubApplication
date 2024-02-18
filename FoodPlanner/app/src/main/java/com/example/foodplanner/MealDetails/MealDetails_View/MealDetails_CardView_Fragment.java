@@ -26,7 +26,6 @@ import android.widget.VideoView;
 import com.bumptech.glide.Glide;
 import com.example.foodplanner.Database.MealDetailsLocalDataSourceImpl;
 
-import com.example.foodplanner.Database.PlanDAO;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
 import com.example.foodplanner.Plan.Plan_Model.Plan;
@@ -64,7 +63,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     TextView brandValue;
     RatingBar ratingValue;
     RecyclerView.LayoutManager layoutManager;
-    Button addToPlanButton;
+    Button button_addToPlanButton;
     MealDetailsPresenterInterface allMealDetailsPresenter;
     MealDetailsPresenterImplementation mealDetailsPresenterImplementation;
     AllMealDetailsAdapter allMealDetailsAdapter;
@@ -73,7 +72,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     String videoId;
     YouTubePlayerView videoView ;
     MealDetails mealDetailsObject;
-
+    Plan planObject;
 
 
     public  MealDetails_CardView_Fragment(){
@@ -121,7 +120,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         button_addToFavourite = view.findViewById(R.id.button_addToFavourite_mealDetails);
         button_removeFromFavourite = view.findViewById(R.id.button_removeFromFavourite_mealDetails);
         img_mealDetails= view.findViewById(R.id.img_mealDetails);
-        addToPlanButton=view.findViewById(R.id.button_addToPlan_mealDetails);
+        button_addToPlanButton =view.findViewById(R.id.button_addToPlan_mealDetails);
         // Retrieve the Bundle from the arguments
         Bundle bundle = getArguments();
 
@@ -206,6 +205,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     public void receiveArrayListAndSetDataInItsPlace(List<MealDetails> mealDetails){
         mealDetailsObject = new MealDetails();
+        planObject= new Plan("Sunday",mealDetailsObject.getIdMeal(),mealDetailsObject.getStrMeal(),mealDetailsObject.getStrMealThumb());
         mealDetailsObject=mealDetails.get(0);
         tv_mealName_mealDetails.setText(mealDetailsObject.getStrMeal());
         tv_mealCounty_mealDetails.setText(mealDetailsObject.getStrArea());
@@ -270,6 +270,19 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
             @Override
             public void onClick(View v) {
                 listener.onDeleteClickMealDetails(mealDetailsObject);
+            }
+        });
+
+        button_addToPlanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onPlanClick(planObject);
+                Log.i("planClck", "Plan onClick mealdetails fragment: "
+                                + "meal id: " +  mealDetailsObject.getIdMeal()
+                                + "meal name: " + mealDetailsObject.getStrMeal()
+                                + "meal img: " + mealDetailsObject.getStrMealThumb()
+
+                );
             }
         });
 
