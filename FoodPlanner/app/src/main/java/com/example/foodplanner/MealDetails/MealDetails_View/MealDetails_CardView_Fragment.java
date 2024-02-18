@@ -138,8 +138,15 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
             @Override
             public void onFavClickMealDetails(MealDetails mealDetails) {
                 // Implement the behavior when the "Add to Favorite" button is clicked
-                Toast.makeText(getContext(),"Add To fav",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Add To favourite MealDetails CardView",Toast.LENGTH_SHORT).show();
                 addMealDetails(mealDetails);
+            }
+
+            @Override
+            public void onDeleteClickMealDetails(MealDetails mealDetails) {
+                Toast.makeText(getContext(),"Remove from favourite MealDetails CardView",Toast.LENGTH_SHORT).show();
+                removeMealDetails(mealDetails);
+
             }
         };
 
@@ -163,6 +170,11 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         addMealDetails(mealDetails);
         mealDetailsAdapter.notifyDataSetChanged();
         //  repo.insert(mealDetails);
+    }
+
+    @Override
+    public void onDeleteClickMealDetails(MealDetails mealDetails) {
+
     }
 
     @Override
@@ -238,6 +250,13 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
             }
         });
 
+        button_removeFromFavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onDeleteClickMealDetails(mealDetailsObject);
+            }
+        });
+
 
     }
 
@@ -254,6 +273,13 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     public void addMealDetails(MealDetails mealDetails) {
         mealDetailsPresenterImplementation.addToFavouriteMealDetails(mealDetails);
     }
+
+    @Override
+    public void removeMealDetails(MealDetails mealDetails) {
+        mealDetailsPresenterImplementation.removeFromFavourite(mealDetails);
+    }
+
+
 /*
     @Override
     public void onMealDetailsClick(String countryMeal) {

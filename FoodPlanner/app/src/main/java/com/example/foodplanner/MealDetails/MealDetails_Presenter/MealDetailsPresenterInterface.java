@@ -7,6 +7,8 @@ public interface MealDetailsPresenterInterface {
     public void getAllMealDetails(String countryMeal);
     public void addToFavouriteMealDetails(MealDetails mealDetails);
 
+    public void removeFromFavourite(MealDetails mealDetails);
+
 
 }
 
