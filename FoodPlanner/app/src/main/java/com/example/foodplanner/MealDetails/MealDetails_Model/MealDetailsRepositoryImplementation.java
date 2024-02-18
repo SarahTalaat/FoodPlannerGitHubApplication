@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.foodplanner.Database.MealDetailsLocalDataSourceImpl;
 import com.example.foodplanner.Network.ConnetionRemoteDataSource;
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
+import com.example.foodplanner.Plan.Plan_Model.Plan;
 
 import java.util.List;
 
@@ -61,7 +62,9 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
     public Flowable<List<AllCountry>> getStoredProducts() {
         return countryLocalDataSource.getAllStoredProducts();
     }
-*/
+
+
+ */
     @Override
     public Observable<MealDetailsResponse> getAllMealDetails(String mealDetails) {
         Log.i("MealDtailsRepoImp", "getAllMealDetails: "+ mealDetails);
@@ -89,6 +92,37 @@ public class MealDetailsRepositoryImplementation implements MealDetailsRepositor
     public Completable deleteMealDetails(MealDetails mealDetails) {
 
         return mealDetailsLocalDataSourceImp.delete(mealDetails);
+    }
+
+    @Override
+    public Flowable<List<Plan>> getStoredPlan() {
+        return mealDetailsLocalDataSourceImp.getStoredPlan() ;
+    }
+
+    @Override
+    public Completable insertPlan(Plan plan) {
+        Log.i(DB, "-- repoImp insertttt plan -- "+
+                "Meal id: " + plan.getIdMeal() +
+                "Meal name: " + plan.getStrMeal() +
+                "Meal Area: " + plan.getStrArea() +
+                "Meal Instructions: " + plan.getStrInstructions() +
+                "Meal YoutubeURL: " + plan.getStrYoutube()
+        );
+
+        return mealDetailsLocalDataSourceImp.insertPlan(plan) ;
+    }
+
+    @Override
+    public Completable deletePlan(Plan plan) {
+
+        Log.i(DB, "-- repoImp delete plan -- "+
+                "Meal id: " + plan.getIdMeal() +
+                "Meal name: " + plan.getStrMeal() +
+                "Meal Area: " + plan.getStrArea() +
+                "Meal Instructions: " + plan.getStrInstructions() +
+                "Meal YoutubeURL: " + plan.getStrYoutube()
+        );
+        return mealDetailsLocalDataSourceImp.deletePlan(plan);
     }
 
 

@@ -3,6 +3,7 @@ package com.example.foodplanner.Database;
 import android.content.Context;
 
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
+import com.example.foodplanner.Plan.Plan_Model.Plan;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MealDetailsLocalDataSourceImpl implements MealDetailsLocalDataSource {
     private MealDetailsDAO mealDetailsDAO;
+    private PlanDAO planDAO;
     private static MealDetailsLocalDataSourceImpl instance=null;
   //  private Flowable<List<Product>> productsList;
     private MealDetailsLocalDataSourceImpl(Context context){
@@ -44,5 +46,20 @@ public class MealDetailsLocalDataSourceImpl implements MealDetailsLocalDataSourc
     public Flowable<List<MealDetails>> getStoredProducts() {
 
         return mealDetailsDAO.getAllProducts().subscribeOn(Schedulers.io()) ;
+    }
+
+    @Override
+    public Completable insertPlan(Plan plan) {
+        return planDAO.insertPlans(plan).subscribeOn(Schedulers.io());
+    }
+
+    @Override
+    public Completable deletePlan(Plan plan) {
+        return planDAO.deletePlan(plan).subscribeOn(Schedulers.io());
+    }
+
+    @Override
+    public Flowable<List<Plan>> getStoredPlan() {
+        return planDAO.getAllPlan();
     }
 }

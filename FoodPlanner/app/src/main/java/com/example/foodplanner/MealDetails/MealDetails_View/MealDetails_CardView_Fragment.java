@@ -1,6 +1,8 @@
 
 package com.example.foodplanner.MealDetails.MealDetails_View;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 
@@ -24,8 +26,10 @@ import android.widget.VideoView;
 import com.bumptech.glide.Glide;
 import com.example.foodplanner.Database.MealDetailsLocalDataSourceImpl;
 
+import com.example.foodplanner.Database.PlanDAO;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
 import com.example.foodplanner.Network.ConnetionRemoteDataSourceImplementation;
+import com.example.foodplanner.Plan.Plan_Model.Plan;
 import com.example.foodplanner.R;
 import com.example.foodplanner.MealDetails.MealDetails_Presenter.MealDetailsPresenterImplementation;
 import com.example.foodplanner.MealDetails.MealDetails_Presenter.MealDetailsPresenterInterface;
@@ -36,6 +40,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -59,7 +64,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
     TextView brandValue;
     RatingBar ratingValue;
     RecyclerView.LayoutManager layoutManager;
-
+    Button addToPlanButton;
     MealDetailsPresenterInterface allMealDetailsPresenter;
     MealDetailsPresenterImplementation mealDetailsPresenterImplementation;
     AllMealDetailsAdapter allMealDetailsAdapter;
@@ -116,7 +121,7 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         button_addToFavourite = view.findViewById(R.id.button_addToFavourite_mealDetails);
         button_removeFromFavourite = view.findViewById(R.id.button_removeFromFavourite_mealDetails);
         img_mealDetails= view.findViewById(R.id.img_mealDetails);
-
+        addToPlanButton=view.findViewById(R.id.button_addToPlan_mealDetails);
         // Retrieve the Bundle from the arguments
         Bundle bundle = getArguments();
 
@@ -148,6 +153,12 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
                 removeMealDetails(mealDetails);
 
             }
+
+            @Override
+            public void onPlanClick(Plan plan) {
+                Toast.makeText(getContext(),"select day MealDetails CardView",Toast.LENGTH_SHORT).show();
+                addToPlan(plan);
+            }
         };
 
 
@@ -174,6 +185,11 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
 
     @Override
     public void onDeleteClickMealDetails(MealDetails mealDetails) {
+
+    }
+
+    @Override
+    public void onPlanClick(Plan plan) {
 
     }
 
@@ -279,6 +295,11 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
         mealDetailsPresenterImplementation.removeFromFavourite(mealDetails);
     }
 
+    @Override
+    public void addToPlan(Plan plan) {
+        mealDetailsPresenterImplementation.addToPlan(plan);
+    }
+
 
 /*
     @Override
@@ -301,5 +322,29 @@ public class MealDetails_CardView_Fragment extends Fragment implements MealDetai
                 .commit();
     }
     */
+
+    private void showDayChooserDialog(final MealDetails mealDetails) {
+        final List<String> daysOfWeek = new ArrayList<>(Arrays.asList(
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+        ));
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Choose a Day")
+                .setItems(daysOfWeek.toArray(new String[0]), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String selectedDay = daysOfWeek.get(which);
+                        Toast.makeText(getContext(), "Selected day: " + selectedDay, Toast.LENGTH_SHORT).show();
+                        Plan mealPlanObject = new Plan(selectedDay, mealDetailsObject.getStrMeal(), mealDetailsObject.getStrMealThumb(), mealDetailsObject.getIdMeal());
+                        onPlanClick(mealPlanObject); // Pass the mealPlanObject to the click listener
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create().show();}
 
 }
