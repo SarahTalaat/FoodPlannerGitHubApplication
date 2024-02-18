@@ -9,6 +9,7 @@ import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsReposito
 import com.example.foodplanner.MealDetails.MealDetails_View.MealDetailsViewInterface;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepositoryImplementation;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
+import com.example.foodplanner.Plan.Plan_Model.Plan;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
@@ -100,6 +101,23 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
             );
         },error -> {
             viewInterface.showErrorMsgMealDetails("Error removing mealDetails from favourites");
+        });
+    }
+
+    @Override
+    public void addToPlan(Plan plan) {
+        Completable completable = repositoryImplementation.insertPlan(plan);
+        completable.observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
+            viewInterface.showErrorMsgMealDetails("Plan added to favourites successfully");
+            Log.i(DB, "addToFavouriteMealDetails PLAN: "+
+                    "Plan Meal id: " + plan.getIdMeal() +
+                    "Plan Meal name: " + plan.getStrMeal() +
+                    "Plan Meal Area: " + plan.getStrArea() +
+                    "Plan Meal Instructions: " + plan.getStrInstructions() +
+                    "Plan Meal YoutubeURL: " + plan.getStrYoutube()
+            );
+        },error -> {
+            viewInterface.showErrorMsgMealDetails("Error adding plan to favourites");
         });
     }
 }

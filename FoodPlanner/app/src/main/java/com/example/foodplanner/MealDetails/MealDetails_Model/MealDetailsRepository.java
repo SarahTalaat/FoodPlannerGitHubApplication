@@ -1,6 +1,8 @@
 package com.example.foodplanner.MealDetails.MealDetails_Model;
 
 
+import com.example.foodplanner.Plan.Plan_Model.Plan;
+
 import java.util.List;
 
 
@@ -20,4 +22,8 @@ public interface MealDetailsRepository {
 
 
 
+    public Flowable<List<Plan>> getStoredPlan();
+    public Completable insertPlan(Plan plan);
+
+    public Completable deletePlan(Plan plan);
 }
