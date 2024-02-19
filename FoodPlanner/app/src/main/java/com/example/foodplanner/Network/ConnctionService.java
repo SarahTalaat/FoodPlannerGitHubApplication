@@ -10,6 +10,9 @@ import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsRe
 import com.example.foodplanner.CountryMeals.CountryMeals_Model.CountryMealsResponse;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
 import com.example.foodplanner.Random.Random_Model.RandomResponse;
+import com.example.foodplanner.Search.Search_Model.IngredientResponse;
+import com.example.foodplanner.Search.Search_Model.MealResponse;
+import com.example.foodplanner.Search.Search_Model.Meals;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
@@ -43,5 +46,15 @@ public interface ConnctionService {
 
     @GET("search.php") // meal details
     Observable<MealDetailsResponse> getProductsMealDetails(@Query("s") String mealDetails);
+
+    @GET("list.php?i=list")
+    Observable<IngredientResponse> getProductsIngredients();
+
+
+    @GET("filter.php")
+    Observable<MealResponse> getProductsIngredientMeals(@Query("i") String ingredient);
+
+    @GET("search.php")
+    Observable<MealResponse> getProductsByName(@Query("s") String ingredient);
 
 }

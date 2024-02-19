@@ -10,8 +10,12 @@ import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsRe
 import com.example.foodplanner.CountryMeals.CountryMeals_Model.CountryMealsResponse;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
 import com.example.foodplanner.Random.Random_Model.RandomResponse;
+import com.example.foodplanner.Search.Search_Model.IngredientResponse;
+import com.example.foodplanner.Search.Search_Model.MealResponse;
 
 import io.reactivex.rxjava3.core.Observable;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ConnetionRemoteDataSource {
     Observable<AllCategoryResponse> makeNetworkCallBackCategory();
@@ -21,4 +25,14 @@ public interface ConnetionRemoteDataSource {
     Observable<CategoryMealsResponse> makeNetworkCallBackCategoryMeals(String categoryMeal);
     Observable<CountryMealsResponse> makeNetworkCallBackCountryMeals(String countryMeal);
     Observable<MealDetailsResponse> makeNetworkCallBackMealDetails(String mealDetails);
+
+//-------------------------------------------------------
+    Observable<IngredientResponse> makeNetworkCallBackIngredients();
+
+    Observable<MealResponse> makeNetworkCallBackIngredientMeals( String ingredient);
+    
+    Observable<MealResponse> makeNetworkCallBackByName( String ingredient);
+    
+    
+    
 }

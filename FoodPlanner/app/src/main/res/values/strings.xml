@@ -4,5 +4,6 @@
     <string name="close">close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="client_id">701251950562-2ovav1t5e6bjktoung1msh3c44rgdu9t.apps.googleusercontent.com</string>
 
 </resources>
