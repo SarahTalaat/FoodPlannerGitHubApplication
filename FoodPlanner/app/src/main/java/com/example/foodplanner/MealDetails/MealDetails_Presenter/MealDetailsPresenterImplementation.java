@@ -2,11 +2,14 @@
 package com.example.foodplanner.MealDetails.MealDetails_Presenter;
 
 import android.util.Log;
+import android.widget.Toast;
 
-import com.example.foodplanner.MealDetails.MealDetails_View.MealDetailsViewInterface;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetails;
+import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepository;
+import com.example.foodplanner.MealDetails.MealDetails_View.MealDetailsViewInterface;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsRepositoryImplementation;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
+import com.example.foodplanner.Plan.Plan_Model.Plan;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
@@ -15,9 +18,14 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
-public class MealDetailsPresenterImplementation implements MealDetailsPresenterInterface{
+public class MealDetailsPresenterImplementation implements MealDetailsPresenterInterface {
     MealDetailsRepositoryImplementation repositoryImplementation;
     MealDetailsViewInterface viewInterface;
+    private MealDetailsRepository mealDetailsRepository;
+
+    private static final String TAG = "MealDetails Presenter Impl";
+    private static final String DB = "DB";
+
     //bygeb el data men el network
     public MealDetailsPresenterImplementation(MealDetailsViewInterface allProductsActivity, MealDetailsRepositoryImplementation instance) {
         this.repositoryImplementation = instance;
@@ -27,10 +35,14 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
 
 
 
+    ////////////////////////////////
     //All product Pesenter interface imp
+
+
+
     @Override
-    public void getAllMealDetails() {
-        Observable<MealDetailsResponse> observable = repositoryImplementation.getAllMealDetails();
+    public void getAllMealDetails(String countryMeal) {
+        Observable<MealDetailsResponse> observable = repositoryImplementation.getAllMealDetails(countryMeal);
         observable.observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<MealDetailsResponse>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
@@ -39,12 +51,14 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
 
             @Override
             public void onNext(@NonNull MealDetailsResponse mealDetailsResponse) {
-                viewInterface.showDataMealDetails(mealDetailsResponse.meals);
+                viewInterface.showDataMealDetails(mealDetailsResponse.getMeals());
+                Log.i("onNext MealDetailsPresenterImp ", "  "+ mealDetailsResponse.getMeals());
+
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
-                viewInterface.showErrorMsgMealDetails("Error");
+                viewInterface.showErrorMsgMealDetails("Error MealDetailsPresenterImp");
             }
 
             @Override
@@ -55,15 +69,57 @@ public class MealDetailsPresenterImplementation implements MealDetailsPresenterI
 
     }
 
-    //All category Pesenter interface imp
+    //All country Pesenter interface imp
     @Override
     public void addToFavouriteMealDetails(MealDetails mealDetails) {
         Completable completable = repositoryImplementation.insertMealDetails(mealDetails);
         completable.observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
             viewInterface.showErrorMsgMealDetails("MealDetails added to favourites successfully");
+            Log.i(DB, "addToFavouriteMealDetails: "+
+                  "Meal id: " + mealDetails.getIdMeal() +
+                  "Meal name: " + mealDetails.getStrMeal() +
+                  "Meal Area: " + mealDetails.getStrArea() +
+                  "Meal Instructions: " + mealDetails.getStrInstructions() +
+                  "Meal YoutubeURL: " + mealDetails.getStrYoutube()
+            );
         },error -> {
             viewInterface.showErrorMsgMealDetails("Error adding mealDetails to favourites");
         });
     }
+
+    @Override
+    public void removeFromFavourite(MealDetails mealDetails) {
+        Completable completable = repositoryImplementation.deleteMealDetails(mealDetails);
+        completable.observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
+            viewInterface.showErrorMsgMealDetails("MealDetails removed from favourites successfully");
+            Log.i(DB, "RemoveFromFavouriteMealDetails: "+
+                    "Meal id: " + mealDetails.getIdMeal() +
+                    "Meal name: " + mealDetails.getStrMeal() +
+                    "Meal Area: " + mealDetails.getStrArea() +
+                    "Meal Instructions: " + mealDetails.getStrInstructions() +
+                    "Meal YoutubeURL: " + mealDetails.getStrYoutube()
+            );
+        },error -> {
+            viewInterface.showErrorMsgMealDetails("Error removing mealDetails from favourites");
+        });
+    }
+
+    @Override
+    public void addToPlanPresenterInterface(Plan plan) {
+        Completable completable = repositoryImplementation.insertPlan(plan);
+        completable.observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
+            viewInterface.showErrorMsgMealDetails("Plan added to favourites successfully");
+            Log.i(DB, "addToFavouriteMealDetails PLAN: "+
+                    "Plan Meal id: " + plan.getIdMeal() +
+                    "Plan Meal name: " + plan.getStrMeal() +
+                    "Plan Meal Area: " + plan.getStrArea() +
+                    "Plan Meal Instructions: " + plan.getStrInstructions() +
+                    "Plan Meal YoutubeURL: " + plan.getStrYoutube()
+            );
+        },error -> {
+            viewInterface.showErrorMsgMealDetails("Error adding plan to favourites");
+        });
+    }
 }
+
 

@@ -17,7 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.foodplanner.CategoryMeals.CategoryMeals_View.CategoryMeals_RecyclerView_Fragment;
+import com.example.foodplanner.FavouriteMealDetails.FavouriteMealDetails_View.FavouriteMealDetails_Fragment;
+import com.example.foodplanner.Plan.Plan_View.Plan_Fragment_RecyclerView;
+import com.example.foodplanner.Search.Search_View.Search_Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationDrawer_Activity extends AppCompatActivity {
@@ -115,17 +117,17 @@ public class NavigationDrawer_Activity extends AppCompatActivity {
                     Toast.makeText(NavigationDrawer_Activity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.favourites_item){
-                    fragmentR(new CategoryMeals_RecyclerView_Fragment());
+                    fragmentR(new FavouriteMealDetails_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Favourite Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.search_item){
                     fragmentR(new Search_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
-                    Toast.makeText(NavigationDrawer_Activity.this, "Search Fragment", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NavigationDrawer_Activity.this, "IngredientDTO Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.current_week_item) {
-                    fragmentR(new Current_Week_Fragment());
+                    fragmentR(new Plan_Fragment_RecyclerView());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(NavigationDrawer_Activity.this, "Current Week Fragment", Toast.LENGTH_SHORT).show();
 

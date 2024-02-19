@@ -16,9 +16,9 @@
         android:label="Home_Fragment" />
     <fragment
         android:id="@+id/favourites_Fragment"
-        android:name="com.example.foodplanner.Favourites_Fragment"
+        android:name="com.example.foodplanner.FavouriteMealDetails.FavouriteMealDetails_View.FavouriteMealDetails_Fragment"
         android:label="fragment_favouries"
-        tools:layout="@layout/fragment_favouries" />
+        tools:layout="@layout/fragment_favourites_recyclerview" />
     <fragment
         android:id="@+id/current_Week_Fragment"
         android:name="com.example.foodplanner.Current_Week_Fragment"

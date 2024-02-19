@@ -5,8 +5,11 @@ import com.example.foodplanner.AllCategory.AllCategory_Model.AllCategoryResponse
 import com.example.foodplanner.Chicken_Search.Chicken_Model.ChickenResponse;
 import com.example.foodplanner.AllCountry.AllCountry_Model.CountryResponse;
 import com.example.foodplanner.CategoryMeals.CategoryMeals_Model.CategoryMealsResponse;
+import com.example.foodplanner.CountryMeals.CountryMeals_Model.CountryMealsResponse;
 import com.example.foodplanner.MealDetails.MealDetails_Model.MealDetailsResponse;
 import com.example.foodplanner.Random.Random_Model.RandomResponse;
+import com.example.foodplanner.Search.Search_Model.IngredientResponse;
+import com.example.foodplanner.Search.Search_Model.MealResponse;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.core.Observable;
@@ -86,8 +89,32 @@ public class ConnetionRemoteDataSourceImplementation implements ConnetionRemoteD
         return observable;
     }
 
-    public Observable<MealDetailsResponse> makeNetworkCallBackMealDetails(){
-        Observable<MealDetailsResponse> observable = connctionService.getProductsMealDetails().subscribeOn(Schedulers.io());
+    public Observable<CountryMealsResponse> makeNetworkCallBackCountryMeals(String countryMeal){
+        Observable<CountryMealsResponse> observable = connctionService.getProductsCountryMeals(countryMeal).subscribeOn(Schedulers.io());
+        return observable;
+    }
+
+
+    public Observable<MealDetailsResponse> makeNetworkCallBackMealDetails(String mealDetails){
+        Observable<MealDetailsResponse> observable = connctionService.getProductsMealDetails(mealDetails).subscribeOn(Schedulers.io());
+        return observable;
+    }
+
+    @Override
+    public Observable<IngredientResponse> makeNetworkCallBackIngredients() {
+        Observable<IngredientResponse> observable = connctionService.getProductsIngredients().subscribeOn(Schedulers.io());
+        return observable;
+    }
+
+    @Override
+    public Observable<MealResponse> makeNetworkCallBackIngredientMeals(String ingredient) {
+        Observable<MealResponse> observable = connctionService.getProductsIngredientMeals(ingredient).subscribeOn(Schedulers.io());
+        return observable;
+    }
+
+    @Override
+    public Observable<MealResponse> makeNetworkCallBackByName(String ingredient) {
+        Observable<MealResponse> observable = connctionService.getProductsByName(ingredient).subscribeOn(Schedulers.io());
         return observable;
     }
 

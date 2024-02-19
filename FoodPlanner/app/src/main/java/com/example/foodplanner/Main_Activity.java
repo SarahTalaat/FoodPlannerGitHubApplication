@@ -79,14 +79,14 @@ public class Main_Activity extends AppCompatActivity {
                     Toast.makeText(Main_Activity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.favourites_item){
-                    fragmentR(new Favourites_Fragment());
+                    fragmentR(new FavouriteMealDetails_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
                     Toast.makeText(Main_Activity.this, "Favourite Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.search_item){
                     fragmentR(new Search_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
-                    Toast.makeText(Main_Activity.this, "Search Fragment", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Main_Activity.this, "IngredientDTO Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.current_week_item) {
                     fragmentR(new Current_Week_Fragment());

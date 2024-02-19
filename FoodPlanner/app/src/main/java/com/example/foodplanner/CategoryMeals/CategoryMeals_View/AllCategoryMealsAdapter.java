@@ -108,7 +108,7 @@ public class AllCategoryMealsAdapter extends RecyclerView.Adapter<AllCategoryMea
             tv_categoryMeals_mealName = itemView.findViewById(R.id.tv_categoryMeals);
             img_categoryMeals = itemView.findViewById(R.id.img_categoryMeals);
             button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_categoryMeals);
-            button_favourite = itemView.findViewById(R.id.button_favourite_categoryMeals);
+        //    button_favourite = itemView.findViewById(R.id.button_favourite_categoryMeals);
         }
     }
 
