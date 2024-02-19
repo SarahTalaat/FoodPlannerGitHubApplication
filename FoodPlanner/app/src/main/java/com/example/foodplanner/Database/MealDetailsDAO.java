@@ -21,5 +21,6 @@ public interface MealDetailsDAO {
     public Completable insert(MealDetails mealDetails);
     @Delete
     public Completable delete(MealDetails mealDetails);
+    /////
 }
 
