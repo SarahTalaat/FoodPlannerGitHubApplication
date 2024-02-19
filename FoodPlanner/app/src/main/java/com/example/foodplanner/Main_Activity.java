@@ -86,7 +86,7 @@ public class Main_Activity extends AppCompatActivity {
                 }else if(item.getItemId() == R.id.search_item){
                     fragmentR(new Search_Fragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
-                    Toast.makeText(Main_Activity.this, "Search Fragment", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Main_Activity.this, "IngredientDTO Fragment", Toast.LENGTH_SHORT).show();
 
                 }else if(item.getItemId() == R.id.current_week_item) {
                     fragmentR(new Current_Week_Fragment());
