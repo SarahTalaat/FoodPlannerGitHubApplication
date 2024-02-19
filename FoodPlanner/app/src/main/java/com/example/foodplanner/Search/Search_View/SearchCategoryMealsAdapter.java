@@ -100,9 +100,9 @@ public class SearchCategoryMealsAdapter extends RecyclerView.Adapter<SearchCateg
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-            tv_categoryMeals_mealName = itemView.findViewById(R.id.tv_categoryMeals);
-            img_categoryMeals = itemView.findViewById(R.id.img_categoryMeals);
-            button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_categoryMeals);
+            tv_categoryMeals_mealName = itemView.findViewById(R.id.tv_countryMeals);
+            img_categoryMeals = itemView.findViewById(R.id.img_countryMeals);
+            button_transpaentutton =itemView.findViewById(R.id.button_transparentButton_countryMeals);
            // button_favourite = itemView.findViewById(R.id.button_favourite_categoryMeals);
         }
     }
